@@ -6,7 +6,7 @@
 - [x] Estrutura modular Python/Streamlit criada.
 - [x] Schema canônico das 30 features definido.
 - [x] README, ADRs, wireframes e model card iniciados.
-- [ ] Dataset WDBC carregado via Scikit-learn.
+- [x] Dataset WDBC carregado via Scikit-learn.
 - [ ] EDA e notebooks concluídos.
 
 ## Modelagem e explicabilidade
@@ -23,8 +23,9 @@
 - [ ] Páginas Streamlit funcionais.
 - [ ] Entrada individual e CSV validados.
 - [ ] Exemplos reais e pequenos do WDBC disponibilizados.
-- [x] Smoke test de estrutura e schema criado.
-- [ ] Testes de carregamento, validação, pré-processamento e predição implementados.
+- [x] Smoke tests de estrutura, schema e carregamento criados.
+- [x] Testes de validação de schema e entrada criados.
+- [ ] Testes de pré-processamento e predição implementados.
 - [ ] `pytest` e `pytest --cov=src` passam no projeto completo.
 
 ## Documentação e entrega

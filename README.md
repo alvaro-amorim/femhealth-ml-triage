@@ -8,9 +8,9 @@ Este repositório é o projeto do Tech Challenge — Fase 1 da pós-graduação.
 
 ## Dataset
 
-O dataset principal é o **Breast Cancer Wisconsin Diagnostic (WDBC)**, carregado preferencialmente por `sklearn.datasets.load_breast_cancer(as_frame=True)`. Ele contém 569 amostras e 30 atributos numéricos extraídos de características celulares. A fonte original é a [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic).
+O dataset principal é o **Breast Cancer Wisconsin Diagnostic (WDBC)**, carregado localmente pelo Scikit-learn com `sklearn.datasets.load_breast_cancer(as_frame=True)`. Ele contém 569 amostras e 30 atributos numéricos extraídos de características celulares. A fonte original é a [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic).
 
-Nenhum dataset é baixado ou versionado nesta etapa de bootstrap.
+O carregamento não baixa nem versiona dados: o WDBC é distribuído com a instalação do Scikit-learn.
 
 ## Stack V1
 
@@ -52,7 +52,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Nesta rodada, as páginas são apenas a base de navegação. O carregamento do WDBC, o treino e os artefatos serão implementados nas etapas seguintes.
+Nesta etapa, as páginas ainda são a base de navegação. O carregamento e a validação do WDBC estão disponíveis em `src/data/`; treino e artefatos serão implementados nas etapas seguintes.
 
 ## Testes
 
@@ -63,7 +63,7 @@ pytest --cov=src
 
 ## Status atual
 
-Bootstrap estrutural concluído: estrutura de diretórios, módulos-base, schema canônico das 30 features do WDBC, documentação inicial e smoke test. Não há modelo treinado, dados de exemplo ou artefatos `.joblib` nesta etapa.
+Base de dados concluída: o WDBC é carregado localmente via Scikit-learn, as 30 features são verificadas contra o schema canônico e entradas para predição individual possuem validação estrita. Não há modelo treinado, dados de exemplo ou artefatos `.joblib` nesta etapa.
 
 ## Aviso ético
 

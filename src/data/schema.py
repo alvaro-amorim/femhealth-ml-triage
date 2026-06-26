@@ -3,6 +3,14 @@
 from collections.abc import Mapping
 
 
+DATASET_NAME = "Breast Cancer Wisconsin Diagnostic (WDBC)"
+DATASET_SOURCE = "https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic"
+DATASET_LOADER = "sklearn.datasets.load_breast_cancer(as_frame=True)"
+EXPECTED_SAMPLE_COUNT = 569
+EXPECTED_FEATURE_COUNT = 30
+TARGET_COLUMN = "target"
+
+
 FEATURE_NAMES: tuple[str, ...] = (
     "mean radius",
     "mean texture",
