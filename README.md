@@ -12,6 +12,10 @@ O dataset principal é o **Breast Cancer Wisconsin Diagnostic (WDBC)**, carregad
 
 O carregamento não baixa nem versiona dados: o WDBC é distribuído com a instalação do Scikit-learn.
 
+## Exploração dos dados
+
+A página `pages/01_Exploracao.py` apresenta EDA real do WDBC carregado localmente, incluindo visão geral do dataset, distribuição das classes, grupos de features, estatísticas descritivas, resumo de valores ausentes e correlações exploratórias com o target.
+
 ## Pré-processamento
 
 O projeto já possui separação de features/target, split treino/teste estratificado e reproduzível (`test_size=0.2`, `random_state=42`) e pipelines de pré-processamento em `src/features/preprocess.py`.
@@ -66,7 +70,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Nesta etapa, as páginas ainda são incrementais. O carregamento e a validação do WDBC estão disponíveis em `src/data/`, a base de pré-processamento/split está em `src/features/`, a modelagem inicial em memória está em `src/models/`, e a página de modelos já exibe uma comparação acadêmica inicial com Curva ROC; artefatos finais serão implementados nas etapas seguintes.
+Nesta etapa, as páginas ainda são incrementais. O carregamento e a validação do WDBC estão disponíveis em `src/data/`, a EDA reutilizável está em `src/analysis/`, a base de pré-processamento/split está em `src/features/`, a modelagem inicial em memória está em `src/models/`, e as páginas de exploração e modelos já exibem análises acadêmicas iniciais; artefatos finais serão implementados nas etapas seguintes.
 
 ## Testes
 
@@ -77,7 +81,7 @@ pytest --cov=src
 
 ## Status atual
 
-Base de dados, pré-processamento, modelagem inicial em memória e comparação inicial com Curva ROC na página de modelos concluídos. Não há modelo final escolhido, dados de exemplo ou artefatos `.joblib` nesta etapa.
+Base de dados, EDA inicial, pré-processamento, modelagem inicial em memória e comparação inicial com Curva ROC na página de modelos concluídos. Não há modelo final escolhido, dados de exemplo ou artefatos `.joblib` nesta etapa.
 
 ## Aviso ético
 

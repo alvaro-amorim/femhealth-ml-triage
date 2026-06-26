@@ -1,0 +1,47 @@
+"""Smoke checks for the Streamlit exploration page."""
+
+import importlib.util
+import sys
+from pathlib import Path
+from types import SimpleNamespace
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+EXPLORATION_PAGE = PROJECT_ROOT / "pages" / "01_Exploracao.py"
+
+
+def test_exploration_page_imports_without_error() -> None:
+    fake_streamlit = SimpleNamespace(
+        cache_data=lambda **_: lambda function: function,
+        title=lambda *_args, **_kwargs: None,
+        warning=lambda *_args, **_kwargs: None,
+        write=lambda *_args, **_kwargs: None,
+        subheader=lambda *_args, **_kwargs: None,
+        columns=lambda count: [
+            SimpleNamespace(metric=lambda *_args, **_kwargs: None)
+            for _ in range(count)
+        ],
+        caption=lambda *_args, **_kwargs: None,
+        dataframe=lambda *_args, **_kwargs: None,
+        bar_chart=lambda *_args, **_kwargs: None,
+        info=lambda *_args, **_kwargs: None,
+    )
+    sys.modules["streamlit"] = fake_streamlit
+    spec = importlib.util.spec_from_file_location("exploration_page", EXPLORATION_PAGE)
+    assert spec is not None
+    assert spec.loader is not None
+
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    assert hasattr(module, "render_page")
+
+
+def test_exploration_page_contains_academic_and_ethical_text() -> None:
+    page_source = EXPLORATION_PAGE.read_text(encoding="utf-8")
+
+    assert "Exploração dos Dados" in page_source
+    assert "Análise exploratória acadêmica" in page_source
+    assert "não realiza diagnóstico médico" in page_source
+    assert "0 = malignant" in page_source
+    assert "Correlação não implica causalidade médica" in page_source

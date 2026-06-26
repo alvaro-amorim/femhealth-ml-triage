@@ -15,6 +15,7 @@ Frase possível:
 ## Narrativa da solução
 
 - Dataset público WDBC carregado via Scikit-learn.
+- EDA real no Streamlit com visão geral, distribuição de classes, estatísticas descritivas e correlações.
 - Projeto modular em Python.
 - Pré-processamento com split treino/teste estratificado e reproduzível.
 - Pipelines base com `StandardScaler` para modelos sensíveis à escala e passthrough para modelos baseados em árvore.
@@ -37,6 +38,7 @@ Mostrar:
 - Rodada 4 com 37 testes passando após modelagem inicial e avaliação.
 - Rodada 5 com 43 testes passando após integração da comparação inicial na página de modelos.
 - Rodada 6A com 45 testes passando após inclusão da Curva ROC na comparação inicial.
+- Rodada 6B com 54 testes passando após implementação da EDA real do WDBC.
 - App Streamlit rodando.
 
 ## Uso responsável de IA
@@ -48,6 +50,7 @@ Mostrar:
 ## Pontos para mostrar na tela
 
 - Home do Streamlit.
+- Página de exploração com distribuição das classes, grupos de features, estatísticas e correlações.
 - Página de comparação inicial de modelos.
 - Curva ROC usando probabilidade da classe maligna.
 - Testes com `pytest`.

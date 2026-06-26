@@ -68,3 +68,14 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 - Resultado: alterações revisadas, commitadas e publicadas; sem `.joblib`, `metrics.json`, `feature_names.json`, CSV, imagem salva, SHAP ou predição individual final.
 - Commit: `d7e3a48 feat: adiciona curva ROC à comparação de modelos`.
 - Próximo passo: seleção controlada de modelo final ou explicabilidade, conforme plano do projeto.
+
+### 2026-06-26 — EDA real do WDBC na página de exploração
+
+- Etapa: Rodada 6B do Codex.
+- Objetivo: substituir o placeholder da página `pages/01_Exploracao.py` por uma análise exploratória real do WDBC carregado localmente.
+- Ações: criação de `src/analysis/eda.py` e `src/analysis/__init__.py`; implementação de overview, distribuição do target, grupos de features, estatísticas descritivas, missing values e correlações com target; atualização da página de exploração com tabelas, métricas e gráfico de barras; testes unitários e smoke adicionados.
+- Cuidados: sem treino de modelos, sem alteração de ranking, sem SHAP, sem predição individual, sem download de dataset e sem persistência de artefatos.
+- Testes: 54 testes passaram em `python -m pytest -q`.
+- Resultado: EDA inicial do WDBC disponível no app Streamlit e em camada Python testável.
+- Commit: pendente de revisão humana.
+- Próximo passo: revisar visualmente a página de exploração e avançar para notebook/relatório de EDA ou etapa de seleção controlada de modelo final.

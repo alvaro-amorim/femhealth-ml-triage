@@ -7,7 +7,9 @@
 - [x] Schema canônico das 30 features definido.
 - [x] README, ADRs, wireframes e model card iniciados.
 - [x] Dataset WDBC carregado via Scikit-learn.
-- [ ] EDA e notebooks concluídos.
+- [x] EDA inicial do WDBC implementada na página de exploração.
+- [x] Distribuição de classes, estatísticas descritivas, missing values e correlações exploratórias apresentados.
+- [ ] Notebooks de EDA concluídos.
 
 ## Modelagem e explicabilidade
 
@@ -25,6 +27,7 @@
 ## Aplicação e qualidade
 
 - [ ] Páginas Streamlit funcionais.
+- [x] Página de exploração parcialmente funcional com EDA real do WDBC.
 - [x] Página de modelos parcialmente funcional com comparação acadêmica inicial.
 - [ ] Entrada individual e CSV validados.
 - [ ] Exemplos reais e pequenos do WDBC disponibilizados.
