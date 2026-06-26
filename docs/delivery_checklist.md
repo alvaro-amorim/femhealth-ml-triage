@@ -1,0 +1,37 @@
+# Checklist de entrega — Tech Challenge Fase 1
+
+## Base do projeto
+
+- [x] Constituição oficial lida e preservada.
+- [x] Estrutura modular Python/Streamlit criada.
+- [x] Schema canônico das 30 features definido.
+- [x] README, ADRs, wireframes e model card iniciados.
+- [ ] Dataset WDBC carregado via Scikit-learn.
+- [ ] EDA e notebooks concluídos.
+
+## Modelagem e explicabilidade
+
+- [ ] Separação treino/teste estratificada e reproduzível.
+- [ ] Pelo menos dois classificadores comparados.
+- [ ] Accuracy, precision, recall, F1 e ROC AUC calculados.
+- [ ] Matriz de confusão e curva ROC apresentadas.
+- [ ] Modelo final, métricas e feature names persistidos.
+- [ ] Feature importance e SHAP implementados.
+
+## Aplicação e qualidade
+
+- [ ] Páginas Streamlit funcionais.
+- [ ] Entrada individual e CSV validados.
+- [ ] Exemplos reais e pequenos do WDBC disponibilizados.
+- [x] Smoke test de estrutura e schema criado.
+- [ ] Testes de carregamento, validação, pré-processamento e predição implementados.
+- [ ] `pytest` e `pytest --cov=src` passam no projeto completo.
+
+## Documentação e entrega
+
+- [x] Aviso ético no README e model card.
+- [ ] Aviso ético em todas as páginas e no relatório.
+- [ ] README atualizado com treinamento, artefatos, exemplos, repositório e vídeo.
+- [ ] Relatório técnico em PDF concluído.
+- [ ] Vídeo de até 15 minutos publicado e referenciado.
+- [ ] Revisão final de limpeza, segredos, testes e links.
