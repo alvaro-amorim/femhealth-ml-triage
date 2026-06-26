@@ -125,3 +125,18 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 | Resultado | 25 testes passaram nos dois comandos; Rodada 3 foi commitada e enviada ao GitHub |
 | Commit relacionado | `a6b8f9f feat: adiciona pré-processamento e split treino-teste` |
 | Próximo passo | Preparar Rodada 4 de modelagem inicial e avaliação |
+
+## 2026-06-26 — Modelagem inicial e avaliação controlada
+
+| Campo | Registro |
+|---|---|
+| Etapa | Rodada 4 do Codex |
+| Objetivo | Implementar treinamento em memória e avaliação de modelos candidatos sem escolher modelo final |
+| Ações realizadas | Criação de candidatos Regressão Logística, Árvore de Decisão e KNN; treino em memória; métricas para classe maligna; ranking por recall maligno, ROC AUC e F1; testes unitários |
+| Ferramentas usadas | Codex; PowerShell; Pytest; Scikit-learn |
+| Problemas encontrados | Nenhum bloqueio; apenas necessidade de garantir ROC AUC usando probabilidade da classe `0 = malignant` |
+| Soluções aplicadas | `get_malignant_probability()` mapeia a coluna de probabilidade pela lista `classes_` do estimador |
+| Testes executados | `python -m pytest -q`; `pytest -q`; `git diff --check` |
+| Resultado | 37 testes passaram localmente; nenhuma persistência de `.joblib`, JSON de métricas ou CSV foi criada |
+| Commit relacionado | Não disponível — alterações locais ainda sem commit |
+| Próximo passo | Revisar Rodada 4 e, após aprovação, avançar para integração controlada com página de comparação de modelos |

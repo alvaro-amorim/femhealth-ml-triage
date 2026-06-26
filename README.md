@@ -18,6 +18,12 @@ O projeto já possui separação de features/target, split treino/teste estratif
 
 O pipeline com `StandardScaler` deve ser usado para modelos sensíveis à escala, como Regressão Logística, KNN e SVM. Para modelos baseados em árvore, há pipeline de passthrough. O scaler deve ser ajustado apenas no treino para evitar vazamento de dados.
 
+## Modelagem inicial
+
+A camada inicial de modelagem em `src/models/` permite construir, treinar em memória e avaliar candidatos simples: Regressão Logística, Árvore de Decisão e KNN. As métricas priorizam a classe maligna do WDBC (`0 = malignant`) e incluem accuracy, precision, recall, F1, ROC AUC e matriz de confusão.
+
+Esta etapa ainda não escolhe modelo final e não salva `.joblib`, `metrics.json` ou `feature_names.json`.
+
 ## Stack V1
 
 - Python 3.11
@@ -58,7 +64,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Nesta etapa, as páginas ainda são a base de navegação. O carregamento e a validação do WDBC estão disponíveis em `src/data/`, e a base de pré-processamento/split está em `src/features/`; treino e artefatos serão implementados nas etapas seguintes.
+Nesta etapa, as páginas ainda são a base de navegação. O carregamento e a validação do WDBC estão disponíveis em `src/data/`, a base de pré-processamento/split está em `src/features/`, e a modelagem inicial em memória está em `src/models/`; artefatos finais serão implementados nas etapas seguintes.
 
 ## Testes
 
@@ -69,7 +75,7 @@ pytest --cov=src
 
 ## Status atual
 
-Base de dados e pré-processamento inicial concluídos: o WDBC é carregado localmente via Scikit-learn, as 30 features são verificadas contra o schema canônico, entradas tabulares possuem validação estrita, e o split treino/teste com pipelines de scaling/passthrough está testado. Não há modelo treinado, dados de exemplo ou artefatos `.joblib` nesta etapa.
+Base de dados, pré-processamento e modelagem inicial em memória concluídos: o WDBC é carregado localmente via Scikit-learn, as 30 features são verificadas contra o schema canônico, o split treino/teste está testado e candidatos simples podem ser treinados/avaliados sem persistência. Não há modelo final escolhido, dados de exemplo ou artefatos `.joblib` nesta etapa.
 
 ## Aviso ético
 

@@ -16,8 +16,10 @@ Frase possível:
 
 - Dataset público WDBC carregado via Scikit-learn.
 - Projeto modular em Python.
-- Pré-processamento com split treino/teste estratificado e reprodutível.
+- Pré-processamento com split treino/teste estratificado e reproduzível.
 - Pipelines base com `StandardScaler` para modelos sensíveis à escala e passthrough para modelos baseados em árvore.
+- Modelagem inicial em memória com Regressão Logística, Árvore de Decisão e KNN.
+- Avaliação com foco em recall da classe maligna, respeitando `0 = malignant` no WDBC.
 - Interface Streamlit multipage.
 - Testes desde o início.
 - Explicabilidade planejada com feature importance e SHAP.
@@ -31,6 +33,7 @@ Mostrar:
 - Commits no GitHub.
 - Terminal com testes passando.
 - Rodada 3 com 25 testes passando após pré-processamento e split.
+- Rodada 4 com 37 testes passando após modelagem inicial e avaliação.
 - App Streamlit rodando.
 
 ## Uso responsável de IA

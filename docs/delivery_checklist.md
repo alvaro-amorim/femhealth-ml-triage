@@ -12,9 +12,10 @@
 ## Modelagem e explicabilidade
 
 - [x] Separação treino/teste estratificada e reproduzível.
-- [ ] Pelo menos dois classificadores comparados.
-- [ ] Accuracy, precision, recall, F1 e ROC AUC calculados.
-- [ ] Matriz de confusão e curva ROC apresentadas.
+- [x] Pelo menos dois classificadores candidatos treináveis em memória.
+- [x] Accuracy, precision, recall, F1 e ROC AUC calculados para candidatos.
+- [x] Matriz de confusão calculada para candidatos.
+- [ ] Curva ROC apresentada.
 - [ ] Modelo final, métricas e feature names persistidos.
 - [ ] Feature importance e SHAP implementados.
 
@@ -26,6 +27,7 @@
 - [x] Smoke tests de estrutura, schema e carregamento criados.
 - [x] Testes de validação de schema e entrada criados.
 - [x] Testes de pré-processamento implementados.
+- [x] Testes de modelagem e avaliação inicial implementados.
 - [ ] Testes de predição implementados.
 - [ ] `pytest` e `pytest --cov=src` passam no projeto completo.
 
