@@ -28,6 +28,7 @@ Os valores devem ser preenchidos manualmente pelo usuário quando a ferramenta e
 | 2026-06-26 | Codex | não disponível | Rodada 3 | Pré-processamento e split treino/teste | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 25 testes passaram; commit `a6b8f9f` |
 | 2026-06-26 | Codex | não disponível | Rodada 3 — validação pós-pull | Sincronização metodológica, revisão local e validação da Rodada 3 | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 25 testes passaram; alterações publicadas no commit `a6b8f9f` |
 | 2026-06-26 | Codex | não disponível | Rodada 4 | Modelagem inicial e avaliação controlada | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 37 testes passaram; commit `7180bda` |
+| 2026-06-26 | Codex | não disponível | Rodada 5 | Integração da comparação inicial na página de modelos | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 43 testes passaram localmente; sem commit no momento do registro |
 | 2026-06-26 | GitHub conectado ao ChatGPT | não disponível | Revisões remotas | Conferência de commits e arquivos no GitHub | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | Usado para revisar estado remoto |
 
 ---

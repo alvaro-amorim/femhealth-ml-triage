@@ -22,6 +22,8 @@ O pipeline com `StandardScaler` deve ser usado para modelos sensíveis à escala
 
 A camada inicial de modelagem em `src/models/` permite construir, treinar em memória e avaliar candidatos simples: Regressão Logística, Árvore de Decisão e KNN. As métricas priorizam a classe maligna do WDBC (`0 = malignant`) e incluem accuracy, precision, recall, F1, ROC AUC e matriz de confusão.
 
+A página `pages/03_Modelos.py` já consome uma comparação em memória e exibe tabela de métricas, ranking inicial por recall maligno, ROC AUC e F1, além da matriz de confusão do modelo melhor ranqueado nesta comparação inicial.
+
 Esta etapa ainda não escolhe modelo final e não salva `.joblib`, `metrics.json` ou `feature_names.json`.
 
 ## Stack V1
@@ -64,7 +66,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Nesta etapa, as páginas ainda são a base de navegação. O carregamento e a validação do WDBC estão disponíveis em `src/data/`, a base de pré-processamento/split está em `src/features/`, e a modelagem inicial em memória está em `src/models/`; artefatos finais serão implementados nas etapas seguintes.
+Nesta etapa, as páginas ainda são incrementais. O carregamento e a validação do WDBC estão disponíveis em `src/data/`, a base de pré-processamento/split está em `src/features/`, a modelagem inicial em memória está em `src/models/`, e a página de modelos já exibe uma comparação acadêmica inicial; artefatos finais serão implementados nas etapas seguintes.
 
 ## Testes
 
@@ -75,7 +77,7 @@ pytest --cov=src
 
 ## Status atual
 
-Base de dados, pré-processamento e modelagem inicial em memória concluídos: o WDBC é carregado localmente via Scikit-learn, as 30 features são verificadas contra o schema canônico, o split treino/teste está testado e candidatos simples podem ser treinados/avaliados sem persistência. Não há modelo final escolhido, dados de exemplo ou artefatos `.joblib` nesta etapa.
+Base de dados, pré-processamento, modelagem inicial em memória e comparação inicial na página de modelos concluídos. Não há modelo final escolhido, dados de exemplo ou artefatos `.joblib` nesta etapa.
 
 ## Aviso ético
 

@@ -15,6 +15,9 @@
 - [x] Pelo menos dois classificadores candidatos treináveis em memória.
 - [x] Accuracy, precision, recall, F1 e ROC AUC calculados para candidatos.
 - [x] Matriz de confusão calculada para candidatos.
+- [x] Comparação inicial de candidatos exibida na página de modelos.
+- [x] Ranking inicial por recall maligno, ROC AUC e F1 exibido.
+- [x] Matriz de confusão exibida na página de modelos.
 - [ ] Curva ROC apresentada.
 - [ ] Modelo final, métricas e feature names persistidos.
 - [ ] Feature importance e SHAP implementados.
@@ -22,6 +25,7 @@
 ## Aplicação e qualidade
 
 - [ ] Páginas Streamlit funcionais.
+- [x] Página de modelos parcialmente funcional com comparação acadêmica inicial.
 - [ ] Entrada individual e CSV validados.
 - [ ] Exemplos reais e pequenos do WDBC disponibilizados.
 - [x] Smoke tests de estrutura, schema e carregamento criados.
