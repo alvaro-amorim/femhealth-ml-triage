@@ -20,10 +20,17 @@ FORBIDDEN_ARTIFACTS = (
 def test_run_model_comparison_returns_expected_contract() -> None:
     payload = run_model_comparison()
 
-    assert set(payload) == {"results", "ranking", "roc_curves", "metadata"}
+    assert set(payload) == {
+        "results",
+        "ranking",
+        "roc_curves",
+        "recommended_candidate",
+        "metadata",
+    }
     assert len(payload["results"]) >= 2
     assert payload["ranking"]
     assert payload["roc_curves"]
+    assert payload["recommended_candidate"]
     assert payload["metadata"]["priority_label"] == 0
     assert payload["metadata"]["priority_class"] == "malignant"
     assert payload["metadata"]["priority_metric"] == "recall_malignant"
@@ -60,6 +67,20 @@ def test_run_model_comparison_returns_roc_curve_for_each_model() -> None:
         assert len(curve["fpr"]) == len(curve["tpr"]) == len(curve["thresholds"])
         assert all(0.0 <= value <= 1.0 for value in curve["fpr"])
         assert all(0.0 <= value <= 1.0 for value in curve["tpr"])
+
+
+def test_run_model_comparison_returns_recommended_candidate_from_ranking() -> None:
+    payload = run_model_comparison()
+    recommended_candidate = payload["recommended_candidate"]
+
+    assert recommended_candidate["selected_model_key"] == payload["ranking"][0]["model_name"]
+    assert recommended_candidate["priority_label"] == 0
+    assert recommended_candidate["priority_class"] == "malignant"
+    assert recommended_candidate["selection_criteria"] == [
+        "recall_malignant",
+        "roc_auc_malignant",
+        "f1_malignant",
+    ]
 
 
 def test_run_model_comparison_does_not_create_final_artifacts() -> None:

@@ -78,3 +78,14 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 - Resultado: alterações revisadas, commitadas e publicadas; EDA inicial do WDBC disponível no app Streamlit e em camada Python testável.
 - Commit: `4e8b9bc feat: adiciona EDA real à página de exploração`.
 - Próximo passo: notebook/relatório de EDA ou etapa de seleção controlada de modelo final.
+
+### 2026-06-26 — Seleção controlada do modelo candidato recomendado
+
+- Etapa: Rodada 7 do Codex.
+- Objetivo: formalizar uma seleção acadêmica controlada do modelo candidato recomendado, usando o ranking em memória já definido por `recall_malignant`, `roc_auc_malignant` e `f1_malignant`.
+- Ações: criação de `select_recommended_candidate()` em `src/models/select.py`; inclusão de `recommended_candidate` no payload de `run_model_comparison()`; atualização da página de modelos com seção “Modelo candidato recomendado”; testes unitários e smoke atualizados.
+- Cuidados: a seleção segue o ranking já calculado, não treina novamente, não altera split, não altera critérios de ranking, não persiste `.joblib`, não salva métricas JSON e não define modelo clínico.
+- Testes: 60 testes passaram em `python -m pytest -q`.
+- Resultado: seleção técnica e inicial do candidato recomendado disponível em código, página e documentação.
+- Commit: pendente de revisão humana.
+- Próximo passo: revisar visualmente a seção na página de modelos e, em rodada futura, decidir se o candidato será persistido como modelo final com model card e artefatos.

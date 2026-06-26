@@ -86,7 +86,7 @@ def render_page() -> None:
         "benign."
     )
     formatted_distribution = _format_target_distribution(target_distribution)
-    st.dataframe(formatted_distribution, use_container_width=True, hide_index=True)
+    st.dataframe(formatted_distribution, width="stretch", hide_index=True)
     st.bar_chart(formatted_distribution.set_index("Classe")["Contagem"])
 
     st.subheader("Grupos de features")
@@ -97,7 +97,7 @@ def render_page() -> None:
     )
     st.dataframe(
         feature_group_summary[["group", "feature_count", "features"]],
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
     )
 
@@ -106,14 +106,14 @@ def render_page() -> None:
         "Resumo estatístico das 30 features numéricas. As medidas incluem "
         "média, desvio padrão, mínimo, quartis e máximo."
     )
-    st.dataframe(descriptive_statistics, use_container_width=True, hide_index=True)
+    st.dataframe(descriptive_statistics, width="stretch", hide_index=True)
 
     st.subheader("Valores ausentes")
     st.write(
         "O WDBC original carregado pelo Scikit-learn não possui valores "
         "ausentes nas 30 features usadas pelo projeto."
     )
-    st.dataframe(missing_values_summary, use_container_width=True, hide_index=True)
+    st.dataframe(missing_values_summary, width="stretch", hide_index=True)
 
     st.subheader("Correlações exploratórias com o target")
     st.write(
@@ -121,7 +121,7 @@ def render_page() -> None:
         "target numérico. Como o target usa `0 = malignant` e `1 = benign`, o "
         "sinal da correlação precisa ser interpretado com cuidado."
     )
-    st.dataframe(top_target_correlations, use_container_width=True, hide_index=True)
+    st.dataframe(top_target_correlations, width="stretch", hide_index=True)
     st.info(
         "Correlação não implica causalidade médica. Estes padrões são úteis "
         "para análise exploratória e discussão acadêmica, não para diagnóstico."

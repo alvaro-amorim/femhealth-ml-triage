@@ -21,6 +21,8 @@
 - [x] Ranking inicial por recall maligno, ROC AUC e F1 exibido.
 - [x] Matriz de confusão exibida na página de modelos.
 - [x] Curva ROC apresentada.
+- [x] Seleção acadêmica de modelo candidato recomendado implementada.
+- [x] Critérios de seleção do candidato recomendado documentados.
 - [ ] Modelo final, métricas e feature names persistidos.
 - [ ] Feature importance e SHAP implementados.
 

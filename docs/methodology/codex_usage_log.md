@@ -13,6 +13,7 @@ Este arquivo registra as rodadas da ferramenta de implementação no VS Code.
 | 5 | 2026-06-26 | Integração da comparação inicial na página de modelos | 43 testes passaram | Comparação em memória exibida no Streamlit | `7b142dd` |
 | 6A | 2026-06-26 | Curva ROC na comparação inicial de modelos | 45 testes passaram | Curva ROC calculada em memória e exibida no Streamlit | `d7e3a48` |
 | 6B | 2026-06-26 | EDA real do WDBC na página de exploração | 54 testes passaram | Exploração real do WDBC exibida no Streamlit | `4e8b9bc` |
+| 7 | 2026-06-26 | Seleção controlada do candidato recomendado | 60 testes passaram | Candidato recomendado selecionado em memória | Pendente |
 
 ## Rodada 3 — validação pós-pull metodológico
 
@@ -84,6 +85,20 @@ Este arquivo registra as rodadas da ferramenta de implementação no VS Code.
 - Commit relacionado: `4e8b9bc feat: adiciona EDA real à página de exploração`.
 - Tokens/custo: não disponível.
 - Observações: não houve treino de modelo, alteração de ranking, persistência de `.joblib`, `metrics.json`, `feature_names.json`, CSV, imagem de gráfico, SHAP, predição individual final, API, banco ou autenticação.
+
+## Rodada 7 — Seleção controlada do modelo candidato recomendado
+
+- Rodada: 7
+- Data: 2026-06-26
+- Objetivo: formalizar uma seleção acadêmica controlada do modelo candidato recomendado com base no ranking existente.
+- Arquivos alterados: `src/models/select.py`, `src/models/compare.py`, `pages/03_Modelos.py`, `tests/unit/test_select.py`, `tests/unit/test_compare.py`, `tests/smoke/test_models_page.py`, `README.md`, `docs/delivery_checklist.md` e registros em `docs/methodology/`.
+- Comandos executados: `git status --short`, leitura da constituição e metodologia, `python -m pytest -q`; validações finais completas serão registradas no resumo da rodada.
+- Testes: 60 testes passaram em `python -m pytest -q`.
+- Resultado: seleção do candidato recomendado disponível no payload de comparação e exibida na página de modelos como escolha acadêmica inicial, não diagnóstica.
+- Problemas: smoke test textual falhou inicialmente por checagem frágil de uma frase quebrada em strings; teste ajustado para validar o aviso sem depender da quebra.
+- Commit relacionado: pendente de revisão humana.
+- Tokens/custo: não disponível.
+- Observações: não houve persistência de `.joblib`, `metrics.json`, `feature_names.json`, CSV, imagem de gráfico, SHAP, predição individual final, API, banco ou autenticação.
 
 ## Template
 

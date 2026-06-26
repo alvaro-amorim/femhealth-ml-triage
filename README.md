@@ -26,9 +26,9 @@ O pipeline com `StandardScaler` deve ser usado para modelos sensíveis à escala
 
 A camada inicial de modelagem em `src/models/` permite construir, treinar em memória e avaliar candidatos simples: Regressão Logística, Árvore de Decisão e KNN. As métricas priorizam a classe maligna do WDBC (`0 = malignant`) e incluem accuracy, precision, recall, F1, ROC AUC e matriz de confusão.
 
-A página `pages/03_Modelos.py` já consome uma comparação em memória e exibe tabela de métricas, ranking inicial por recall maligno, ROC AUC e F1, Curva ROC dos candidatos e matriz de confusão do modelo melhor ranqueado nesta comparação inicial.
+A página `pages/03_Modelos.py` já consome uma comparação em memória e exibe tabela de métricas, ranking inicial por recall maligno, ROC AUC e F1, Curva ROC dos candidatos, matriz de confusão e seleção acadêmica controlada do modelo candidato recomendado.
 
-Esta etapa ainda não escolhe modelo final e não salva `.joblib`, `metrics.json` ou `feature_names.json`.
+A seleção do candidato recomendado segue os critérios `recall_malignant`, `roc_auc_malignant` e `f1_malignant`. Esta etapa ainda não persiste modelo final e não salva `.joblib`, `metrics.json` ou `feature_names.json`.
 
 ## Stack V1
 
@@ -81,7 +81,7 @@ pytest --cov=src
 
 ## Status atual
 
-Base de dados, EDA inicial, pré-processamento, modelagem inicial em memória e comparação inicial com Curva ROC na página de modelos concluídos. Não há modelo final escolhido, dados de exemplo ou artefatos `.joblib` nesta etapa.
+Base de dados, EDA inicial, pré-processamento, modelagem inicial em memória, comparação inicial com Curva ROC e seleção acadêmica de modelo candidato recomendado concluídos. Não há modelo final persistido, dados de exemplo ou artefatos `.joblib` nesta etapa.
 
 ## Aviso ético
 

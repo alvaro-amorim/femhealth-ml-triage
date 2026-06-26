@@ -19,6 +19,7 @@ def test_models_page_imports_without_error() -> None:
         spinner=lambda *_args, **_kwargs: nullcontext(),
         subheader=lambda *_args, **_kwargs: None,
         write=lambda *_args, **_kwargs: None,
+        metric=lambda *_args, **_kwargs: None,
         columns=lambda count: [SimpleNamespace(metric=lambda *_args, **_kwargs: None) for _ in range(count)],
         caption=lambda *_args, **_kwargs: None,
         markdown=lambda *_args, **_kwargs: None,
@@ -43,6 +44,9 @@ def test_models_page_contains_academic_and_ethical_text() -> None:
     assert "Comparação acadêmica inicial" in page_source
     assert "não realiza diagnóstico" in page_source
     assert "médico" in page_source
+    assert "Modelo candidato recomendado" in page_source
+    assert "modelo candidato recomendado" in page_source
+    assert "não é diagnóstico" in page_source
     assert "Curva ROC" in page_source
     assert "probabilidade da classe maligna" in page_source
     assert "modelo final" in page_source

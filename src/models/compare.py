@@ -14,6 +14,7 @@ from src.models.evaluate import (
     evaluate_candidate_models,
     rank_models_by_recall_then_auc,
 )
+from src.models.select import select_recommended_candidate
 from src.models.train import build_candidate_models, train_candidate_models
 
 
@@ -39,29 +40,34 @@ def run_model_comparison() -> dict[str, Any]:
         for model_name, model in trained_models.items()
     }
     ranked_results = rank_models_by_recall_then_auc(results)
-
-    return {
-        "results": results,
-        "ranking": [
-            {"model_name": model_name, **metrics}
-            for model_name, metrics in ranked_results
+    ranking = [
+        {"model_name": model_name, **metrics}
+        for model_name, metrics in ranked_results
+    ]
+    metadata = {
+        "dataset_name": dataset_metadata["name"],
+        "sample_count": dataset_metadata["sample_count"],
+        "feature_count": dataset_metadata["feature_count"],
+        "train_size": len(X_train),
+        "test_size": DEFAULT_TEST_SIZE,
+        "test_sample_count": len(X_test),
+        "random_state": DEFAULT_RANDOM_STATE,
+        "priority_metric": PRIORITY_METRIC,
+        "priority_class": PRIORITY_CLASS,
+        "priority_label": MALIGNANT_LABEL,
+        "ranking_criteria": [
+            "recall_malignant",
+            "roc_auc_malignant",
+            "f1_malignant",
         ],
-        "roc_curves": roc_curves,
-        "metadata": {
-            "dataset_name": dataset_metadata["name"],
-            "sample_count": dataset_metadata["sample_count"],
-            "feature_count": dataset_metadata["feature_count"],
-            "train_size": len(X_train),
-            "test_size": DEFAULT_TEST_SIZE,
-            "test_sample_count": len(X_test),
-            "random_state": DEFAULT_RANDOM_STATE,
-            "priority_metric": PRIORITY_METRIC,
-            "priority_class": PRIORITY_CLASS,
-            "priority_label": MALIGNANT_LABEL,
-            "ranking_criteria": [
-                "recall_malignant",
-                "roc_auc_malignant",
-                "f1_malignant",
-            ],
-        },
     }
+
+    payload = {
+        "results": results,
+        "ranking": ranking,
+        "roc_curves": roc_curves,
+        "metadata": metadata,
+    }
+    payload["recommended_candidate"] = select_recommended_candidate(payload)
+
+    return payload

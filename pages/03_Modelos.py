@@ -77,6 +77,19 @@ def _format_roc_curve_table(roc_curves: dict) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def _format_recommended_candidate_metrics(recommended_candidate: dict) -> pd.DataFrame:
+    """Return the recommended candidate metrics as a one-row table."""
+    metrics = recommended_candidate["metrics"]
+    return pd.DataFrame(
+        [
+            {
+                "Modelo": recommended_candidate["selected_model_name"],
+                **{metric: metrics[metric] for metric in METRIC_COLUMNS},
+            }
+        ]
+    )
+
+
 def render_page() -> None:
     """Render the controlled initial model-comparison page."""
     st.title("Comparação Inicial de Modelos")
@@ -92,6 +105,7 @@ def render_page() -> None:
     results = payload["results"]
     ranking = payload["ranking"]
     roc_curves = payload["roc_curves"]
+    recommended_candidate = payload["recommended_candidate"]
     top_model = ranking[0]
 
     st.subheader("Configuração da comparação")
@@ -121,7 +135,7 @@ def render_page() -> None:
     st.subheader("Tabela de métricas")
     st.dataframe(
         _format_results_table(results),
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
     )
 
@@ -133,8 +147,28 @@ def render_page() -> None:
     )
     st.dataframe(
         _format_ranking_table(ranking),
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
+    )
+
+    st.subheader("Modelo candidato recomendado")
+    st.write(
+        "O modelo candidato recomendado é o modelo melhor ranqueado nesta "
+        "comparação acadêmica inicial. A seleção usa `recall_malignant` como "
+        "critério primário, seguido de `roc_auc_malignant` e `f1_malignant` em "
+        "caso de empate."
+    )
+    st.metric("Candidato recomendado", recommended_candidate["selected_model_name"])
+    st.dataframe(
+        _format_recommended_candidate_metrics(recommended_candidate),
+        width="stretch",
+        hide_index=True,
+    )
+    st.caption(recommended_candidate["reason"])
+    st.warning(
+        "Esta seleção é técnica, acadêmica e inicial. Ela não é diagnóstico "
+        "médico, não define um modelo clínico e ainda não há artefato `.joblib` "
+        "persistido. SHAP e explicabilidade final serão tratados posteriormente."
     )
 
     st.subheader("Curva ROC")
@@ -169,7 +203,7 @@ def render_page() -> None:
         index=["Real malignant (0)", "Real benign (1)"],
         columns=["Previsto malignant (0)", "Previsto benign (1)"],
     )
-    st.dataframe(confusion_matrix, use_container_width=True)
+    st.dataframe(confusion_matrix, width="stretch")
 
     st.info(
         "Ainda não há modelo final persistido. A seleção final, artefatos "
