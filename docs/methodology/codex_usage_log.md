@@ -2,7 +2,7 @@
 
 Este arquivo registra as rodadas da ferramenta de implementação no VS Code.
 
-## Rodadas iniciais
+## Resumo das rodadas
 
 | Rodada | Data | Objetivo | Testes | Resultado | Commit |
 |---|---|---|---|---|---|
@@ -13,78 +13,7 @@ Este arquivo registra as rodadas da ferramenta de implementação no VS Code.
 | 5 | 2026-06-26 | Integração da comparação inicial na página de modelos | 43 testes passaram | Comparação em memória exibida no Streamlit | `7b142dd` |
 | 6A | 2026-06-26 | Curva ROC na comparação inicial de modelos | 45 testes passaram | Curva ROC calculada em memória e exibida no Streamlit | `d7e3a48` |
 | 6B | 2026-06-26 | EDA real do WDBC na página de exploração | 54 testes passaram | Exploração real do WDBC exibida no Streamlit | `4e8b9bc` |
-| 7 | 2026-06-26 | Seleção controlada do candidato recomendado | 60 testes passaram | Candidato recomendado selecionado em memória | Pendente |
-
-## Rodada 3 — validação pós-pull metodológico
-
-- Rodada: 3
-- Data: 2026-06-26
-- Objetivo: validar as alterações locais de pré-processamento após sincronizar a documentação metodológica remota.
-- Arquivos alterados: `src/features/preprocess.py`, `tests/unit/test_preprocess.py`, `README.md`, `docs/delivery_checklist.md` e registros mínimos em `docs/methodology/`.
-- Comandos executados: `git status --short`, `git pull --ff-only`, `python -m pytest -q`, `pytest -q`, `git diff --check`, `git commit`, `git push`.
-- Testes: 25 testes passaram em `python -m pytest -q` e `pytest -q`.
-- Resultado: Rodada 3 alinhada à constituição e ao adendo metodológico; commit e push realizados com sucesso.
-- Problemas: nenhum conflito; apenas avisos LF/CRLF normais no Windows.
-- Commit relacionado: `a6b8f9f feat: adiciona pré-processamento e split treino-teste`.
-- Tokens/custo: não disponível.
-- Observações: não houve treino de modelo, criação de `.joblib`, métricas finais, SHAP ou app avançado.
-
-## Rodada 4 — modelagem inicial e avaliação controlada
-
-- Rodada: 4
-- Data: 2026-06-26
-- Objetivo: implementar modelos candidatos, treino em memória, avaliação e ranking inicial sem definir modelo final.
-- Arquivos alterados: `src/models/train.py`, `src/models/evaluate.py`, `tests/unit/test_modeling.py`, `README.md`, `docs/delivery_checklist.md` e registros em `docs/methodology/`.
-- Comandos executados: `git status --short`, leitura da constituição e metodologia, `python -m pytest -q`, `pytest -q`, `git diff --check`, `git status --short`, `git diff --stat`, `git commit`, `git push`.
-- Testes: 37 testes passaram em `python -m pytest -q` e `pytest -q`.
-- Resultado: Regressão Logística, Árvore de Decisão e KNN treinam em memória; métricas da classe maligna usam `pos_label=0` e probabilidade da classe 0 para ROC AUC; commit e push realizados com sucesso.
-- Problemas: nenhum bloqueio relevante.
-- Commit relacionado: `7180bda feat: adiciona modelagem inicial e avaliação`.
-- Tokens/custo: não disponível.
-- Observações: não houve persistência de `.joblib`, `metrics.json`, `feature_names.json`, CSV, SHAP ou alteração avançada no app.
-
-## Rodada 5 — integração da comparação inicial na página de modelos
-
-- Rodada: 5
-- Data: 2026-06-26
-- Objetivo: orquestrar a comparação em memória e integrá-la à página `pages/03_Modelos.py`.
-- Arquivos alterados: `src/models/compare.py`, `pages/03_Modelos.py`, `tests/unit/test_compare.py`, `tests/smoke/test_models_page.py`, `README.md`, `docs/delivery_checklist.md` e registros em `docs/methodology/`.
-- Comandos executados: `git status --short`, leitura da constituição e metodologia, `python -m pytest -q`, `pytest -q`, `git diff --check`, `git status --short`, `git diff --stat`, `git commit`, `git push`.
-- Testes: 43 testes passaram em `python -m pytest -q` e `pytest -q`.
-- Resultado: página de modelos exibe comparação acadêmica inicial, tabela de métricas, ranking por recall maligno, ROC AUC e F1, e matriz de confusão do modelo melhor ranqueado nesta comparação inicial; commit e push realizados com sucesso.
-- Problemas: teste de import da página falhou inicialmente por ausência de `streamlit` no ambiente local; checagem textual também estava frágil por quebra de linha.
-- Soluções: uso de stub de Streamlit no smoke test e ajuste da checagem textual.
-- Commit relacionado: `7b142dd feat: integra comparação inicial de modelos à página`.
-- Tokens/custo: não disponível.
-- Observações: não houve escolha de modelo final, persistência de artefatos, SHAP, predição individual final, API, banco ou autenticação.
-
-## Rodada 6A — Curva ROC na comparação inicial de modelos
-
-- Rodada: 6A
-- Data: 2026-06-26
-- Objetivo: adicionar Curva ROC à comparação inicial de modelos na página `pages/03_Modelos.py`.
-- Arquivos alterados: `src/models/evaluate.py`, `src/models/compare.py`, `pages/03_Modelos.py`, `tests/unit/test_modeling.py`, `tests/unit/test_compare.py`, `tests/smoke/test_models_page.py`, `README.md`, `docs/delivery_checklist.md` e registros em `docs/methodology/`.
-- Comandos executados: `git status --short`, leitura da constituição e metodologia, `python -m pytest -q`, `pytest -q`, `git diff --check`, `git status --short`, `git diff --stat`, `git commit`, `git push`.
-- Testes: 45 testes passaram em `python -m pytest -q` e `pytest -q`.
-- Resultado: curvas ROC dos modelos candidatos calculadas com probabilidade da classe maligna e exibidas na comparação acadêmica inicial; commit e push realizados com sucesso.
-- Problemas: nenhum bloqueio relevante.
-- Commit relacionado: `d7e3a48 feat: adiciona curva ROC à comparação de modelos`.
-- Tokens/custo: não disponível.
-- Observações: não houve escolha de modelo final, persistência de `.joblib`, `metrics.json`, `feature_names.json`, CSV, imagem de gráfico, SHAP, predição individual final, API, banco ou autenticação.
-
-## Rodada 6B — EDA real do WDBC na página de exploração
-
-- Rodada: 6B
-- Data: 2026-06-26
-- Objetivo: implementar análise exploratória real do WDBC na página `pages/01_Exploracao.py`.
-- Arquivos alterados: `src/analysis/__init__.py`, `src/analysis/eda.py`, `pages/01_Exploracao.py`, `tests/unit/test_eda.py`, `tests/smoke/test_exploration_page.py`, `README.md`, `docs/delivery_checklist.md` e registros em `docs/methodology/`.
-- Comandos executados: `git status --short`, leitura da constituição e metodologia, `python -m pytest -q`, `pytest -q`, `git diff --check`, `git status --short`, `git diff --stat`, revisão visual da página Streamlit, `git commit` e `git push`.
-- Testes: 54 testes passaram em `python -m pytest -q` e `pytest -q`.
-- Resultado: página de exploração passou a exibir visão geral, distribuição de classes, grupos de features, estatísticas descritivas, missing values e correlações exploratórias do WDBC; commit e push realizados com sucesso.
-- Problemas: nenhum bloqueio relevante.
-- Commit relacionado: `4e8b9bc feat: adiciona EDA real à página de exploração`.
-- Tokens/custo: não disponível.
-- Observações: não houve treino de modelo, alteração de ranking, persistência de `.joblib`, `metrics.json`, `feature_names.json`, CSV, imagem de gráfico, SHAP, predição individual final, API, banco ou autenticação.
+| 7 | 2026-06-26 | Seleção controlada do candidato recomendado | 60 testes passaram | Candidato recomendado selecionado em memória | `a483031` |
 
 ## Rodada 7 — Seleção controlada do modelo candidato recomendado
 
@@ -92,13 +21,17 @@ Este arquivo registra as rodadas da ferramenta de implementação no VS Code.
 - Data: 2026-06-26
 - Objetivo: formalizar uma seleção acadêmica controlada do modelo candidato recomendado com base no ranking existente.
 - Arquivos alterados: `src/models/select.py`, `src/models/compare.py`, `pages/03_Modelos.py`, `tests/unit/test_select.py`, `tests/unit/test_compare.py`, `tests/smoke/test_models_page.py`, `README.md`, `docs/delivery_checklist.md` e registros em `docs/methodology/`.
-- Comandos executados: `git status --short`, leitura da constituição e metodologia, `python -m pytest -q`; validações finais completas serão registradas no resumo da rodada.
-- Testes: 60 testes passaram em `python -m pytest -q`.
-- Resultado: seleção do candidato recomendado disponível no payload de comparação e exibida na página de modelos como escolha acadêmica inicial, não diagnóstica.
-- Problemas: smoke test textual falhou inicialmente por checagem frágil de uma frase quebrada em strings; teste ajustado para validar o aviso sem depender da quebra.
-- Commit relacionado: pendente de revisão humana.
+- Comandos executados: `git status --short`, leitura da constituição e metodologia, `python -m pytest -q`, `pytest -q`, `git diff --check`, revisão visual da página Streamlit, `git commit` e `git push`.
+- Testes: 60 testes passaram em `python -m pytest -q` e `pytest -q`.
+- Resultado: seleção do candidato recomendado disponível no payload de comparação e exibida na página de modelos como escolha acadêmica inicial, não diagnóstica; commit e push realizados com sucesso.
+- Problemas: smoke test textual falhou inicialmente por checagem frágil; depois, os arquivos de páginas foram regravados pelo PowerShell com mojibake e foram corrigidos antes do commit.
+- Commit relacionado: `a483031 feat: seleciona candidato recomendado de forma controlada`.
 - Tokens/custo: não disponível.
-- Observações: não houve persistência de `.joblib`, `metrics.json`, `feature_names.json`, CSV, imagem de gráfico, SHAP, predição individual final, API, banco ou autenticação.
+- Observações: não houve persistência de artefatos finais, SHAP, predição individual final, API, banco ou autenticação.
+
+## Observação para relatório final
+
+A Rodada 7 pode ser descrita como a etapa em que o projeto passou a indicar um modelo candidato recomendado, mantendo o cuidado metodológico de não tratar a escolha como diagnóstico médico nem como modelo final persistido.
 
 ## Template
 
