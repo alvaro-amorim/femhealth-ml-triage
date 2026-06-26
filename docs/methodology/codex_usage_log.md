@@ -12,7 +12,7 @@ Este arquivo registra as rodadas da ferramenta de implementação no VS Code.
 | 4 | 2026-06-26 | Modelagem inicial e avaliação controlada | 37 testes passaram | Candidatos treináveis em memória e métricas iniciais implementados | `7180bda` |
 | 5 | 2026-06-26 | Integração da comparação inicial na página de modelos | 43 testes passaram | Comparação em memória exibida no Streamlit | `7b142dd` |
 | 6A | 2026-06-26 | Curva ROC na comparação inicial de modelos | 45 testes passaram | Curva ROC calculada em memória e exibida no Streamlit | `d7e3a48` |
-| 6B | 2026-06-26 | EDA real do WDBC na página de exploração | 54 testes passaram | Exploração real do WDBC exibida no Streamlit | Pendente |
+| 6B | 2026-06-26 | EDA real do WDBC na página de exploração | 54 testes passaram | Exploração real do WDBC exibida no Streamlit | `4e8b9bc` |
 
 ## Rodada 3 — validação pós-pull metodológico
 
@@ -77,11 +77,11 @@ Este arquivo registra as rodadas da ferramenta de implementação no VS Code.
 - Data: 2026-06-26
 - Objetivo: implementar análise exploratória real do WDBC na página `pages/01_Exploracao.py`.
 - Arquivos alterados: `src/analysis/__init__.py`, `src/analysis/eda.py`, `pages/01_Exploracao.py`, `tests/unit/test_eda.py`, `tests/smoke/test_exploration_page.py`, `README.md`, `docs/delivery_checklist.md` e registros em `docs/methodology/`.
-- Comandos executados: `git status --short`, leitura da constituição e metodologia, `python -m pytest -q`; validações finais completas serão registradas no resumo da rodada.
-- Testes: 54 testes passaram em `python -m pytest -q`.
-- Resultado: página de exploração passou a exibir visão geral, distribuição de classes, grupos de features, estatísticas descritivas, missing values e correlações exploratórias do WDBC.
+- Comandos executados: `git status --short`, leitura da constituição e metodologia, `python -m pytest -q`, `pytest -q`, `git diff --check`, `git status --short`, `git diff --stat`, revisão visual da página Streamlit, `git commit` e `git push`.
+- Testes: 54 testes passaram em `python -m pytest -q` e `pytest -q`.
+- Resultado: página de exploração passou a exibir visão geral, distribuição de classes, grupos de features, estatísticas descritivas, missing values e correlações exploratórias do WDBC; commit e push realizados com sucesso.
 - Problemas: nenhum bloqueio relevante.
-- Commit relacionado: pendente de revisão humana.
+- Commit relacionado: `4e8b9bc feat: adiciona EDA real à página de exploração`.
 - Tokens/custo: não disponível.
 - Observações: não houve treino de modelo, alteração de ranking, persistência de `.joblib`, `metrics.json`, `feature_names.json`, CSV, imagem de gráfico, SHAP, predição individual final, API, banco ou autenticação.
 
