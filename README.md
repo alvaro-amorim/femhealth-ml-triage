@@ -12,6 +12,12 @@ O dataset principal é o **Breast Cancer Wisconsin Diagnostic (WDBC)**, carregad
 
 O carregamento não baixa nem versiona dados: o WDBC é distribuído com a instalação do Scikit-learn.
 
+## Pré-processamento
+
+O projeto já possui separação de features/target, split treino/teste estratificado e reproduzível (`test_size=0.2`, `random_state=42`) e pipelines de pré-processamento em `src/features/preprocess.py`.
+
+O pipeline com `StandardScaler` deve ser usado para modelos sensíveis à escala, como Regressão Logística, KNN e SVM. Para modelos baseados em árvore, há pipeline de passthrough. O scaler deve ser ajustado apenas no treino para evitar vazamento de dados.
+
 ## Stack V1
 
 - Python 3.11
@@ -52,7 +58,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Nesta etapa, as páginas ainda são a base de navegação. O carregamento e a validação do WDBC estão disponíveis em `src/data/`; treino e artefatos serão implementados nas etapas seguintes.
+Nesta etapa, as páginas ainda são a base de navegação. O carregamento e a validação do WDBC estão disponíveis em `src/data/`, e a base de pré-processamento/split está em `src/features/`; treino e artefatos serão implementados nas etapas seguintes.
 
 ## Testes
 
@@ -63,7 +69,7 @@ pytest --cov=src
 
 ## Status atual
 
-Base de dados concluída: o WDBC é carregado localmente via Scikit-learn, as 30 features são verificadas contra o schema canônico e entradas para predição individual possuem validação estrita. Não há modelo treinado, dados de exemplo ou artefatos `.joblib` nesta etapa.
+Base de dados e pré-processamento inicial concluídos: o WDBC é carregado localmente via Scikit-learn, as 30 features são verificadas contra o schema canônico, entradas tabulares possuem validação estrita, e o split treino/teste com pipelines de scaling/passthrough está testado. Não há modelo treinado, dados de exemplo ou artefatos `.joblib` nesta etapa.
 
 ## Aviso ético
 

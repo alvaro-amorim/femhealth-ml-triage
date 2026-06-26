@@ -16,6 +16,8 @@ Frase possível:
 
 - Dataset público WDBC carregado via Scikit-learn.
 - Projeto modular em Python.
+- Pré-processamento com split treino/teste estratificado e reprodutível.
+- Pipelines base com `StandardScaler` para modelos sensíveis à escala e passthrough para modelos baseados em árvore.
 - Interface Streamlit multipage.
 - Testes desde o início.
 - Explicabilidade planejada com feature importance e SHAP.
@@ -28,6 +30,7 @@ Mostrar:
 - `docs/methodology/`.
 - Commits no GitHub.
 - Terminal com testes passando.
+- Rodada 3 com 25 testes passando após pré-processamento e split.
 - App Streamlit rodando.
 
 ## Uso responsável de IA

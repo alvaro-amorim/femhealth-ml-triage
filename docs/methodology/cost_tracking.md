@@ -26,6 +26,7 @@ Os valores devem ser preenchidos manualmente pelo usuário quando a ferramenta e
 | 2026-06-26 | Codex | não disponível | Rodada 1 | Bootstrap estrutural | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 3 testes passaram |
 | 2026-06-26 | Codex | não disponível | Rodada 2 | Carregamento e validação do WDBC | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 14 testes passaram |
 | 2026-06-26 | Codex | não disponível | Rodada 3 | Pré-processamento e split treino/teste | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 25 testes passaram localmente; ainda sem commit remoto no momento deste registro |
+| 2026-06-26 | Codex | não disponível | Rodada 3 — validação pós-pull | Sincronização metodológica, revisão local e validação da Rodada 3 | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 25 testes passaram; alterações prontas para revisão humana |
 | 2026-06-26 | GitHub conectado ao ChatGPT | não disponível | Revisões remotas | Conferência de commits e arquivos no GitHub | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | Usado para revisar estado remoto |
 
 ---

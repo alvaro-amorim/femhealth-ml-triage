@@ -110,3 +110,18 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 | Resultado | 25 testes passaram localmente; alterações ainda sem commit remoto no momento da criação desta trilha metodológica |
 | Commit relacionado | Não disponível — status local sem commit remoto |
 | Próximo passo | Sincronizar documentação metodológica via `git pull` antes de continuar |
+
+## 2026-06-26 — Validação pós-pull da Rodada 3
+
+| Campo | Registro |
+|---|---|
+| Etapa | Sincronização metodológica e revisão local |
+| Objetivo | Sincronizar a documentação metodológica remota e validar a Rodada 3 local sem sobrescrever alterações |
+| Ações realizadas | Execução de `git status --short`, `git pull --ff-only`, leitura do `PROJECT_CONSTITUTION.md`, leitura do adendo metodológico e revisão do diff local da Rodada 3 |
+| Ferramentas usadas | Codex; PowerShell; Git; Pytest |
+| Problemas encontrados | Nenhum conflito no pull; apenas avisos LF/CRLF normais do Git no Windows |
+| Soluções aplicadas | Pull fast-forward preservou as alterações locais; nenhuma ação destrutiva foi usada |
+| Testes executados | `python -m pytest -q`; `pytest -q`; `git diff --check` |
+| Resultado | 25 testes passaram nos dois comandos; Rodada 3 segue pronta para revisão humana e commit |
+| Commit relacionado | Não disponível — alterações locais ainda sem commit |
+| Próximo passo | Revisar e commitar a Rodada 3 quando aprovado |

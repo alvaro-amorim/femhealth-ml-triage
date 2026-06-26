@@ -11,7 +11,7 @@
 
 ## Modelagem e explicabilidade
 
-- [ ] Separação treino/teste estratificada e reproduzível.
+- [x] Separação treino/teste estratificada e reproduzível.
 - [ ] Pelo menos dois classificadores comparados.
 - [ ] Accuracy, precision, recall, F1 e ROC AUC calculados.
 - [ ] Matriz de confusão e curva ROC apresentadas.
@@ -25,7 +25,8 @@
 - [ ] Exemplos reais e pequenos do WDBC disponibilizados.
 - [x] Smoke tests de estrutura, schema e carregamento criados.
 - [x] Testes de validação de schema e entrada criados.
-- [ ] Testes de pré-processamento e predição implementados.
+- [x] Testes de pré-processamento implementados.
+- [ ] Testes de predição implementados.
 - [ ] `pytest` e `pytest --cov=src` passam no projeto completo.
 
 ## Documentação e entrega
