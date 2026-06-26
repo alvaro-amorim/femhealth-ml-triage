@@ -102,14 +102,14 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 |---|---|
 | Etapa | Rodada 3 do Codex |
 | Objetivo | Criar funções de pré-processamento, split estratificado e pipelines base |
-| Ações realizadas | Criação local de `separate_features_and_target`, `split_train_test`, `build_scaling_pipeline`, `build_passthrough_pipeline` e `validate_train_test_split` |
+| Ações realizadas | Criação de `separate_features_and_target`, `split_train_test`, `build_scaling_pipeline`, `build_passthrough_pipeline` e `validate_train_test_split` |
 | Ferramentas usadas | Codex; ChatGPT; Pytest; Scikit-learn |
 | Problemas encontrados | Nenhum problema reportado pelo Codex |
 | Soluções aplicadas | Não aplicável |
 | Testes executados | `git diff --check`; `python -m pytest -q`; `pytest -q` |
-| Resultado | 25 testes passaram localmente; alterações ainda sem commit remoto no momento da criação desta trilha metodológica |
-| Commit relacionado | Não disponível — status local sem commit remoto |
-| Próximo passo | Sincronizar documentação metodológica via `git pull` antes de continuar |
+| Resultado | 25 testes passaram; alterações revisadas, commitadas e publicadas |
+| Commit relacionado | `a6b8f9f feat: adiciona pré-processamento e split treino-teste` |
+| Próximo passo | Implementar modelagem inicial e avaliação controlada |
 
 ## 2026-06-26 — Validação pós-pull da Rodada 3
 
@@ -122,6 +122,6 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 | Problemas encontrados | Nenhum conflito no pull; apenas avisos LF/CRLF normais do Git no Windows |
 | Soluções aplicadas | Pull fast-forward preservou as alterações locais; nenhuma ação destrutiva foi usada |
 | Testes executados | `python -m pytest -q`; `pytest -q`; `git diff --check` |
-| Resultado | 25 testes passaram nos dois comandos; Rodada 3 segue pronta para revisão humana e commit |
-| Commit relacionado | Não disponível — alterações locais ainda sem commit |
-| Próximo passo | Revisar e commitar a Rodada 3 quando aprovado |
+| Resultado | 25 testes passaram nos dois comandos; Rodada 3 foi commitada e enviada ao GitHub |
+| Commit relacionado | `a6b8f9f feat: adiciona pré-processamento e split treino-teste` |
+| Próximo passo | Preparar Rodada 4 de modelagem inicial e avaliação |
