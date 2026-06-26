@@ -1,3 +1,55 @@
-# Notas para Narrativa
+# Notas para Narrativa do Vídeo — FemHealth ML Triage
 
-Arquivo para acumular pontos do roteiro final de apresentação.
+Este arquivo acumula pontos para o roteiro final de demonstração.
+
+## Narrativa do problema
+
+- Aplicação acadêmica de Machine Learning em saúde da mulher.
+- Classificação tabular de amostras de massa mamária com WDBC.
+- Uso demonstrativo, sem substituir avaliação médica.
+
+Frase possível:
+
+> O FemHealth ML Triage mostra como um pipeline de Machine Learning pode apoiar uma triagem analítica de forma educacional e responsável.
+
+## Narrativa da solução
+
+- Dataset público WDBC carregado via Scikit-learn.
+- Projeto modular em Python.
+- Interface Streamlit multipage.
+- Testes desde o início.
+- Explicabilidade planejada com feature importance e SHAP.
+
+## Metodologia de desenvolvimento
+
+Mostrar:
+
+- `PROJECT_CONSTITUTION.md`.
+- `docs/methodology/`.
+- Commits no GitHub.
+- Terminal com testes passando.
+- App Streamlit rodando.
+
+## Uso responsável de IA
+
+- ChatGPT apoiou planejamento, revisão e arquitetura.
+- Codex foi usado em rodadas pequenas.
+- O usuário revisou testes antes dos commits.
+
+## Pontos para mostrar na tela
+
+- Home do Streamlit.
+- Testes com `pytest`.
+- GitHub com commits.
+- Futuras páginas de EDA, predição, modelos e explicabilidade.
+
+## Estrutura provável
+
+1. Problema.
+2. Dataset.
+3. Metodologia.
+4. App.
+5. Testes.
+6. Modelos.
+7. Explicabilidade.
+8. Ética e limitações.
