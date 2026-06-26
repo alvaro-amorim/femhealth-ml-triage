@@ -23,10 +23,10 @@ Os valores devem ser preenchidos manualmente pelo usuário quando a ferramenta e
 | Data | Ferramenta | Modelo/plano | Rodada | Objetivo | Tokens de entrada | Tokens de saída | Custo informado | Custo estimado | Fonte da informação | Observações |
 |---|---|---|---|---|---:|---:|---:|---:|---|---|
 | 2026-06-26 | ChatGPT | não disponível | Planejamento inicial | Análise do desafio, dataset, stack e constituição | não disponível | não disponível | não disponível | não disponível | Interface ChatGPT | Uso como tutor, arquiteto e revisor |
-| 2026-06-26 | Codex | não disponível | Rodada 1 | Bootstrap estrutural | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 3 testes passaram |
-| 2026-06-26 | Codex | não disponível | Rodada 2 | Carregamento e validação do WDBC | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 14 testes passaram |
-| 2026-06-26 | Codex | não disponível | Rodada 3 | Pré-processamento e split treino/teste | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 25 testes passaram localmente; ainda sem commit remoto no momento deste registro |
-| 2026-06-26 | Codex | não disponível | Rodada 3 — validação pós-pull | Sincronização metodológica, revisão local e validação da Rodada 3 | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 25 testes passaram; alterações prontas para revisão humana |
+| 2026-06-26 | Codex | não disponível | Rodada 1 | Bootstrap estrutural | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 3 testes passaram; commit `556ce05` |
+| 2026-06-26 | Codex | não disponível | Rodada 2 | Carregamento e validação do WDBC | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 14 testes passaram; commit `ba2aa27` |
+| 2026-06-26 | Codex | não disponível | Rodada 3 | Pré-processamento e split treino/teste | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 25 testes passaram; commit `a6b8f9f` |
+| 2026-06-26 | Codex | não disponível | Rodada 3 — validação pós-pull | Sincronização metodológica, revisão local e validação da Rodada 3 | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 25 testes passaram; alterações publicadas no commit `a6b8f9f` |
 | 2026-06-26 | GitHub conectado ao ChatGPT | não disponível | Revisões remotas | Conferência de commits e arquivos no GitHub | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | Usado para revisar estado remoto |
 
 ---
