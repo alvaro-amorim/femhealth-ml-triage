@@ -10,6 +10,7 @@ from src.features.preprocess import (
 )
 from src.models.evaluate import (
     MALIGNANT_LABEL,
+    calculate_roc_curve_points,
     evaluate_candidate_models,
     rank_models_by_recall_then_auc,
 )
@@ -33,6 +34,10 @@ def run_model_comparison() -> dict[str, Any]:
     candidates = build_candidate_models()
     trained_models = train_candidate_models(candidates, X_train, y_train)
     results = evaluate_candidate_models(trained_models, X_test, y_test)
+    roc_curves = {
+        model_name: calculate_roc_curve_points(model, X_test, y_test)
+        for model_name, model in trained_models.items()
+    }
     ranked_results = rank_models_by_recall_then_auc(results)
 
     return {
@@ -41,6 +46,7 @@ def run_model_comparison() -> dict[str, Any]:
             {"model_name": model_name, **metrics}
             for model_name, metrics in ranked_results
         ],
+        "roc_curves": roc_curves,
         "metadata": {
             "dataset_name": dataset_metadata["name"],
             "sample_count": dataset_metadata["sample_count"],

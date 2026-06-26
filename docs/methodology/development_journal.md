@@ -58,3 +58,14 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 - Resultado: alterações revisadas, commitadas e publicadas.
 - Commit: `7b142dd feat: integra comparação inicial de modelos à página`.
 - Próximo passo: adicionar curva ROC ou melhoria visual controlada, sem persistir modelo final.
+
+### 2026-06-26 — Curva ROC na comparação inicial de modelos
+
+- Etapa: Rodada 6A do Codex.
+- Objetivo: adicionar Curva ROC à comparação inicial de modelos na página `pages/03_Modelos.py`, mantendo tudo em memória.
+- Ações: criação de `calculate_roc_curve_points()` em `src/models/evaluate.py`; inclusão de `roc_curves` no payload de `run_model_comparison()`; exibição da Curva ROC dos candidatos na página de modelos com `st.line_chart`; testes unitários e smoke atualizados.
+- Cuidados: a Curva ROC usa a probabilidade da classe `0 = malignant`, com `y_test == 0` mapeado para classe positiva; não houve escolha de modelo final nem persistência de artefatos.
+- Testes: 45 testes passaram em `python -m pytest -q`.
+- Resultado: Curva ROC incorporada à comparação acadêmica inicial, ainda sem `.joblib`, `metrics.json`, `feature_names.json`, CSV, imagem salva, SHAP ou predição individual final.
+- Commit: pendente de revisão humana.
+- Próximo passo: revisar visualmente a página Streamlit e seguir para seleção controlada de modelo final ou explicabilidade, conforme plano do projeto.

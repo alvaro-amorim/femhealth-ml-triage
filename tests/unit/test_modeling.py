@@ -4,13 +4,14 @@ from pathlib import Path
 
 import pandas as pd
 import pytest
-from sklearn.metrics import roc_auc_score
+from sklearn.metrics import roc_auc_score, roc_curve
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
 from src.data.load_data import load_wdbc_data
 from src.features.preprocess import split_train_test
 from src.models.evaluate import (
+    calculate_roc_curve_points,
     evaluate_candidate_models,
     evaluate_classifier,
     get_malignant_probability,
@@ -190,6 +191,34 @@ def test_roc_auc_malignant_uses_probability_for_class_zero() -> None:
     assert metrics["roc_auc_malignant"] == roc_auc_score(
         (y_test == 0).astype(int), malignant_probabilities
     )
+
+
+def test_calculate_roc_curve_points_uses_malignant_probability() -> None:
+    X_test = pd.DataFrame({"feature": [1.0, 2.0, 3.0, 4.0]})
+    y_test = pd.Series([0, 0, 1, 1])
+    malignant_probabilities = [0.90, 0.20, 0.10, 0.40]
+    model = FixedProbabilityModel(
+        predictions=[0, 1, 1, 1],
+        probabilities=[
+            [0.10, 0.90],
+            [0.80, 0.20],
+            [0.90, 0.10],
+            [0.60, 0.40],
+        ],
+    )
+
+    curve = calculate_roc_curve_points(model, X_test, y_test)
+    expected_fpr, expected_tpr, expected_thresholds = roc_curve(
+        (y_test == 0).astype(int), malignant_probabilities
+    )
+
+    assert set(curve) == {"fpr", "tpr", "thresholds"}
+    assert all(isinstance(curve[key], list) for key in curve)
+    assert curve["fpr"] == pytest.approx(expected_fpr.tolist())
+    assert curve["tpr"] == pytest.approx(expected_tpr.tolist())
+    assert curve["thresholds"] == pytest.approx(expected_thresholds.tolist())
+    assert all(0.0 <= value <= 1.0 for value in curve["fpr"])
+    assert all(0.0 <= value <= 1.0 for value in curve["tpr"])
 
 
 def test_ranking_prioritizes_malignant_recall_before_accuracy() -> None:

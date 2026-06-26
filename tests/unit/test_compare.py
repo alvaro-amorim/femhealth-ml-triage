@@ -20,9 +20,10 @@ FORBIDDEN_ARTIFACTS = (
 def test_run_model_comparison_returns_expected_contract() -> None:
     payload = run_model_comparison()
 
-    assert set(payload) == {"results", "ranking", "metadata"}
+    assert set(payload) == {"results", "ranking", "roc_curves", "metadata"}
     assert len(payload["results"]) >= 2
     assert payload["ranking"]
+    assert payload["roc_curves"]
     assert payload["metadata"]["priority_label"] == 0
     assert payload["metadata"]["priority_class"] == "malignant"
     assert payload["metadata"]["priority_metric"] == "recall_malignant"
@@ -47,6 +48,18 @@ def test_run_model_comparison_metadata_documents_reproducible_split() -> None:
         "roc_auc_malignant",
         "f1_malignant",
     ]
+
+
+def test_run_model_comparison_returns_roc_curve_for_each_model() -> None:
+    payload = run_model_comparison()
+
+    assert set(payload["roc_curves"]) == set(payload["results"])
+    for curve in payload["roc_curves"].values():
+        assert set(curve) == {"fpr", "tpr", "thresholds"}
+        assert all(isinstance(curve[key], list) for key in curve)
+        assert len(curve["fpr"]) == len(curve["tpr"]) == len(curve["thresholds"])
+        assert all(0.0 <= value <= 1.0 for value in curve["fpr"])
+        assert all(0.0 <= value <= 1.0 for value in curve["tpr"])
 
 
 def test_run_model_comparison_does_not_create_final_artifacts() -> None:

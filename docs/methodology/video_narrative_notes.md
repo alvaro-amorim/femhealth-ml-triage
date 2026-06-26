@@ -20,7 +20,7 @@ Frase possível:
 - Pipelines base com `StandardScaler` para modelos sensíveis à escala e passthrough para modelos baseados em árvore.
 - Modelagem inicial em memória com Regressão Logística, Árvore de Decisão e KNN.
 - Avaliação com foco em recall da classe maligna, respeitando `0 = malignant` no WDBC.
-- Página de modelos com comparação acadêmica inicial, ranking e matriz de confusão.
+- Página de modelos com comparação acadêmica inicial, ranking, Curva ROC e matriz de confusão.
 - Interface Streamlit multipage.
 - Testes desde o início.
 - Explicabilidade planejada com feature importance e SHAP.
@@ -36,6 +36,7 @@ Mostrar:
 - Rodada 3 com 25 testes passando após pré-processamento e split.
 - Rodada 4 com 37 testes passando após modelagem inicial e avaliação.
 - Rodada 5 com 43 testes passando após integração da comparação inicial na página de modelos.
+- Rodada 6A com 45 testes passando após inclusão da Curva ROC na comparação inicial.
 - App Streamlit rodando.
 
 ## Uso responsável de IA
@@ -48,6 +49,7 @@ Mostrar:
 
 - Home do Streamlit.
 - Página de comparação inicial de modelos.
+- Curva ROC usando probabilidade da classe maligna.
 - Testes com `pytest`.
 - GitHub com commits.
 - Futuras páginas de EDA, predição, modelos e explicabilidade.

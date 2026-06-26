@@ -12,6 +12,7 @@ from sklearn.metrics import (
     f1_score,
     precision_score,
     recall_score,
+    roc_curve,
     roc_auc_score,
 )
 
@@ -39,6 +40,28 @@ def get_malignant_probability(model: BaseEstimator, X_test: pd.DataFrame) -> lis
     malignant_index = classes.index(MALIGNANT_LABEL)
     probabilities = np.asarray(model.predict_proba(X_test))
     return probabilities[:, malignant_index].tolist()
+
+
+def calculate_roc_curve_points(
+    model: BaseEstimator, X_test: pd.DataFrame, y_test: pd.Series
+) -> dict[str, list[float]]:
+    """Calculate ROC curve points for the malignant class.
+
+    The WDBC target uses ``0 = malignant`` and ``1 = benign``. For ROC curves,
+    Scikit-learn expects the positive class to be encoded as ``1``; therefore
+    this function maps ``y_test == 0`` to ``1`` and uses the predicted
+    probability of class ``0``. This avoids plotting the benign probability by
+    mistake.
+    """
+    malignant_probability = get_malignant_probability(model, X_test)
+    y_true_malignant = (y_test == MALIGNANT_LABEL).astype(int)
+    fpr, tpr, thresholds = roc_curve(y_true_malignant, malignant_probability)
+
+    return {
+        "fpr": fpr.tolist(),
+        "tpr": tpr.tolist(),
+        "thresholds": thresholds.tolist(),
+    }
 
 
 def evaluate_classifier(

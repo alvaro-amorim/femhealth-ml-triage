@@ -57,6 +57,26 @@ def _format_ranking_table(ranking: list[dict]) -> pd.DataFrame:
     )
 
 
+def _format_roc_curve_table(roc_curves: dict) -> pd.DataFrame:
+    """Return ROC curve points in long format for display."""
+    rows = []
+    for model_name, curve in roc_curves.items():
+        model_label = MODEL_LABELS.get(model_name, model_name)
+        for fpr, tpr, threshold in zip(
+            curve["fpr"], curve["tpr"], curve["thresholds"]
+        ):
+            rows.append(
+                {
+                    "Modelo": model_label,
+                    "FPR": fpr,
+                    "TPR": tpr,
+                    "Threshold": threshold,
+                }
+            )
+
+    return pd.DataFrame(rows)
+
+
 def render_page() -> None:
     """Render the controlled initial model-comparison page."""
     st.title("Comparação Inicial de Modelos")
@@ -71,6 +91,7 @@ def render_page() -> None:
     metadata = payload["metadata"]
     results = payload["results"]
     ranking = payload["ranking"]
+    roc_curves = payload["roc_curves"]
     top_model = ranking[0]
 
     st.subheader("Configuração da comparação")
@@ -114,6 +135,28 @@ def render_page() -> None:
         _format_ranking_table(ranking),
         use_container_width=True,
         hide_index=True,
+    )
+
+    st.subheader("Curva ROC")
+    st.write(
+        "A curva ROC avalia a separação entre classes em diferentes limiares. "
+        "Neste projeto, ela usa a probabilidade da classe maligna (`0 = "
+        "malignant`) e não representa diagnóstico médico."
+    )
+    roc_curve_table = _format_roc_curve_table(roc_curves)
+    roc_chart_data = (
+        roc_curve_table.pivot_table(
+            index="FPR",
+            columns="Modelo",
+            values="TPR",
+            aggfunc="max",
+        )
+        .sort_index()
+    )
+    st.line_chart(roc_chart_data)
+    st.caption(
+        "FPR = taxa de falsos positivos; TPR = sensibilidade/recall da classe "
+        "maligna em cada limiar."
     )
 
     st.subheader("Matriz de confusão do modelo melhor ranqueado nesta comparação inicial")

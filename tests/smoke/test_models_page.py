@@ -23,6 +23,7 @@ def test_models_page_imports_without_error() -> None:
         caption=lambda *_args, **_kwargs: None,
         markdown=lambda *_args, **_kwargs: None,
         dataframe=lambda *_args, **_kwargs: None,
+        line_chart=lambda *_args, **_kwargs: None,
         info=lambda *_args, **_kwargs: None,
     )
     sys.modules["streamlit"] = fake_streamlit
@@ -42,4 +43,6 @@ def test_models_page_contains_academic_and_ethical_text() -> None:
     assert "Comparação acadêmica inicial" in page_source
     assert "não realiza diagnóstico" in page_source
     assert "médico" in page_source
+    assert "Curva ROC" in page_source
+    assert "probabilidade da classe maligna" in page_source
     assert "modelo final" in page_source

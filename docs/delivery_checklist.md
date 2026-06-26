@@ -18,7 +18,7 @@
 - [x] Comparação inicial de candidatos exibida na página de modelos.
 - [x] Ranking inicial por recall maligno, ROC AUC e F1 exibido.
 - [x] Matriz de confusão exibida na página de modelos.
-- [ ] Curva ROC apresentada.
+- [x] Curva ROC apresentada.
 - [ ] Modelo final, métricas e feature names persistidos.
 - [ ] Feature importance e SHAP implementados.
 

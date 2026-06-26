@@ -11,6 +11,7 @@ Este arquivo registra as rodadas da ferramenta de implementação no VS Code.
 | 3 | 2026-06-26 | Pré-processamento e split treino/teste | 25 testes passaram | Pré-processamento, split e pipelines base implementados | `a6b8f9f` |
 | 4 | 2026-06-26 | Modelagem inicial e avaliação controlada | 37 testes passaram | Candidatos treináveis em memória e métricas iniciais implementados | `7180bda` |
 | 5 | 2026-06-26 | Integração da comparação inicial na página de modelos | 43 testes passaram | Comparação em memória exibida no Streamlit | `7b142dd` |
+| 6A | 2026-06-26 | Curva ROC na comparação inicial de modelos | 45 testes passaram | Curva ROC calculada em memória e exibida no Streamlit | Pendente |
 
 ## Rodada 3 — validação pós-pull metodológico
 
@@ -54,6 +55,20 @@ Este arquivo registra as rodadas da ferramenta de implementação no VS Code.
 - Commit relacionado: `7b142dd feat: integra comparação inicial de modelos à página`.
 - Tokens/custo: não disponível.
 - Observações: não houve escolha de modelo final, persistência de artefatos, SHAP, predição individual final, API, banco ou autenticação.
+
+## Rodada 6A — Curva ROC na comparação inicial de modelos
+
+- Rodada: 6A
+- Data: 2026-06-26
+- Objetivo: adicionar Curva ROC à comparação inicial de modelos na página `pages/03_Modelos.py`.
+- Arquivos alterados: `src/models/evaluate.py`, `src/models/compare.py`, `pages/03_Modelos.py`, `tests/unit/test_modeling.py`, `tests/unit/test_compare.py`, `tests/smoke/test_models_page.py`, `README.md`, `docs/delivery_checklist.md` e registros em `docs/methodology/`.
+- Comandos executados: `git status --short`, leitura da constituição e metodologia, `python -m pytest -q`; validações finais completas serão registradas no resumo da rodada.
+- Testes: 45 testes passaram em `python -m pytest -q`.
+- Resultado: curvas ROC dos modelos candidatos calculadas com probabilidade da classe maligna e exibidas na comparação acadêmica inicial.
+- Problemas: nenhum bloqueio relevante.
+- Commit relacionado: pendente de revisão humana.
+- Tokens/custo: não disponível.
+- Observações: não houve escolha de modelo final, persistência de `.joblib`, `metrics.json`, `feature_names.json`, CSV, imagem de gráfico, SHAP, predição individual final, API, banco ou autenticação.
 
 ## Template
 
