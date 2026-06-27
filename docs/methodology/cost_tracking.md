@@ -35,7 +35,7 @@ Os valores devem ser preenchidos manualmente pelo usuário quando a ferramenta e
 | 2026-06-27 | Codex | não disponível | Rodada 8 | Persistência controlada do modelo candidato recomendado | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 65 testes passaram; commit `6769ead` |
 | 2026-06-27 | Codex | não disponível | Rodada 9 | Predição individual acadêmica com artefato persistido | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 78 testes passaram; commit `3efa07f` |
 | 2026-06-27 | Codex | não disponível | Rodada 10 | Explicabilidade inicial do modelo persistido | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 86 testes passaram; commit `af1bfc1` |
-| 2026-06-27 | Codex | não disponível | Rodada 11 | Revisão final de qualidade e higiene técnica | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 86 testes passaram; cobertura 88%; commit pendente |
+| 2026-06-27 | Codex | não disponível | Rodada 11 | Revisão final de qualidade e higiene técnica | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 86 testes passaram; cobertura 88%; commit `d343d9f` |
 | 2026-06-26 | GitHub conectado ao ChatGPT | não disponível | Revisões remotas | Conferência de commits e arquivos no GitHub | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | Usado para revisar estado remoto |
 
 ---
