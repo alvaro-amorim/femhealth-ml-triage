@@ -98,7 +98,8 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 - Artefatos criados: `models/artifacts/recommended_model.joblib`, `models/artifacts/recommended_model_metrics.json` e `models/artifacts/recommended_model_feature_names.json`.
 - Decisão técnica: versionar o `.joblib` específico do candidato recomendado porque é pequeno, determinístico, necessário para o app acadêmico e documentado; a regra permanece restrita a `models/artifacts/`.
 - Cuidados: sem SHAP, sem explicabilidade final, sem predição individual final, sem API, sem banco, sem autenticação e sem alteração do split oficial.
+- Problemas: textos inicialmente apareceram com mojibake no PowerShell; checagem Python confirmou os arquivos críticos sem mojibake antes do commit.
 - Testes: 65 testes passaram em `python -m pytest -q` e `pytest -q`.
-- Resultado: modelo candidato recomendado persistido como artefato acadêmico, com métricas, feature names e model card operacional; pendente de revisão humana.
-- Commit: pendente.
-- Próximo passo: validar com `pytest`, revisar os artefatos e avançar para predição individual ou explicabilidade em rodada futura.
+- Resultado: modelo candidato recomendado persistido como artefato acadêmico, com métricas, feature names e model card operacional; alterações revisadas, commitadas e publicadas.
+- Commit: `6769ead feat: persiste candidato recomendado com model card`.
+- Próximo passo: avançar para predição individual usando artefatos persistidos ou explicabilidade em rodada futura.
