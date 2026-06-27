@@ -32,7 +32,7 @@
 
 ## Aplicação e qualidade
 
-- [ ] Páginas Streamlit funcionais.
+- [x] Páginas Streamlit principais funcionais.
 - [x] Página de exploração parcialmente funcional com EDA real do WDBC.
 - [x] Página de modelos parcialmente funcional com comparação acadêmica inicial.
 - [x] Página de explicabilidade parcialmente funcional com importância global e explicação local.
@@ -44,12 +44,13 @@
 - [x] Testes de modelagem e avaliação inicial implementados.
 - [x] Testes de predição implementados.
 - [x] Testes de explicabilidade implementados.
-- [ ] `pytest` e `pytest --cov=src` passam no projeto completo.
+- [x] `pytest` e `pytest --cov=src` passam no projeto completo.
 
 ## Documentação e entrega
 
 - [x] Aviso ético no README e model card.
-- [ ] Aviso ético em todas as páginas e no relatório.
+- [x] Aviso ético nas páginas principais do app.
+- [ ] Aviso ético no relatório final.
 - [ ] README atualizado com treinamento, artefatos, exemplos, repositório e vídeo.
 - [x] Model card operacional atualizado para o candidato persistido.
 - [ ] Relatório técnico em PDF concluído.

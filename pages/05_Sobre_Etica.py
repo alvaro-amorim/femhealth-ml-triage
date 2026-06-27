@@ -11,10 +11,11 @@ st.write(
 st.markdown(
     "- Dataset principal: Breast Cancer Wisconsin Diagnostic (WDBC).\n"
     "- Interface V1: Streamlit multipage.\n"
-    "- Fora da V1: API, banco de dados, autenticação, React/Vite e uso clínico."
+    "- Fora da V1: API, banco de dados, autenticação, React/Vite e uso "
+    "operacional em saúde."
 )
 st.warning(
-    "Esta aplicação não substitui avaliação médica, laudo anatomopatológico, "
-    "avaliação clínica ou decisão profissional. O médico sempre deve ter a "
-    "palavra final."
+    "Esta aplicação não substitui diagnóstico médico, laudo anatomopatológico, "
+    "avaliação clínica ou decisão profissional. O profissional de saúde sempre "
+    "deve ter a palavra final."
 )

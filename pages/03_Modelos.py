@@ -169,8 +169,9 @@ def render_page() -> None:
     st.warning(
         "Esta seleção é técnica, acadêmica e inicial. Ela não é diagnóstico "
         "médico, não define uma ferramenta para uso real em saúde e a "
-        "persistência do artefato é apenas técnica. SHAP e explicabilidade "
-        "final serão tratados posteriormente."
+        "persistência do artefato é apenas técnica. A explicabilidade inicial "
+        "está disponível na página de explicabilidade e pode ser refinada em "
+        "etapas futuras do projeto."
     )
 
     st.subheader("Artefatos persistidos")
@@ -237,8 +238,8 @@ def render_page() -> None:
 
     st.info(
         "Há um artefato técnico do candidato recomendado para fins acadêmicos. "
-        "Predição individual final, SHAP e explicabilidade final serão tratados "
-        "em etapas posteriores."
+        "A predição individual acadêmica e a explicabilidade inicial já consomem "
+        "esse artefato sem transformá-lo em ferramenta para uso real em saúde."
     )
 
 

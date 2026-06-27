@@ -20,7 +20,7 @@ Este modelo é um artefato acadêmico para demonstração de Machine Learning e 
 
 ## Objetivo acadêmico
 
-Persistir o modelo candidato recomendado nesta comparação controlada para permitir que etapas futuras, como predição individual e explicabilidade, usem um artefato técnico reproduzível.
+Persistir o modelo candidato recomendado nesta comparação controlada para permitir que predição individual acadêmica e explicabilidade inicial usem um artefato técnico reproduzível.
 
 O artefato não representa ferramenta validada para uso real em saúde, laudo ou recomendação profissional.
 

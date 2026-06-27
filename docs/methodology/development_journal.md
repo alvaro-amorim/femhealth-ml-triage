@@ -84,7 +84,7 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 - Objetivo: formalizar uma seleção acadêmica controlada do modelo candidato recomendado, usando o ranking em memória já definido por `recall_malignant`, `roc_auc_malignant` e `f1_malignant`.
 - Ações: criação de `select_recommended_candidate()` em `src/models/select.py`; inclusão de `recommended_candidate` no payload de `run_model_comparison()`; atualização da página de modelos com seção “Modelo candidato recomendado”; testes unitários e smoke atualizados.
 - Cuidados: a seleção segue o ranking já calculado, não treina novamente, não altera split, não altera critérios de ranking, não persiste `.joblib`, não salva métricas JSON e não define ferramenta para uso real em saúde.
-- Problemas: durante a revisão, arquivos de página foram regravados pelo PowerShell com mojibake; os acentos foram corrigidos antes do commit. O aviso `use_container_width` do Streamlit também foi removido com `width="stretch"`.
+- Problemas: durante a revisão, arquivos de página foram regravados pelo PowerShell com mojibake; os acentos foram corrigidos antes do commit. O parâmetro depreciado de largura do Streamlit também foi removido e substituído por `width="stretch"`.
 - Testes: 60 testes passaram em `python -m pytest -q` e `pytest -q`.
 - Resultado: seleção técnica e inicial do candidato recomendado disponível em código, página e documentação; alterações revisadas, commitadas e publicadas.
 - Commit: `a483031 feat: seleciona candidato recomendado de forma controlada`.
@@ -132,3 +132,15 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 - Resultado: página de explicabilidade funcional com importância global e explicação local acadêmica; alterações revisadas, commitadas e publicadas.
 - Commit: `af1bfc1 feat: adiciona explicabilidade inicial`.
 - Próximo passo: seguir para revisão final do app, cobertura/testes, polimento visual ou preparação de relatório/vídeo.
+
+### 2026-06-27 — Revisão final de qualidade e higiene técnica
+
+- Etapa: Rodada 11 do Codex.
+- Objetivo: revisar consistência textual, ética, técnica e preparação de entrega sem criar funcionalidade grande.
+- Ações: revisão das páginas Streamlit principais; remoção de textos desatualizados sobre páginas futuras; atualização de aviso em Sobre/Ética para evitar linguagem de uso operacional em saúde; ajuste de texto da página de modelos para reconhecer predição e explicabilidade já implementadas; atualização de model cards, checklist e metodologia.
+- Checagens: linguagem proibida, parâmetros depreciados do Streamlit, mojibake, artefatos indevidos, testes e cobertura.
+- Testes: `python -m pytest -q` e `pytest -q` passaram com 86 testes; `pytest --cov=src` passou com cobertura total de 88%.
+- Problemas: o ambiente não tinha `pytest-cov` disponível no primeiro `pytest --cov=src`; foi instalado no ambiente local porque já faz parte da stack e do `requirements.txt`. Persistem warnings não bloqueantes de `InconsistentVersionWarning` do Scikit-learn ao carregar o `.joblib`.
+- Custos/tokens: não disponível.
+- Resultado: app e documentação ficaram mais coerentes para revisão humana; relatório PDF e vídeo seguem pendentes.
+- Commit: pendente de revisão humana.

@@ -17,6 +17,7 @@ Este arquivo registra as rodadas da ferramenta de implementação no VS Code.
 | 8 | 2026-06-27 | Persistência controlada do candidato recomendado | 65 testes passaram | Artefatos acadêmicos gerados em `models/artifacts/` | `6769ead` |
 | 9 | 2026-06-27 | Predição individual acadêmica com artefato persistido | 78 testes passaram | Página de predição consome o modelo persistido com validação rígida | `3efa07f` |
 | 10 | 2026-06-27 | Explicabilidade inicial do modelo persistido | 86 testes passaram | Página de explicabilidade exibe importância global e explicação local | `af1bfc1` |
+| 11 | 2026-06-27 | Revisão final de qualidade e higiene técnica | 86 testes passaram; cobertura 88% | Textos, ética, checklist e validações finais revisados | Pendente |
 
 ## Rodada 7 — Seleção controlada do modelo candidato recomendado
 
@@ -83,6 +84,21 @@ A Rodada 7 pode ser descrita como a etapa em que o projeto passou a indicar um m
 - Commit relacionado: `af1bfc1 feat: adiciona explicabilidade inicial`.
 - Tokens/custo: não disponível.
 - Observações: não houve retreino, novo `.joblib`, novo JSON, CSV, notebook, API, banco, autenticação, dataset novo ou alteração do split oficial.
+
+## Rodada 11 — Revisão final de qualidade e higiene técnica
+
+- Rodada: 11
+- Data: 2026-06-27
+- Objetivo: revisar páginas, textos, ética, documentação, cobertura, artefatos e higiene técnica antes da preparação de entrega.
+- Arquivos alterados: `app.py`, `pages/03_Modelos.py`, `pages/05_Sobre_Etica.py`, `README.md`, `docs/delivery_checklist.md`, `docs/model_card.md`, `models/model_card.md` e registros em `docs/methodology/`.
+- Comandos executados: `git status --short`, `git pull --ff-only`, leitura da constituição e documentação, varreduras de linguagem proibida/mojibake/artefatos, `python -m pytest -q`, `pytest -q`, `pytest --cov=src`, `git diff --check`, `git diff --stat`.
+- Testes: 86 testes passaram em `python -m pytest -q` e `pytest -q`.
+- Cobertura: `pytest --cov=src` passou com cobertura total de 88%.
+- Problemas: `pytest --cov=src` falhou inicialmente porque `pytest-cov` não estava instalado no ambiente atual; o plugin foi instalado localmente por já estar previsto no projeto. Persistem warnings não bloqueantes de versão do Scikit-learn ao carregar o artefato `.joblib`.
+- Resultado: textos desatualizados foram corrigidos, a linguagem ética foi reforçada, checklist e model cards foram alinhados ao estado real.
+- Commit relacionado: pendente de revisão humana.
+- Tokens/custo: não disponível.
+- Observações: não houve retreino, novo `.joblib`, novo JSON, CSV, notebook, API, banco, autenticação, dataset novo, troca de modelo ou alteração de artefatos.
 
 ## Template
 

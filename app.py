@@ -1,8 +1,4 @@
-"""Página inicial do FemHealth ML Triage.
-
-Esta etapa fornece somente a navegação e o contexto do projeto. As páginas
-futuras consumirão lógica testável dos módulos em ``src``.
-"""
+"""Página inicial do FemHealth ML Triage."""
 
 import streamlit as st
 
@@ -17,8 +13,9 @@ st.write(
 )
 
 st.info(
-    "Nesta etapa, a base estrutural está pronta. Use a navegação lateral para "
-    "conhecer as páginas planejadas da V1."
+    "Use a navegação lateral para acessar exploração dos dados, predição "
+    "individual acadêmica, comparação de modelos, explicabilidade e seção de "
+    "ética/limitações."
 )
 
 st.warning(
