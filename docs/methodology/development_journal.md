@@ -129,6 +129,6 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 - Testes: 86 testes passaram em `python -m pytest -q`.
 - Problemas: foram revisados warnings externos do SHAP (`PendingDeprecationWarning` em `shap/plots/colors/_colors.py`) observados em execução manual. Foi aplicado filtro localizado apenas dentro da função opcional de SHAP para esse tipo de warning externo, sem desativar warnings globalmente nem mascarar erros reais. No ambiente do Codex, os warnings restantes são `InconsistentVersionWarning` do Scikit-learn ao carregar o `.joblib`; a explicabilidade e os testes passaram.
 - Fallback: quando SHAP não fica disponível ou estável no ambiente, a página mantém `fallback_coefficients` com coeficientes da Regressão Logística.
-- Resultado: página de explicabilidade funcional com importância global e explicação local acadêmica.
-- Commit: pendente de revisão humana.
-- Próximo passo: revisar visualmente a página no Streamlit e seguir para refinamentos finais de explicabilidade/relatório.
+- Resultado: página de explicabilidade funcional com importância global e explicação local acadêmica; alterações revisadas, commitadas e publicadas.
+- Commit: `af1bfc1 feat: adiciona explicabilidade inicial`.
+- Próximo passo: seguir para revisão final do app, cobertura/testes, polimento visual ou preparação de relatório/vídeo.
