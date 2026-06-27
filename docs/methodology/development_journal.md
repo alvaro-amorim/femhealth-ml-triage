@@ -118,3 +118,17 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 - Resultado: predição individual acadêmica disponível no app Streamlit usando o artefato persistido e exemplos reais do WDBC; alterações revisadas, commitadas e publicadas.
 - Commit: `3efa07f feat: adiciona predicao individual academica`.
 - Próximo passo: implementar explicabilidade/SHAP ou revisar compatibilidade de ambiente para reduzir warnings de persistência.
+
+### 2026-06-27 — Explicabilidade inicial do modelo persistido
+
+- Etapa: Rodada 10 do Codex.
+- Objetivo: ativar a página `pages/04_Explicabilidade.py` com explicabilidade global e local do modelo persistido, sem retreinar e sem gerar novos artefatos.
+- Ações: implementação de `src/models/explain.py`; extração de coeficientes da Regressão Logística dentro do pipeline persistido; cálculo de importância global; cálculo de contribuições locais para exemplos reais WDBC; SHAP opcional em memória com fallback por coeficientes; atualização da página de explicabilidade, testes e documentação.
+- Decisão técnica: usar coeficientes como caminho estável e SHAP apenas quando disponível no ambiente, sem quebrar a aplicação em caso de incompatibilidade.
+- Cuidados: sem novo `.joblib`, sem JSON novo, sem CSV, sem notebook, sem API, sem banco, sem autenticação, sem retreino e sem afirmação de causalidade médica.
+- Testes: 86 testes passaram em `python -m pytest -q`.
+- Problemas: foram revisados warnings externos do SHAP (`PendingDeprecationWarning` em `shap/plots/colors/_colors.py`) observados em execução manual. Foi aplicado filtro localizado apenas dentro da função opcional de SHAP para esse tipo de warning externo, sem desativar warnings globalmente nem mascarar erros reais. No ambiente do Codex, os warnings restantes são `InconsistentVersionWarning` do Scikit-learn ao carregar o `.joblib`; a explicabilidade e os testes passaram.
+- Fallback: quando SHAP não fica disponível ou estável no ambiente, a página mantém `fallback_coefficients` com coeficientes da Regressão Logística.
+- Resultado: página de explicabilidade funcional com importância global e explicação local acadêmica.
+- Commit: pendente de revisão humana.
+- Próximo passo: revisar visualmente a página no Streamlit e seguir para refinamentos finais de explicabilidade/relatório.

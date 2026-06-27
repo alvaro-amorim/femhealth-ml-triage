@@ -56,6 +56,12 @@ A entrada é validada contra as 30 features canônicas, na ordem esperada, sem c
 
 Essa saída é apenas uma estimativa acadêmica do modelo para apoio à triagem analítica em contexto educacional. Ela não substitui diagnóstico médico, avaliação clínica, laudo anatomopatológico ou decisão profissional.
 
+## Explicabilidade inicial
+
+A página `pages/04_Explicabilidade.py` apresenta explicabilidade acadêmica inicial do modelo persistido. Ela mostra importância global das features por coeficientes da Regressão Logística, tenta calcular SHAP em memória quando o ambiente permite e mantém fallback técnico por coeficientes quando SHAP não está disponível.
+
+A explicação local usa exemplos reais do WDBC (`malignant (0)` e `benign (1)`) e exibe as principais contribuições para uma amostra tabular. Esses resultados descrevem comportamento do modelo e não implicam causalidade médica, recomendação profissional ou decisão clínica.
+
 ## Stack V1
 
 - Python 3.11
@@ -96,7 +102,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Nesta etapa, as páginas ainda são incrementais. O carregamento e a validação do WDBC estão disponíveis em `src/data/`, a EDA reutilizável está em `src/analysis/`, a base de pré-processamento/split está em `src/features/`, a modelagem inicial e a persistência controlada do candidato recomendado estão em `src/models/`, e as páginas de exploração e modelos já exibem análises acadêmicas iniciais.
+Nesta etapa, as páginas ainda são incrementais. O carregamento e a validação do WDBC estão disponíveis em `src/data/`, a EDA reutilizável está em `src/analysis/`, a base de pré-processamento/split está em `src/features/`, a modelagem inicial, a persistência controlada, a predição e a explicabilidade inicial do candidato recomendado estão em `src/models/`, e as páginas de exploração, predição, modelos e explicabilidade já exibem análises acadêmicas iniciais.
 
 A página de predição individual acadêmica já consome o modelo candidato persistido:
 
@@ -113,7 +119,7 @@ pytest --cov=src
 
 ## Status atual
 
-Base de dados, EDA inicial, pré-processamento, modelagem inicial em memória, comparação inicial com Curva ROC, seleção acadêmica, persistência controlada do modelo candidato recomendado e predição individual acadêmica concluídos. Não há SHAP ou explicabilidade final nesta etapa.
+Base de dados, EDA inicial, pré-processamento, modelagem inicial em memória, comparação inicial com Curva ROC, seleção acadêmica, persistência controlada do modelo candidato recomendado, predição individual acadêmica e explicabilidade inicial concluídos. A explicabilidade final ainda pode ser refinada na revisão final.
 
 ## Aviso ético
 

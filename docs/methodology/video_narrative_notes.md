@@ -24,9 +24,10 @@ Frase possível:
 - Página de modelos com comparação acadêmica inicial, ranking, candidato recomendado, Curva ROC e matriz de confusão.
 - Persistência controlada do candidato recomendado como artefato acadêmico em `models/artifacts/`.
 - Predição individual acadêmica usando o artefato persistido, com exemplos reais do WDBC e formulário manual validado.
+- Explicabilidade inicial com importância global por coeficientes, SHAP opcional com fallback e explicação local de exemplos reais WDBC.
 - Interface Streamlit multipage.
 - Testes desde o início.
-- Explicabilidade planejada com feature importance e SHAP.
+- Explicabilidade planejada para refinamento final com feature importance e SHAP.
 
 ## Metodologia de desenvolvimento
 
@@ -44,6 +45,7 @@ Mostrar:
 - Rodada 7 com 60 testes passando após seleção controlada do candidato recomendado.
 - Rodada 8 com 65 testes passando após persistência controlada do candidato recomendado e model card operacional.
 - Rodada 9 com 78 testes passando após predição individual acadêmica usando o artefato persistido.
+- Rodada 10 com 86 testes passando após explicabilidade inicial do modelo persistido.
 - App Streamlit rodando.
 
 ## Uso responsável de IA
@@ -60,6 +62,7 @@ Mostrar:
 - Seção de modelo candidato recomendado, com aviso de que o artefato persistido é acadêmico e não serve para uso real em saúde.
 - Artefatos em `models/artifacts/` e model card operacional.
 - Página de predição individual com exemplos reais WDBC, probabilidades estimadas e aviso não diagnóstico.
+- Página de explicabilidade com importância global das features e explicação local de uma amostra.
 - Curva ROC usando probabilidade da classe maligna.
 - Testes com `pytest`.
 - GitHub com commits.

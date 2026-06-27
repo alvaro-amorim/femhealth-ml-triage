@@ -27,13 +27,15 @@
 - [x] Métricas do modelo candidato recomendado persistidas.
 - [x] Feature names do modelo candidato recomendado persistidos.
 - [ ] Modelo final definitivo para entrega, métricas e feature names revisados.
-- [ ] Feature importance e SHAP implementados.
+- [x] Feature importance inicial por coeficientes implementada.
+- [x] SHAP opcional com fallback técnico implementado.
 
 ## Aplicação e qualidade
 
 - [ ] Páginas Streamlit funcionais.
 - [x] Página de exploração parcialmente funcional com EDA real do WDBC.
 - [x] Página de modelos parcialmente funcional com comparação acadêmica inicial.
+- [x] Página de explicabilidade parcialmente funcional com importância global e explicação local.
 - [x] Entrada individual validada.
 - [x] Exemplos reais do WDBC usados para demonstração na página de predição.
 - [x] Smoke tests de estrutura, schema e carregamento criados.
@@ -41,6 +43,7 @@
 - [x] Testes de pré-processamento implementados.
 - [x] Testes de modelagem e avaliação inicial implementados.
 - [x] Testes de predição implementados.
+- [x] Testes de explicabilidade implementados.
 - [ ] `pytest` e `pytest --cov=src` passam no projeto completo.
 
 ## Documentação e entrega

@@ -2,7 +2,7 @@
 
 ## Status
 
-**Status:** modelo candidato persistido para fins acadêmicos na Rodada 8 e consumido pela predição individual acadêmica na Rodada 9.
+**Status:** modelo candidato persistido para fins acadêmicos na Rodada 8, consumido pela predição individual acadêmica na Rodada 9 e pela explicabilidade inicial na Rodada 10.
 
 Este modelo é um artefato acadêmico para demonstração de Machine Learning e não deve ser usado para diagnóstico médico.
 
@@ -82,13 +82,19 @@ Matriz de confusão, na ordem `0 = malignant`, `1 = benign`:
 
 - Demonstração acadêmica de pipeline de Machine Learning tabular.
 - Base técnica para próximas etapas do projeto.
-- Apoio à apresentação de comparação de modelos, predição individual acadêmica demonstrativa e explicabilidade futura.
+- Apoio à apresentação de comparação de modelos, predição individual acadêmica demonstrativa e explicabilidade inicial.
 
 ## Uso na predição individual acadêmica
 
 Na Rodada 9, este artefato passou a ser consumido pela página `pages/02_Predicao.py` para executar estimativas acadêmicas de uma única amostra no formato WDBC.
 
 A entrada é validada contra as 30 features canônicas, na ordem esperada, sem colunas extras, sem colunas ausentes e sem valores nulos. A página usa exemplos reais do WDBC apenas como demonstração educacional.
+
+## Uso na explicabilidade inicial
+
+Na Rodada 10, este artefato passou a ser consumido pela página `pages/04_Explicabilidade.py` para explicar o comportamento do pipeline persistido.
+
+A importância global usa coeficientes da Regressão Logística e SHAP é calculado em memória quando disponível no ambiente. Quando SHAP falha por incompatibilidade local, a aplicação mantém fallback por coeficientes. As explicações locais usam exemplos reais do WDBC e não devem ser interpretadas como causalidade médica.
 
 ## Usos não pretendidos
 
@@ -106,6 +112,7 @@ A entrada é validada contra as 30 features canônicas, na ordem esperada, sem c
 - Possível limitação de diversidade populacional.
 - Métricas são calculadas em um único split estratificado.
 - Correlações e coeficientes não devem ser interpretados como causalidade médica.
+- Explicabilidade descreve comportamento do modelo, não prova causalidade nem decisão clínica.
 - Alto desempenho em WDBC não implica validade clínica real.
 
 ## Aviso ético

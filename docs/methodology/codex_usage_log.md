@@ -16,6 +16,7 @@ Este arquivo registra as rodadas da ferramenta de implementação no VS Code.
 | 7 | 2026-06-26 | Seleção controlada do candidato recomendado | 60 testes passaram | Candidato recomendado selecionado em memória | `a483031` |
 | 8 | 2026-06-27 | Persistência controlada do candidato recomendado | 65 testes passaram | Artefatos acadêmicos gerados em `models/artifacts/` | `6769ead` |
 | 9 | 2026-06-27 | Predição individual acadêmica com artefato persistido | 78 testes passaram | Página de predição consome o modelo persistido com validação rígida | `3efa07f` |
+| 10 | 2026-06-27 | Explicabilidade inicial do modelo persistido | 86 testes passaram | Página de explicabilidade exibe importância global e explicação local | Pendente |
 
 ## Rodada 7 — Seleção controlada do modelo candidato recomendado
 
@@ -66,6 +67,22 @@ A Rodada 7 pode ser descrita como a etapa em que o projeto passou a indicar um m
 - Commit relacionado: `3efa07f feat: adiciona predicao individual academica`.
 - Tokens/custo: não disponível.
 - Observações: não houve retreino, novo `.joblib`, novo JSON, CSV, SHAP, API, banco, autenticação, dataset novo ou alteração do split oficial.
+
+## Rodada 10 — Explicabilidade inicial do modelo persistido
+
+- Rodada: 10
+- Data: 2026-06-27
+- Objetivo: implementar explicabilidade global e local para o modelo persistido, mantendo tudo em memória.
+- Arquivos alterados: `src/models/explain.py`, `pages/04_Explicabilidade.py`, `tests/unit/test_explain.py`, `tests/smoke/test_explainability_page.py`, `README.md`, `docs/delivery_checklist.md`, `docs/model_card.md`, `models/model_card.md` e registros em `docs/methodology/`.
+- Artefatos usados: `models/artifacts/recommended_model.joblib`, `models/artifacts/recommended_model_metrics.json` e `models/artifacts/recommended_model_feature_names.json`.
+- Comandos executados: `git status --short`, `git pull --ff-only`, leitura da constituição e metodologia, `python -m pytest -q` e validações finais da rodada.
+- Testes: 86 testes passaram em `python -m pytest -q`.
+- Resultado: a página `pages/04_Explicabilidade.py` exibe importância global por coeficientes da Regressão Logística, tenta SHAP em memória quando possível e apresenta explicação local para exemplos reais WDBC.
+- Problemas: warnings externos do SHAP (`PendingDeprecationWarning` em `shap/plots/colors/_colors.py`) foram tratados com filtro localizado apenas na função opcional de SHAP. No ambiente do Codex, os warnings restantes são `InconsistentVersionWarning` do Scikit-learn ao carregar o `.joblib`; não bloquearam testes nem execução.
+- Fallback: `fallback_coefficients` por coeficientes da Regressão Logística permanece ativo quando SHAP não está disponível ou estável.
+- Commit relacionado: pendente de revisão humana.
+- Tokens/custo: não disponível.
+- Observações: não houve retreino, novo `.joblib`, novo JSON, CSV, notebook, API, banco, autenticação, dataset novo ou alteração do split oficial.
 
 ## Template
 
