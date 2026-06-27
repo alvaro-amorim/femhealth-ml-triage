@@ -34,13 +34,13 @@
 - [ ] Páginas Streamlit funcionais.
 - [x] Página de exploração parcialmente funcional com EDA real do WDBC.
 - [x] Página de modelos parcialmente funcional com comparação acadêmica inicial.
-- [ ] Entrada individual e CSV validados.
-- [ ] Exemplos reais e pequenos do WDBC disponibilizados.
+- [x] Entrada individual validada.
+- [x] Exemplos reais do WDBC usados para demonstração na página de predição.
 - [x] Smoke tests de estrutura, schema e carregamento criados.
 - [x] Testes de validação de schema e entrada criados.
 - [x] Testes de pré-processamento implementados.
 - [x] Testes de modelagem e avaliação inicial implementados.
-- [ ] Testes de predição implementados.
+- [x] Testes de predição implementados.
 - [ ] `pytest` e `pytest --cov=src` passam no projeto completo.
 
 ## Documentação e entrega

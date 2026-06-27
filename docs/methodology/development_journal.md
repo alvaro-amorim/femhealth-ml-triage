@@ -103,3 +103,18 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 - Resultado: modelo candidato recomendado persistido como artefato acadêmico, com métricas, feature names e model card operacional; alterações revisadas, commitadas e publicadas.
 - Commit: `6769ead feat: persiste candidato recomendado com model card`.
 - Próximo passo: avançar para predição individual usando artefatos persistidos ou explicabilidade em rodada futura.
+
+### 2026-06-27 — Predição individual acadêmica com artefato persistido
+
+- Etapa: Rodada 9 do Codex.
+- Objetivo: implementar predição individual acadêmica usando o modelo candidato persistido na Rodada 8, sem retreinar e sem regenerar artefatos.
+- Ações: criação da camada `src/models/predict.py`; atualização da página `pages/02_Predicao.py` com exemplos reais do WDBC, formulário manual agrupado por `mean`, `error` e `worst`, validação rígida de entrada e saída com linguagem não diagnóstica; testes unitários e smoke adicionados.
+- Ajuste pré-commit: a UX da página de predição foi refinada para exibir o resultado imediatamente após a execução, usar métricas em cards, organizar grupos de features em expanders e mover os valores usados para o expander "Ver valores usados na estimativa".
+- Ajuste final de UX pré-commit: o último resultado passou a ser armazenado em `st.session_state`, mantendo a seção "Resultado da estimativa acadêmica" visível após a execução, com três cards de métricas antes da tabela de valores usados.
+- Artefato usado: `models/artifacts/recommended_model.joblib`, com métricas e feature names persistidos na Rodada 8.
+- Cuidados: sem SHAP, sem explicabilidade final, sem novo `.joblib`, sem novo JSON, sem CSV, sem retreino, sem alteração do split oficial e sem linguagem de diagnóstico.
+- Problemas: o primeiro teste completo falhou porque a checagem de artefatos do teste não incluía os nomes canônicos `recommended_model_metrics.json` e `recommended_model_feature_names.json`; o teste foi corrigido sem alterar artefatos. O carregamento do `.joblib` emitiu `InconsistentVersionWarning` do Scikit-learn no ambiente local, mas a predição e os testes passaram.
+- Testes: 78 testes passaram em `python -m pytest -q`.
+- Resultado: predição individual acadêmica disponível no app Streamlit usando o artefato persistido e exemplos reais do WDBC.
+- Commit: pendente de revisão humana.
+- Próximo passo: implementar explicabilidade/SHAP ou revisar compatibilidade de ambiente para reduzir warnings de persistência.

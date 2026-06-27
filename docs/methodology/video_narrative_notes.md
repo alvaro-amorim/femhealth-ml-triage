@@ -23,6 +23,7 @@ Frase possível:
 - Avaliação com foco em recall da classe maligna, respeitando `0 = malignant` no WDBC.
 - Página de modelos com comparação acadêmica inicial, ranking, candidato recomendado, Curva ROC e matriz de confusão.
 - Persistência controlada do candidato recomendado como artefato acadêmico em `models/artifacts/`.
+- Predição individual acadêmica usando o artefato persistido, com exemplos reais do WDBC e formulário manual validado.
 - Interface Streamlit multipage.
 - Testes desde o início.
 - Explicabilidade planejada com feature importance e SHAP.
@@ -42,6 +43,7 @@ Mostrar:
 - Rodada 6B com 54 testes passando após implementação da EDA real do WDBC.
 - Rodada 7 com 60 testes passando após seleção controlada do candidato recomendado.
 - Rodada 8 com 65 testes passando após persistência controlada do candidato recomendado e model card operacional.
+- Rodada 9 com 78 testes passando após predição individual acadêmica usando o artefato persistido.
 - App Streamlit rodando.
 
 ## Uso responsável de IA
@@ -57,6 +59,7 @@ Mostrar:
 - Página de comparação inicial de modelos.
 - Seção de modelo candidato recomendado, com aviso de que o artefato persistido é acadêmico e não serve para uso real em saúde.
 - Artefatos em `models/artifacts/` e model card operacional.
+- Página de predição individual com exemplos reais WDBC, probabilidades estimadas e aviso não diagnóstico.
 - Curva ROC usando probabilidade da classe maligna.
 - Testes com `pytest`.
 - GitHub com commits.

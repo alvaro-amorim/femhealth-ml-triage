@@ -2,7 +2,7 @@
 
 ## Status
 
-**Status:** modelo candidato persistido para fins acadêmicos na Rodada 8.
+**Status:** modelo candidato persistido para fins acadêmicos na Rodada 8 e consumido pela predição individual acadêmica na Rodada 9.
 
 Este modelo é um artefato acadêmico para demonstração de Machine Learning e não deve ser usado para diagnóstico médico.
 
@@ -82,7 +82,13 @@ Matriz de confusão, na ordem `0 = malignant`, `1 = benign`:
 
 - Demonstração acadêmica de pipeline de Machine Learning tabular.
 - Base técnica para próximas etapas do projeto.
-- Apoio à apresentação de comparação de modelos, predição demonstrativa futura e explicabilidade futura.
+- Apoio à apresentação de comparação de modelos, predição individual acadêmica demonstrativa e explicabilidade futura.
+
+## Uso na predição individual acadêmica
+
+Na Rodada 9, este artefato passou a ser consumido pela página `pages/02_Predicao.py` para executar estimativas acadêmicas de uma única amostra no formato WDBC.
+
+A entrada é validada contra as 30 features canônicas, na ordem esperada, sem colunas extras, sem colunas ausentes e sem valores nulos. A página usa exemplos reais do WDBC apenas como demonstração educacional.
 
 ## Usos não pretendidos
 

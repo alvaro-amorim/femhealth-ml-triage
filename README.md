@@ -48,6 +48,14 @@ python -m src.models.persist
 
 O `.joblib` é um artefato técnico pequeno do projeto acadêmico. Ele não transforma a aplicação em ferramenta clínica e não deve ser usado para diagnóstico médico.
 
+## Predição individual acadêmica
+
+A página `pages/02_Predicao.py` usa o artefato persistido em `models/artifacts/recommended_model.joblib` para executar uma estimativa acadêmica de uma única amostra no formato WDBC.
+
+A entrada é validada contra as 30 features canônicas, na ordem esperada, sem colunas extras, sem colunas ausentes, sem valores nulos e com valores numéricos. A página oferece exemplos reais do WDBC para demonstração (`malignant (0)` e `benign (1)`) e permite ajuste manual dos atributos agrupados em `mean`, `error` e `worst`.
+
+Essa saída é apenas uma estimativa acadêmica do modelo para apoio à triagem analítica em contexto educacional. Ela não substitui diagnóstico médico, avaliação clínica, laudo anatomopatológico ou decisão profissional.
+
 ## Stack V1
 
 - Python 3.11
@@ -90,6 +98,12 @@ streamlit run app.py
 
 Nesta etapa, as páginas ainda são incrementais. O carregamento e a validação do WDBC estão disponíveis em `src/data/`, a EDA reutilizável está em `src/analysis/`, a base de pré-processamento/split está em `src/features/`, a modelagem inicial e a persistência controlada do candidato recomendado estão em `src/models/`, e as páginas de exploração e modelos já exibem análises acadêmicas iniciais.
 
+A página de predição individual acadêmica já consome o modelo candidato persistido:
+
+```powershell
+streamlit run app.py
+```
+
 ## Testes
 
 ```powershell
@@ -99,7 +113,7 @@ pytest --cov=src
 
 ## Status atual
 
-Base de dados, EDA inicial, pré-processamento, modelagem inicial em memória, comparação inicial com Curva ROC, seleção acadêmica e persistência controlada do modelo candidato recomendado concluídos. Não há predição individual final, SHAP ou explicabilidade final nesta etapa.
+Base de dados, EDA inicial, pré-processamento, modelagem inicial em memória, comparação inicial com Curva ROC, seleção acadêmica, persistência controlada do modelo candidato recomendado e predição individual acadêmica concluídos. Não há SHAP ou explicabilidade final nesta etapa.
 
 ## Aviso ético
 
