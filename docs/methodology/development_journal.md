@@ -143,4 +143,4 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 - Problemas: o ambiente não tinha `pytest-cov` disponível no primeiro `pytest --cov=src`; foi instalado no ambiente local porque já faz parte da stack e do `requirements.txt`. Persistem warnings não bloqueantes de `InconsistentVersionWarning` do Scikit-learn ao carregar o `.joblib`.
 - Custos/tokens: não disponível.
 - Resultado: app e documentação ficaram mais coerentes para revisão humana; relatório PDF e vídeo seguem pendentes.
-- Commit: pendente de revisão humana.
+- Commit: `d343d9f chore: revisa qualidade final da V1`.
