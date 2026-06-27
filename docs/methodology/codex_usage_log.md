@@ -15,7 +15,7 @@ Este arquivo registra as rodadas da ferramenta de implementação no VS Code.
 | 6B | 2026-06-26 | EDA real do WDBC na página de exploração | 54 testes passaram | Exploração real do WDBC exibida no Streamlit | `4e8b9bc` |
 | 7 | 2026-06-26 | Seleção controlada do candidato recomendado | 60 testes passaram | Candidato recomendado selecionado em memória | `a483031` |
 | 8 | 2026-06-27 | Persistência controlada do candidato recomendado | 65 testes passaram | Artefatos acadêmicos gerados em `models/artifacts/` | `6769ead` |
-| 9 | 2026-06-27 | Predição individual acadêmica com artefato persistido | 78 testes passaram | Página de predição consome o modelo persistido com validação rígida | Pendente |
+| 9 | 2026-06-27 | Predição individual acadêmica com artefato persistido | 78 testes passaram | Página de predição consome o modelo persistido com validação rígida | `3efa07f` |
 
 ## Rodada 7 — Seleção controlada do modelo candidato recomendado
 
@@ -57,13 +57,13 @@ A Rodada 7 pode ser descrita como a etapa em que o projeto passou a indicar um m
 - Objetivo: implementar uma página de predição individual acadêmica usando o modelo candidato persistido na Rodada 8.
 - Arquivos alterados: `src/models/predict.py`, `pages/02_Predicao.py`, `tests/unit/test_predict.py`, `tests/smoke/test_prediction_page.py`, `README.md`, `docs/delivery_checklist.md` e registros em `docs/methodology/`.
 - Artefatos usados: `models/artifacts/recommended_model.joblib`, `models/artifacts/recommended_model_metrics.json` e `models/artifacts/recommended_model_feature_names.json`.
-- Comandos executados: `git status --short`, leitura da constituição e metodologia, `python -m pytest -q` e validações finais da rodada.
-- Testes: 78 testes passaram em `python -m pytest -q`.
-- Resultado: a página `pages/02_Predicao.py` permite usar exemplos reais do WDBC e ajustar manualmente as 30 features para obter uma estimativa acadêmica, com validação rígida e avisos não diagnósticos.
+- Comandos executados: `git status --short`, leitura da constituição e metodologia, `python -m pytest -q`, `pytest -q`, `git diff --check`, revisão visual da página Streamlit, `git commit` e `git push`.
+- Testes: 78 testes passaram em `python -m pytest -q` e `pytest -q`.
+- Resultado: a página `pages/02_Predicao.py` permite usar exemplos reais do WDBC e ajustar manualmente as 30 features para obter uma estimativa acadêmica, com validação rígida, cards de resultado e avisos não diagnósticos.
 - Ajuste pré-commit: a apresentação visual foi refinada com seção de resultado mais direta, cards de métricas, expanders para os grupos de features e expander para os valores usados na estimativa.
 - Ajuste final de UX pré-commit: a página passou a manter o último resultado em `st.session_state`, garantindo que os cards de classe estimada e probabilidades fiquem visíveis logo abaixo do botão após a execução.
-- Problemas: um teste inicial de checagem de artefatos precisou ser corrigido para reconhecer os nomes canônicos dos JSONs persistidos; o ambiente local emitiu `InconsistentVersionWarning` do Scikit-learn ao carregar o `.joblib`.
-- Commit relacionado: pendente de revisão humana.
+- Problemas: um teste inicial de checagem de artefatos precisou ser corrigido para reconhecer os nomes canônicos dos JSONs persistidos; o ambiente local emitiu `InconsistentVersionWarning` do Scikit-learn ao carregar o `.joblib`, mas a predição e os testes passaram.
+- Commit relacionado: `3efa07f feat: adiciona predicao individual academica`.
 - Tokens/custo: não disponível.
 - Observações: não houve retreino, novo `.joblib`, novo JSON, CSV, SHAP, API, banco, autenticação, dataset novo ou alteração do split oficial.
 
