@@ -17,7 +17,7 @@ Este arquivo registra as rodadas da ferramenta de implementação no VS Code.
 | 8 | 2026-06-27 | Persistência controlada do candidato recomendado | 65 testes passaram | Artefatos acadêmicos gerados em `models/artifacts/` | `6769ead` |
 | 9 | 2026-06-27 | Predição individual acadêmica com artefato persistido | 78 testes passaram | Página de predição consome o modelo persistido com validação rígida | `3efa07f` |
 | 10 | 2026-06-27 | Explicabilidade inicial do modelo persistido | 86 testes passaram | Página de explicabilidade exibe importância global e explicação local | `af1bfc1` |
-| 11 | 2026-06-27 | Revisão final de qualidade e higiene técnica | 86 testes passaram; cobertura 88% | Textos, ética, checklist e validações finais revisados | Pendente |
+| 11 | 2026-06-27 | Revisão final de qualidade e higiene técnica | 86 testes passaram; cobertura 88% | Textos, ética, checklist e validações finais revisados | `d343d9f` |
 
 ## Rodada 7 — Seleção controlada do modelo candidato recomendado
 
@@ -96,7 +96,7 @@ A Rodada 7 pode ser descrita como a etapa em que o projeto passou a indicar um m
 - Cobertura: `pytest --cov=src` passou com cobertura total de 88%.
 - Problemas: `pytest --cov=src` falhou inicialmente porque `pytest-cov` não estava instalado no ambiente atual; o plugin foi instalado localmente por já estar previsto no projeto. Persistem warnings não bloqueantes de versão do Scikit-learn ao carregar o artefato `.joblib`.
 - Resultado: textos desatualizados foram corrigidos, a linguagem ética foi reforçada, checklist e model cards foram alinhados ao estado real.
-- Commit relacionado: pendente de revisão humana.
+- Commit relacionado: `d343d9f chore: revisa qualidade final da V1`.
 - Tokens/custo: não disponível.
 - Observações: não houve retreino, novo `.joblib`, novo JSON, CSV, notebook, API, banco, autenticação, dataset novo, troca de modelo ou alteração de artefatos.
 
