@@ -114,7 +114,7 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 - Artefato usado: `models/artifacts/recommended_model.joblib`, com métricas e feature names persistidos na Rodada 8.
 - Cuidados: sem SHAP, sem explicabilidade final, sem novo `.joblib`, sem novo JSON, sem CSV, sem retreino, sem alteração do split oficial e sem linguagem de diagnóstico.
 - Problemas: o primeiro teste completo falhou porque a checagem de artefatos do teste não incluía os nomes canônicos `recommended_model_metrics.json` e `recommended_model_feature_names.json`; o teste foi corrigido sem alterar artefatos. O carregamento do `.joblib` emitiu `InconsistentVersionWarning` do Scikit-learn no ambiente local, mas a predição e os testes passaram.
-- Testes: 78 testes passaram em `python -m pytest -q`.
-- Resultado: predição individual acadêmica disponível no app Streamlit usando o artefato persistido e exemplos reais do WDBC.
-- Commit: pendente de revisão humana.
+- Testes: 78 testes passaram em `python -m pytest -q` e `pytest -q`.
+- Resultado: predição individual acadêmica disponível no app Streamlit usando o artefato persistido e exemplos reais do WDBC; alterações revisadas, commitadas e publicadas.
+- Commit: `3efa07f feat: adiciona predicao individual academica`.
 - Próximo passo: implementar explicabilidade/SHAP ou revisar compatibilidade de ambiente para reduzir warnings de persistência.
