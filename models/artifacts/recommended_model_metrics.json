@@ -1,0 +1,49 @@
+{
+  "selected_model_key": "logistic_regression",
+  "selected_model_name": "Regressão Logística",
+  "metrics": {
+    "accuracy": 0.9824561403508771,
+    "precision_malignant": 0.9761904761904762,
+    "recall_malignant": 0.9761904761904762,
+    "f1_malignant": 0.9761904761904762,
+    "roc_auc_malignant": 0.9953703703703705,
+    "confusion_matrix": [
+      [
+        41,
+        1
+      ],
+      [
+        1,
+        71
+      ]
+    ]
+  },
+  "metadata": {
+    "dataset": "Breast Cancer Wisconsin Diagnostic (WDBC)",
+    "dataset_source": "https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic",
+    "dataset_loader": "sklearn.datasets.load_breast_cancer(as_frame=True)",
+    "sample_count": 569,
+    "feature_count": 30,
+    "classes": {
+      "0": "malignant",
+      "1": "benign"
+    },
+    "target_mapping": {
+      "0": "malignant",
+      "1": "benign"
+    },
+    "priority_label": 0,
+    "priority_class": "malignant",
+    "selection_criteria": [
+      "recall_malignant",
+      "roc_auc_malignant",
+      "f1_malignant"
+    ],
+    "test_size": 0.2,
+    "random_state": 42,
+    "selected_model_key": "logistic_regression",
+    "selected_model_name": "Regressão Logística",
+    "created_by": "Codex Rodada 8",
+    "academic_warning": "Este modelo é um artefato acadêmico para demonstração de Machine Learning e não deve ser usado para diagnóstico médico."
+  }
+}

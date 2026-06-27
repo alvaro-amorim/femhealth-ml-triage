@@ -28,7 +28,25 @@ A camada inicial de modelagem em `src/models/` permite construir, treinar em mem
 
 A página `pages/03_Modelos.py` já consome uma comparação em memória e exibe tabela de métricas, ranking inicial por recall maligno, ROC AUC e F1, Curva ROC dos candidatos, matriz de confusão e seleção acadêmica controlada do modelo candidato recomendado.
 
-A seleção do candidato recomendado segue os critérios `recall_malignant`, `roc_auc_malignant` e `f1_malignant`. Esta etapa ainda não persiste modelo final e não salva `.joblib`, `metrics.json` ou `feature_names.json`.
+A seleção do candidato recomendado segue os critérios `recall_malignant`, `roc_auc_malignant` e `f1_malignant`. O candidato recomendado atual é Regressão Logística.
+
+## Artefatos do modelo candidato
+
+A Rodada 8 persiste o modelo candidato recomendado para fins acadêmicos e reprodutíveis. Os artefatos ficam em:
+
+```text
+models/artifacts/recommended_model.joblib
+models/artifacts/recommended_model_metrics.json
+models/artifacts/recommended_model_feature_names.json
+```
+
+Para regenerar os artefatos:
+
+```powershell
+python -m src.models.persist
+```
+
+O `.joblib` é um artefato técnico pequeno do projeto acadêmico. Ele não transforma a aplicação em ferramenta clínica e não deve ser usado para diagnóstico médico.
 
 ## Stack V1
 
@@ -70,7 +88,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Nesta etapa, as páginas ainda são incrementais. O carregamento e a validação do WDBC estão disponíveis em `src/data/`, a EDA reutilizável está em `src/analysis/`, a base de pré-processamento/split está em `src/features/`, a modelagem inicial em memória está em `src/models/`, e as páginas de exploração e modelos já exibem análises acadêmicas iniciais; artefatos finais serão implementados nas etapas seguintes.
+Nesta etapa, as páginas ainda são incrementais. O carregamento e a validação do WDBC estão disponíveis em `src/data/`, a EDA reutilizável está em `src/analysis/`, a base de pré-processamento/split está em `src/features/`, a modelagem inicial e a persistência controlada do candidato recomendado estão em `src/models/`, e as páginas de exploração e modelos já exibem análises acadêmicas iniciais.
 
 ## Testes
 
@@ -81,7 +99,7 @@ pytest --cov=src
 
 ## Status atual
 
-Base de dados, EDA inicial, pré-processamento, modelagem inicial em memória, comparação inicial com Curva ROC e seleção acadêmica de modelo candidato recomendado concluídos. Não há modelo final persistido, dados de exemplo ou artefatos `.joblib` nesta etapa.
+Base de dados, EDA inicial, pré-processamento, modelagem inicial em memória, comparação inicial com Curva ROC, seleção acadêmica e persistência controlada do modelo candidato recomendado concluídos. Não há predição individual final, SHAP ou explicabilidade final nesta etapa.
 
 ## Aviso ético
 

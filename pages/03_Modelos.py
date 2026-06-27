@@ -4,6 +4,7 @@ import pandas as pd
 import streamlit as st
 
 from src.models.compare import run_model_comparison
+from src.models.persist import get_recommended_artifact_paths, recommended_artifacts_exist
 
 
 MODEL_LABELS = {
@@ -167,8 +168,37 @@ def render_page() -> None:
     st.caption(recommended_candidate["reason"])
     st.warning(
         "Esta seleção é técnica, acadêmica e inicial. Ela não é diagnóstico "
-        "médico, não define um modelo clínico e ainda não há artefato `.joblib` "
-        "persistido. SHAP e explicabilidade final serão tratados posteriormente."
+        "médico, não define uma ferramenta para uso real em saúde e a "
+        "persistência do artefato é apenas técnica. SHAP e explicabilidade "
+        "final serão tratados posteriormente."
+    )
+
+    st.subheader("Artefatos persistidos")
+    artifact_paths = get_recommended_artifact_paths()
+    artifact_status = recommended_artifacts_exist()
+    all_artifacts_available = all(artifact_status.values())
+    st.write(
+        "A persistência controlada do candidato recomendado permite que etapas "
+        "futuras usem o mesmo pipeline de forma reprodutível. Isso não transforma "
+        "o projeto em ferramenta clínica."
+    )
+    st.metric(
+        "Modelo candidato persistido",
+        "sim" if all_artifacts_available else "não",
+    )
+    st.dataframe(
+        pd.DataFrame(
+            [
+                {
+                    "Artefato": artifact_name,
+                    "Caminho": str(artifact_paths[artifact_name]),
+                    "Existe": artifact_status[artifact_name],
+                }
+                for artifact_name in artifact_paths
+            ]
+        ),
+        width="stretch",
+        hide_index=True,
     )
 
     st.subheader("Curva ROC")
@@ -206,9 +236,9 @@ def render_page() -> None:
     st.dataframe(confusion_matrix, width="stretch")
 
     st.info(
-        "Ainda não há modelo final persistido. A seleção final, artefatos "
-        "`.joblib`, métricas salvas e explicabilidade serão tratados em etapas "
-        "posteriores."
+        "Há um artefato técnico do candidato recomendado para fins acadêmicos. "
+        "Predição individual final, SHAP e explicabilidade final serão tratados "
+        "em etapas posteriores."
     )
 
 

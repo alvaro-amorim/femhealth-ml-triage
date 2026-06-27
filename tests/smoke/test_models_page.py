@@ -49,4 +49,5 @@ def test_models_page_contains_academic_and_ethical_text() -> None:
     assert "não é diagnóstico" in page_source
     assert "Curva ROC" in page_source
     assert "probabilidade da classe maligna" in page_source
-    assert "modelo final" in page_source
+    assert "Artefatos persistidos" in page_source
+    assert "persistência controlada" in page_source

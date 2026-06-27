@@ -32,6 +32,7 @@ Os valores devem ser preenchidos manualmente pelo usuário quando a ferramenta e
 | 2026-06-26 | Codex | não disponível | Rodada 6A | Curva ROC na comparação inicial de modelos | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 45 testes passaram; commit `d7e3a48` |
 | 2026-06-26 | Codex | não disponível | Rodada 6B | EDA real do WDBC na página de exploração | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 54 testes passaram; commit `4e8b9bc` |
 | 2026-06-26 | Codex | não disponível | Rodada 7 | Seleção controlada do modelo candidato recomendado | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 60 testes passaram; commit `a483031` |
+| 2026-06-27 | Codex | não disponível | Rodada 8 | Persistência controlada do modelo candidato recomendado | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 65 testes passaram; commit pendente |
 | 2026-06-26 | GitHub conectado ao ChatGPT | não disponível | Revisões remotas | Conferência de commits e arquivos no GitHub | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | Usado para revisar estado remoto |
 
 ---

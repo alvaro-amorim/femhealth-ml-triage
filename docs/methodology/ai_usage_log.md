@@ -61,4 +61,4 @@ As pesquisas apoiaram as seguintes decisões:
 - O usuário revisa saídas do Codex antes de commit.
 - O usuário decide aceitar ou rejeitar recomendações.
 - O GitHub registra commits, mas o commit só deve ser feito após testes e revisão.
-- Nenhuma decisão médica real é delegada ao sistema ou à IA.
+- Nenhuma decisão profissional em saúde é delegada ao sistema ou à IA.

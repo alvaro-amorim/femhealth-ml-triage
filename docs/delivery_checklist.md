@@ -23,7 +23,10 @@
 - [x] Curva ROC apresentada.
 - [x] Seleção acadêmica de modelo candidato recomendado implementada.
 - [x] Critérios de seleção do candidato recomendado documentados.
-- [ ] Modelo final, métricas e feature names persistidos.
+- [x] Modelo candidato recomendado persistido para fins acadêmicos.
+- [x] Métricas do modelo candidato recomendado persistidas.
+- [x] Feature names do modelo candidato recomendado persistidos.
+- [ ] Modelo final definitivo para entrega, métricas e feature names revisados.
 - [ ] Feature importance e SHAP implementados.
 
 ## Aplicação e qualidade
@@ -45,6 +48,7 @@
 - [x] Aviso ético no README e model card.
 - [ ] Aviso ético em todas as páginas e no relatório.
 - [ ] README atualizado com treinamento, artefatos, exemplos, repositório e vídeo.
+- [x] Model card operacional atualizado para o candidato persistido.
 - [ ] Relatório técnico em PDF concluído.
 - [ ] Vídeo de até 15 minutos publicado e referenciado.
 - [ ] Revisão final de limpeza, segredos, testes e links.

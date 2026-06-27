@@ -55,7 +55,7 @@ def select_recommended_candidate(comparison_payload: dict[str, Any]) -> dict[str
         ),
         "limitations": (
             "Seleção técnica e inicial para continuidade do projeto. Não é "
-            "modelo clínico, não representa diagnóstico médico e ainda não há "
-            "artefato final persistido."
+            "ferramenta para uso real em saúde, não representa diagnóstico "
+            "médico e qualquer persistência é apenas um artefato acadêmico."
         ),
     }
