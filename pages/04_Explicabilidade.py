@@ -83,10 +83,11 @@ def render_page() -> None:
 
     metadata = context["metadata"]
     st.subheader("Status do modelo")
-    col_model, col_dataset, col_priority, col_features = st.columns(4)
-    col_model.metric("Modelo carregado", metadata["model_name"])
+    col_model, col_dataset = st.columns(2)
+    col_model.metric("Modelo final acadêmico", metadata["model_name"])
     col_dataset.metric("Dataset", "WDBC")
-    col_priority.metric("Classe prioritária", "malignant (0)")
+    col_priority, col_features = st.columns(2)
+    col_priority.metric("Classe prioritária técnica", "malignant (0)")
     col_features.metric("Features", metadata["feature_count"])
 
     st.caption(
@@ -105,17 +106,23 @@ def render_page() -> None:
     global_importance = get_global_feature_importance(context)
     top_global = global_importance.head(15)
     st.bar_chart(top_global.set_index("feature")["coefficient_abs"])
-    st.dataframe(
-        _format_global_importance_table(global_importance),
-        width="stretch",
-        hide_index=True,
-    )
+    with st.expander("Ver tabela completa de importância global"):
+        st.dataframe(
+            _format_global_importance_table(global_importance).round(4),
+            width="stretch",
+            hide_index=True,
+        )
 
     st.subheader("SHAP opcional")
     shap_payload = get_shap_global_feature_importance(context)
     if shap_payload["available"]:
         st.success(shap_payload["message"])
-        st.dataframe(shap_payload["data"], width="stretch", hide_index=True)
+        with st.expander("Ver tabela SHAP calculada em memória"):
+            st.dataframe(
+                shap_payload["data"].round(4),
+                width="stretch",
+                hide_index=True,
+            )
     else:
         st.info(shap_payload["message"])
         st.caption(
@@ -138,7 +145,7 @@ def render_page() -> None:
     reference_sample = build_reference_sample_for_explanation(target_label)
     local_contributions = get_top_local_contributions(reference_sample, context=context)
     st.dataframe(
-        _format_local_contributions_table(local_contributions),
+        _format_local_contributions_table(local_contributions).round(4),
         width="stretch",
         hide_index=True,
     )

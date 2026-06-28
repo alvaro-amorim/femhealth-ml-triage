@@ -21,14 +21,14 @@ Frase possível:
 - Pipelines base com `StandardScaler` para modelos sensíveis à escala e passthrough para modelos baseados em árvore.
 - Modelagem inicial em memória com Regressão Logística, Árvore de Decisão e KNN.
 - Avaliação com foco em recall da classe maligna, respeitando `0 = malignant` no WDBC.
-- Página de modelos com comparação acadêmica inicial, ranking, candidato recomendado, Curva ROC e matriz de confusão.
-- Persistência controlada do candidato recomendado como artefato acadêmico em `models/artifacts/`.
+- Página de modelos com comparação acadêmica, ranking, modelo final acadêmico da V1, Curva ROC e matriz de confusão.
+- Persistência controlada do modelo final acadêmico como artefato acadêmico em `models/artifacts/`.
 - Declaração da Regressão Logística persistida como modelo final acadêmico da V1/MVP, sem uso diagnóstico.
 - Predição individual acadêmica usando o artefato persistido, com exemplos reais do WDBC e formulário manual validado.
 - Explicabilidade inicial com importância global por coeficientes, SHAP opcional com fallback e explicação local de exemplos reais WDBC.
 - Interface Streamlit multipage.
 - Testes desde o início.
-- Explicabilidade planejada para refinamento final com feature importance e SHAP.
+- Polimento visual inicial do Streamlit para melhorar clareza, consistência e apresentação em vídeo.
 
 ## Metodologia de desenvolvimento
 
@@ -50,6 +50,7 @@ Mostrar:
 - Rodada 11 com revisão final de qualidade, 86 testes passando e cobertura total de 88% em `src`.
 - Rodada 12 com ambiente reprodutível documentado, versões críticas fixadas e quality gate local antes de commit/push.
 - Rodada 13 com declaração formal do modelo final acadêmico da V1 sem retreino nem alteração de artefatos.
+- Rodada 14 com polimento visual assistido por inspeção visual real do app Streamlit.
 - App Streamlit rodando.
 
 ## Uso responsável de IA
@@ -62,15 +63,15 @@ Mostrar:
 
 - Home do Streamlit.
 - Página de exploração com distribuição das classes, grupos de features, estatísticas e correlações.
-- Página de comparação inicial de modelos.
-- Seção de modelo candidato recomendado, com aviso de que o artefato persistido é acadêmico e não serve para uso real em saúde.
+- Página de comparação de modelos.
+- Seção de modelo final acadêmico da V1, com aviso de que o artefato persistido é acadêmico e não serve para uso real em saúde.
 - Artefatos em `models/artifacts/` e model card operacional.
 - Página de predição individual com exemplos reais WDBC, probabilidades estimadas e aviso não diagnóstico.
 - Página de explicabilidade com importância global das features e explicação local de uma amostra.
 - Curva ROC usando probabilidade da classe maligna.
 - Testes com `pytest`.
 - GitHub com commits.
-- Futuras páginas de EDA, predição, modelos e explicabilidade.
+- Página Sobre e Ética com escopo, limitações e uso responsável de IA.
 
 ## Estrutura provável
 

@@ -41,11 +41,11 @@ def test_models_page_imports_without_error() -> None:
 def test_models_page_contains_academic_and_ethical_text() -> None:
     page_source = MODELS_PAGE.read_text(encoding="utf-8")
 
-    assert "Comparação acadêmica inicial" in page_source
+    assert "Comparação acadêmica" in page_source
     assert "não realiza diagnóstico" in page_source
     assert "médico" in page_source
-    assert "Modelo candidato recomendado" in page_source
-    assert "modelo candidato recomendado" in page_source
+    assert "Modelo final acadêmico da V1" in page_source
+    assert "modelo final acadêmico da V1" in page_source
     assert "não é diagnóstico" in page_source
     assert "Curva ROC" in page_source
     assert "probabilidade da classe maligna" in page_source

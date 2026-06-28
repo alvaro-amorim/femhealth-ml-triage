@@ -1,4 +1,4 @@
-"""Página Streamlit de comparação inicial de modelos candidatos."""
+"""Página Streamlit de comparação e modelo final acadêmico da V1."""
 
 import pandas as pd
 import streamlit as st
@@ -37,9 +37,13 @@ def _format_results_table(results: dict) -> pd.DataFrame:
                 **{metric: metrics[metric] for metric in METRIC_COLUMNS},
             }
         )
-    return pd.DataFrame(rows).sort_values(
+    return (
+        pd.DataFrame(rows)
+        .sort_values(
         by=["recall_malignant", "roc_auc_malignant", "f1_malignant"],
         ascending=False,
+        )
+        .round(4)
     )
 
 
@@ -55,7 +59,7 @@ def _format_ranking_table(ranking: list[dict]) -> pd.DataFrame:
             }
             for position, row in enumerate(ranking, start=1)
         ]
-    )
+    ).round(4)
 
 
 def _format_roc_curve_table(roc_curves: dict) -> pd.DataFrame:
@@ -88,15 +92,16 @@ def _format_recommended_candidate_metrics(recommended_candidate: dict) -> pd.Dat
                 **{metric: metrics[metric] for metric in METRIC_COLUMNS},
             }
         ]
-    )
+    ).round(4)
 
 
 def render_page() -> None:
     """Render the controlled initial model-comparison page."""
-    st.title("Comparação Inicial de Modelos")
+    st.title("Modelos e Avaliação")
     st.warning(
-        "Comparação acadêmica inicial. Esta aplicação não realiza diagnóstico "
-        "médico e não substitui avaliação clínica, laudo ou decisão profissional."
+        "Comparação acadêmica e definição do modelo final da V1. Esta aplicação "
+        "não realiza diagnóstico médico e não substitui avaliação clínica, laudo "
+        "ou decisão profissional."
     )
 
     with st.spinner("Treinando e avaliando modelos candidatos em memória..."):
@@ -143,8 +148,8 @@ def render_page() -> None:
     st.subheader("Ranking inicial")
     st.write(
         "O ranking prioriza `recall_malignant`; em caso de empate, usa "
-        "`roc_auc_malignant` e depois `f1_malignant`. Esse ranking organiza a "
-        "análise, mas ainda não define um modelo final."
+        "`roc_auc_malignant` e depois `f1_malignant`. Esse ranking fundamenta "
+        "a seleção do modelo final acadêmico da V1."
     )
     st.dataframe(
         _format_ranking_table(ranking),
@@ -152,26 +157,27 @@ def render_page() -> None:
         hide_index=True,
     )
 
-    st.subheader("Modelo candidato recomendado")
+    st.subheader("Modelo final acadêmico da V1")
     st.write(
-        "O modelo candidato recomendado é o modelo melhor ranqueado nesta "
-        "comparação acadêmica inicial. A seleção usa `recall_malignant` como "
-        "critério primário, seguido de `roc_auc_malignant` e `f1_malignant` em "
-        "caso de empate."
+        "A Regressão Logística persistida é o modelo final acadêmico da V1/MVP. "
+        "A decisão é técnica e limitada: usa `recall_malignant` como critério "
+        "primário, seguido de `roc_auc_malignant` e `f1_malignant` em caso de empate."
     )
-    st.metric("Candidato recomendado", recommended_candidate["selected_model_name"])
+    st.metric("Modelo final acadêmico", recommended_candidate["selected_model_name"])
     st.dataframe(
         _format_recommended_candidate_metrics(recommended_candidate),
         width="stretch",
         hide_index=True,
     )
-    st.caption(recommended_candidate["reason"])
+    st.caption(
+        "Modelo final acadêmico da V1 definido a partir do ranking técnico: "
+        "recall da classe maligna como critério primário, ROC AUC maligno "
+        "como primeiro desempate e F1 maligno como segundo desempate."
+    )
     st.warning(
-        "Esta seleção é técnica, acadêmica e inicial. Ela não é diagnóstico "
-        "médico, não define uma ferramenta para uso real em saúde e a "
-        "persistência do artefato é apenas técnica. A explicabilidade inicial "
-        "está disponível na página de explicabilidade e pode ser refinada em "
-        "etapas futuras do projeto."
+        "Esta decisão é acadêmica e demonstrativa. Ela não é diagnóstico médico, "
+        "não define uma ferramenta para uso real em saúde e não substitui avaliação "
+        "clínica, laudo anatomopatológico ou decisão profissional."
     )
 
     st.subheader("Artefatos persistidos")
@@ -179,12 +185,12 @@ def render_page() -> None:
     artifact_status = recommended_artifacts_exist()
     all_artifacts_available = all(artifact_status.values())
     st.write(
-        "A persistência controlada do candidato recomendado permite que etapas "
-        "futuras usem o mesmo pipeline de forma reprodutível. Isso não transforma "
-        "o projeto em ferramenta clínica."
+        "A persistência controlada permite que predição e explicabilidade usem "
+        "o mesmo pipeline de forma reprodutível. Isso não transforma o projeto "
+        "em ferramenta clínica."
     )
     st.metric(
-        "Modelo candidato persistido",
+        "Modelo final acadêmico persistido",
         "sim" if all_artifacts_available else "não",
     )
     st.dataframe(
@@ -224,7 +230,7 @@ def render_page() -> None:
         "maligna em cada limiar."
     )
 
-    st.subheader("Matriz de confusão do modelo melhor ranqueado nesta comparação inicial")
+    st.subheader("Matriz de confusão do modelo final acadêmico")
     st.caption(
         "Ordem das classes: 0 = malignant, 1 = benign. A matriz abaixo é "
         "calculada no conjunto de teste."
@@ -237,9 +243,9 @@ def render_page() -> None:
     st.dataframe(confusion_matrix, width="stretch")
 
     st.info(
-        "Há um artefato técnico do candidato recomendado para fins acadêmicos. "
-        "A predição individual acadêmica e a explicabilidade inicial já consomem "
-        "esse artefato sem transformá-lo em ferramenta para uso real em saúde."
+        "Há um artefato técnico do modelo final acadêmico da V1. A predição "
+        "individual e a explicabilidade consomem esse artefato sem transformá-lo "
+        "em ferramenta para uso real em saúde."
     )
 
 

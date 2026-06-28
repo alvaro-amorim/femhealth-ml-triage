@@ -38,6 +38,7 @@ def _format_target_distribution(distribution: pd.DataFrame) -> pd.DataFrame:
             "percentage": "Percentual (%)",
         }
     )
+    formatted["Percentual (%)"] = formatted["Percentual (%)"].round(2)
     return formatted[["Classe", "Contagem", "Percentual (%)"]]
 
 
@@ -106,14 +107,20 @@ def render_page() -> None:
         "Resumo estatístico das 30 features numéricas. As medidas incluem "
         "média, desvio padrão, mínimo, quartis e máximo."
     )
-    st.dataframe(descriptive_statistics, width="stretch", hide_index=True)
+    with st.expander("Ver tabela completa de estatísticas descritivas"):
+        st.dataframe(
+            descriptive_statistics.round(4),
+            width="stretch",
+            hide_index=True,
+        )
 
     st.subheader("Valores ausentes")
     st.write(
         "O WDBC original carregado pelo Scikit-learn não possui valores "
         "ausentes nas 30 features usadas pelo projeto."
     )
-    st.dataframe(missing_values_summary, width="stretch", hide_index=True)
+    with st.expander("Ver resumo de valores ausentes"):
+        st.dataframe(missing_values_summary, width="stretch", hide_index=True)
 
     st.subheader("Correlações exploratórias com o target")
     st.write(
@@ -121,7 +128,7 @@ def render_page() -> None:
         "target numérico. Como o target usa `0 = malignant` e `1 = benign`, o "
         "sinal da correlação precisa ser interpretado com cuidado."
     )
-    st.dataframe(top_target_correlations, width="stretch", hide_index=True)
+    st.dataframe(top_target_correlations.round(4), width="stretch", hide_index=True)
     st.info(
         "Correlação não implica causalidade médica. Estes padrões são úteis "
         "para análise exploratória e discussão acadêmica, não para diagnóstico."

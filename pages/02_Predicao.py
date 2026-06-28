@@ -19,6 +19,11 @@ REFERENCE_OPTIONS = {
 }
 LAST_RESULT_KEY = "last_prediction_result"
 LAST_INPUT_KEY = "last_prediction_input_sample"
+GROUP_LABELS = {
+    "mean": "Médias (mean)",
+    "error": "Erros padrão (error)",
+    "worst": "Piores valores (worst)",
+}
 
 
 def _render_manual_input(reference_sample: pd.DataFrame) -> pd.DataFrame:
@@ -26,7 +31,10 @@ def _render_manual_input(reference_sample: pd.DataFrame) -> pd.DataFrame:
     reference_row = reference_sample.iloc[0]
 
     for group_name, group_features in FEATURE_GROUPS.items():
-        with st.expander(f"Features do grupo `{group_name}`", expanded=True):
+        with st.expander(
+            f"Features do grupo {GROUP_LABELS.get(group_name, group_name)}",
+            expanded=group_name == "mean",
+        ):
             st.caption(
                 "Valores reais do WDBC são usados como referência inicial. "
                 "Ajustes manuais devem manter o formato numérico esperado."
@@ -110,13 +118,13 @@ def render_page() -> None:
     metadata = metrics_payload.get("metadata", {})
 
     st.subheader("Status do modelo")
-    col_model, col_features, col_priority = st.columns(3)
+    col_model, col_features = st.columns(2)
     col_model.metric(
-        "Modelo carregado",
+        "Modelo final acadêmico",
         metrics_payload.get("selected_model_name", "Modelo persistido"),
     )
     col_features.metric("Features esperadas", EXPECTED_FEATURE_COUNT)
-    col_priority.metric("Classe prioritária", "malignant (0)")
+    st.caption("Classe prioritária técnica: `malignant (0)`.")
 
     st.caption(
         f"Modelo: `{artifact_paths['model']}` | Métricas: "
@@ -129,21 +137,22 @@ def render_page() -> None:
     )
 
     if metadata:
-        st.dataframe(
-            pd.DataFrame(
-                [
-                    {
-                        "Dataset": metadata.get("dataset", "WDBC"),
-                        "test_size": metadata.get("test_size"),
-                        "random_state": metadata.get("random_state"),
-                        "priority_label": metadata.get("priority_label"),
-                        "priority_class": metadata.get("priority_class"),
-                    }
-                ]
-            ),
-            width="stretch",
-            hide_index=True,
-        )
+        with st.expander("Ver metadados técnicos do artefato"):
+            st.dataframe(
+                pd.DataFrame(
+                    [
+                        {
+                            "Dataset": metadata.get("dataset", "WDBC"),
+                            "test_size": metadata.get("test_size"),
+                            "random_state": metadata.get("random_state"),
+                            "priority_label": metadata.get("priority_label"),
+                            "priority_class": metadata.get("priority_class"),
+                        }
+                    ]
+                ),
+                width="stretch",
+                hide_index=True,
+            )
 
     st.subheader("Entrada da amostra")
     st.write(

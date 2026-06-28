@@ -22,11 +22,11 @@
 - [x] Ranking inicial por recall maligno, ROC AUC e F1 exibido.
 - [x] Matriz de confusão exibida na página de modelos.
 - [x] Curva ROC apresentada.
-- [x] Seleção acadêmica de modelo candidato recomendado implementada.
-- [x] Critérios de seleção do candidato recomendado documentados.
-- [x] Modelo candidato recomendado persistido para fins acadêmicos.
-- [x] Métricas do modelo candidato recomendado persistidas.
-- [x] Feature names do modelo candidato recomendado persistidos.
+- [x] Seleção acadêmica controlada do modelo final da V1 implementada.
+- [x] Critérios de seleção do modelo final acadêmico documentados.
+- [x] Modelo final acadêmico persistido para fins acadêmicos.
+- [x] Métricas do modelo final acadêmico persistidas.
+- [x] Feature names do modelo final acadêmico persistidos.
 - [x] Modelo final acadêmico da V1 declarado e revisado com métricas e feature names existentes.
 - [x] Feature importance inicial por coeficientes implementada.
 - [x] SHAP opcional com fallback técnico implementado.
@@ -55,7 +55,7 @@
 - [ ] Aviso ético no relatório final.
 - [ ] README atualizado com treinamento, artefatos, exemplos, repositório e vídeo.
 - [x] README atualizado com quality gate e reprodutibilidade do ambiente.
-- [x] Model card operacional atualizado para o candidato persistido.
+- [x] Model card operacional atualizado para o modelo final acadêmico persistido.
 - [ ] Relatório técnico em PDF concluído.
 - [ ] Vídeo de até 15 minutos publicado e referenciado.
 - [ ] Revisão visual humana final.

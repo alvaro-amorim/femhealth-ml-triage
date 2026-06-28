@@ -2,6 +2,7 @@
 
 import importlib.util
 import sys
+from contextlib import nullcontext
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -31,6 +32,7 @@ def test_explainability_page_imports_without_error() -> None:
         dataframe=lambda *_args, **_kwargs: None,
         bar_chart=lambda *_args, **_kwargs: None,
         selectbox=lambda _label, options, **_kwargs: options[0],
+        expander=lambda *_args, **_kwargs: nullcontext(),
     )
     sys.modules["streamlit"] = fake_streamlit
     spec = importlib.util.spec_from_file_location(

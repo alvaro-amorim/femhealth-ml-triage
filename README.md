@@ -26,9 +26,9 @@ O pipeline com `StandardScaler` deve ser usado para modelos sensíveis à escala
 
 A camada inicial de modelagem em `src/models/` permite construir, treinar em memória e avaliar candidatos simples: Regressão Logística, Árvore de Decisão e KNN. As métricas priorizam a classe maligna do WDBC (`0 = malignant`) e incluem accuracy, precision, recall, F1, ROC AUC e matriz de confusão.
 
-A página `pages/03_Modelos.py` já consome uma comparação em memória e exibe tabela de métricas, ranking inicial por recall maligno, ROC AUC e F1, Curva ROC dos candidatos, matriz de confusão e seleção acadêmica controlada do modelo candidato recomendado.
+A página `pages/03_Modelos.py` consome uma comparação em memória e exibe tabela de métricas, ranking por recall maligno, ROC AUC e F1, Curva ROC dos candidatos, matriz de confusão e a declaração do modelo final acadêmico da V1.
 
-A seleção do candidato recomendado segue os critérios `recall_malignant`, `roc_auc_malignant` e `f1_malignant`. O candidato recomendado atual é Regressão Logística.
+A seleção técnica que fundamentou o modelo final acadêmico segue os critérios `recall_malignant`, `roc_auc_malignant` e `f1_malignant`. O modelo final acadêmico atual é Regressão Logística.
 
 ## Modelo final acadêmico da V1
 
@@ -106,9 +106,9 @@ Para reduzir warnings de compatibilidade do artefato persistido, o ambiente reco
 streamlit run app.py
 ```
 
-Nesta etapa, as páginas ainda são incrementais. O carregamento e a validação do WDBC estão disponíveis em `src/data/`, a EDA reutilizável está em `src/analysis/`, a base de pré-processamento/split está em `src/features/`, a modelagem inicial, a persistência controlada, a predição e a explicabilidade inicial do candidato recomendado estão em `src/models/`, e as páginas de exploração, predição, modelos e explicabilidade já exibem análises acadêmicas iniciais.
+Nesta etapa, as páginas ainda são incrementais. O carregamento e a validação do WDBC estão disponíveis em `src/data/`, a EDA reutilizável está em `src/analysis/`, a base de pré-processamento/split está em `src/features/`, a modelagem inicial, a persistência controlada, a predição e a explicabilidade inicial do modelo final acadêmico estão em `src/models/`, e as páginas de exploração, predição, modelos e explicabilidade já exibem análises acadêmicas iniciais.
 
-A página de predição individual acadêmica já consome o modelo candidato persistido:
+A página de predição individual acadêmica já consome o modelo final acadêmico persistido:
 
 ```powershell
 streamlit run app.py

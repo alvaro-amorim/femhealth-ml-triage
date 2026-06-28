@@ -2,6 +2,7 @@
 
 import importlib.util
 import sys
+from contextlib import nullcontext
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -25,6 +26,7 @@ def test_exploration_page_imports_without_error() -> None:
         dataframe=lambda *_args, **_kwargs: None,
         bar_chart=lambda *_args, **_kwargs: None,
         info=lambda *_args, **_kwargs: None,
+        expander=lambda *_args, **_kwargs: nullcontext(),
     )
     sys.modules["streamlit"] = fake_streamlit
     spec = importlib.util.spec_from_file_location("exploration_page", EXPLORATION_PAGE)

@@ -131,6 +131,21 @@ A Rodada 7 pode ser descrita como a etapa em que o projeto passou a indicar um m
 - Tokens/custo: não disponível.
 - Observações: não houve retreino, novo `.joblib`, novo JSON de modelo, CSV, notebook, API, banco, autenticação, React/Vite, FastAPI, dataset novo ou alteração de artefatos.
 
+## Rodada 14 — Polimento visual inicial do Streamlit
+
+- Rodada: 14
+- Data: 2026-06-27
+- Objetivo: melhorar a primeira impressão visual do MVP Streamlit para revisão humana, relatório e vídeo, sem alterar lógica de ML.
+- Arquivos alterados: `app.py`, páginas em `pages/`, smoke tests afetados, `README.md`, `docs/delivery_checklist.md` e registros em `docs/methodology/`.
+- Inspeção visual: app executado localmente com Streamlit e revisado via Chrome DevTools nas páginas Início, Exploração, Predição, Modelos, Explicabilidade e Sobre/Ética.
+- Comandos executados: `git status --short`, `git pull --ff-only`, leitura da constituição e documentação, execução local do Streamlit, revisão visual, `python scripts/quality_gate.py`, testes e validações finais.
+- Testes: validações finais executadas com quality gate, `python -m pytest -q`, `pytest -q` e `pytest --cov=src`.
+- Resultado: páginas ficaram mais consistentes, tabelas técnicas longas foram movidas para expanders quando adequado, textos foram alinhados ao modelo final acadêmico da V1 e a página Sobre/Ética ficou mais útil para banca.
+- Problemas: a tentativa inicial com Python global não encontrou Streamlit; a inspeção visual foi feita com o Python da `.venv`, onde Streamlit está instalado.
+- Commit relacionado: pendente.
+- Tokens/custo: não disponível.
+- Observações: não houve retreino, novo `.joblib`, novo JSON de modelo, CSV, notebook, API, banco, autenticação, React/Vite, FastAPI, dataset novo, alteração de artefatos ou alteração de lógica de ML.
+
 ## Template
 
 - Rodada:

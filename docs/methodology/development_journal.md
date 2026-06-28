@@ -166,3 +166,13 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 - Cuidados: sem retreino, sem regenerar `.joblib`, sem alterar JSONs de métricas/features, sem alterar split, dataset, predição, explicabilidade ou páginas visuais.
 - Custos/tokens: não disponível.
 - Próximo passo: validação final da rodada e revisão humana antes de commit.
+
+### 2026-06-27 — Polimento visual inicial do app Streamlit
+
+- Etapa: Rodada 14 do Codex.
+- Objetivo: melhorar a apresentação visual do MVP Streamlit sem alterar lógica de Machine Learning, dataset, métricas ou artefatos.
+- Ações: inspeção visual real do app renderizado via Streamlit local e Chrome DevTools; refinamento da página inicial; organização de tabelas longas em expanders na EDA; ajuste visual da página de predição; alinhamento da página de modelos ao termo "modelo final acadêmico da V1"; refinamento da página de explicabilidade; expansão da página Sobre e Ética para banca/revisão humana.
+- Cuidados: sem retreino, sem novo `.joblib`, sem JSON novo, sem CSV, sem alteração de `models/artifacts/`, sem API, sem banco, sem autenticação, sem React/Vite/FastAPI e sem alteração de dataset ou lógica de ML.
+- Testes: validações finais executadas com quality gate, `python -m pytest -q`, `pytest -q`, `pytest --cov=src`, `git diff --check`, `git status --short` e `git diff --stat`.
+- Custos/tokens: não disponível.
+- Próximo passo: revisão humana do polimento visual antes de commit.
