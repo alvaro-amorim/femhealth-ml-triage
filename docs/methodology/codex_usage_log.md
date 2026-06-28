@@ -18,6 +18,7 @@ Este arquivo registra as rodadas da ferramenta de implementação no VS Code.
 | 9 | 2026-06-27 | Predição individual acadêmica com artefato persistido | 78 testes passaram | Página de predição consome o modelo persistido com validação rígida | `3efa07f` |
 | 10 | 2026-06-27 | Explicabilidade inicial do modelo persistido | 86 testes passaram | Página de explicabilidade exibe importância global e explicação local | `af1bfc1` |
 | 11 | 2026-06-27 | Revisão final de qualidade e higiene técnica | 86 testes passaram; cobertura 88% | Textos, ética, checklist e validações finais revisados | `d343d9f` |
+| 12 | 2026-06-27 | Reprodutibilidade do ambiente e quality gate | 86 testes passaram; cobertura 88%; quality gate OK | Pins de ambiente e quality gate local criados | pendente |
 
 ## Rodada 7 — Seleção controlada do modelo candidato recomendado
 
@@ -99,6 +100,20 @@ A Rodada 7 pode ser descrita como a etapa em que o projeto passou a indicar um m
 - Commit relacionado: `d343d9f chore: revisa qualidade final da V1`.
 - Tokens/custo: não disponível.
 - Observações: não houve retreino, novo `.joblib`, novo JSON, CSV, notebook, API, banco, autenticação, dataset novo, troca de modelo ou alteração de artefatos.
+
+## Rodada 12 — Reprodutibilidade do ambiente e quality gate
+
+- Rodada: 12
+- Data: 2026-06-27
+- Objetivo: consolidar reprodutibilidade do ambiente e criar um quality gate automatizado para reduzir validações manuais repetitivas.
+- Arquivos alterados: `requirements.txt`, `docs/environment_reproducibility.md`, `scripts/quality_gate.py`, `README.md`, `docs/delivery_checklist.md` e registros em `docs/methodology/`.
+- Comandos executados: `git status --short`, `git pull --ff-only`, leitura da constituição e documentação, `python scripts/quality_gate.py`, testes e validações finais.
+- Testes: `python scripts/quality_gate.py` passou; `python -m pytest -q` e `pytest -q` passaram com 86 testes; `pytest --cov=src` passou com cobertura total de 88%.
+- Resultado: `scikit-learn==1.9.0` e `joblib==1.5.3` fixados para compatibilidade com o artefato persistido; quality gate local criado para checar mojibake, parâmetros depreciados de largura do Streamlit, artefatos, pins, JSONs, schema, carregamento do `.joblib` e linguagem crítica.
+- Problemas: o primeiro teste do quality gate falhou porque o script executado diretamente não encontrava `src`; a raiz do repositório foi adicionada ao `sys.path` do script.
+- Commit relacionado: pendente.
+- Tokens/custo: não disponível.
+- Observações: não houve retreino, novo `.joblib`, novo JSON de modelo, CSV, notebook, API, banco, autenticação, dataset novo ou alteração do split oficial.
 
 ## Template
 

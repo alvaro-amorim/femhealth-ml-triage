@@ -96,6 +96,8 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
+Para reduzir warnings de compatibilidade do artefato persistido, o ambiente recomendado fixa `scikit-learn==1.9.0` e `joblib==1.5.3`. Detalhes estão em `docs/environment_reproducibility.md`.
+
 ## Executar
 
 ```powershell
@@ -117,9 +119,19 @@ pytest
 pytest --cov=src
 ```
 
+## Quality gate
+
+Antes de commit ou push, rode:
+
+```powershell
+python scripts/quality_gate.py
+```
+
+Esse comando valida higiene básica do repositório, artefatos permitidos, pins de reprodutibilidade, JSONs persistidos, schema das 30 features e carregamento do modelo acadêmico persistido.
+
 ## Status atual
 
-Base de dados, EDA inicial, pré-processamento, modelagem inicial em memória, comparação inicial com Curva ROC, seleção acadêmica, persistência controlada do modelo candidato recomendado, predição individual acadêmica e explicabilidade inicial concluídos. A explicabilidade final ainda pode ser refinada na revisão final.
+Base de dados, EDA inicial, pré-processamento, modelagem inicial em memória, comparação inicial com Curva ROC, seleção acadêmica, persistência controlada do modelo candidato recomendado, predição individual acadêmica, explicabilidade inicial e quality gate local concluídos. Relatório PDF e vídeo seguem pendentes.
 
 ## Aviso ético
 

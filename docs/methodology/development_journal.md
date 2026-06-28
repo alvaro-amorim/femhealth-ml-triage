@@ -144,3 +144,14 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 - Custos/tokens: não disponível.
 - Resultado: app e documentação ficaram mais coerentes para revisão humana; relatório PDF e vídeo seguem pendentes.
 - Commit: `d343d9f chore: revisa qualidade final da V1`.
+
+### 2026-06-27 — Reprodutibilidade do ambiente e quality gate
+
+- Etapa: Rodada 12 do Codex.
+- Objetivo: consolidar reprodutibilidade do ambiente e automatizar checagens recorrentes antes de commit/push.
+- Ações: fixação de `scikit-learn==1.9.0` e `joblib==1.5.3` em `requirements.txt`; criação de `docs/environment_reproducibility.md`; criação de `scripts/quality_gate.py`; atualização do README, checklist e registros metodológicos.
+- Decisão técnica: fixar as versões usadas na geração do artefato persistido para reduzir warnings de compatibilidade do `.joblib` e deixar a entrega mais previsível em Python 3.11.
+- Cuidados: sem retreino, sem novo `.joblib`, sem novo JSON de modelo, sem CSV, sem API, sem banco, sem autenticação e sem alteração de dataset.
+- Testes: validações finais executadas com quality gate, `python -m pytest -q`, `pytest -q`, `pytest --cov=src`, `git diff --check`, `git status --short` e `git diff --stat`.
+- Custos/tokens: não disponível.
+- Próximo passo: revisão humana do diff e commit da rodada, se aprovado.

@@ -47,6 +47,7 @@ Mostrar:
 - Rodada 9 com 78 testes passando após predição individual acadêmica usando o artefato persistido.
 - Rodada 10 com 86 testes passando após explicabilidade inicial do modelo persistido.
 - Rodada 11 com revisão final de qualidade, 86 testes passando e cobertura total de 88% em `src`.
+- Rodada 12 com ambiente reprodutível documentado, versões críticas fixadas e quality gate local antes de commit/push.
 - App Streamlit rodando.
 
 ## Uso responsável de IA

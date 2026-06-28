@@ -6,6 +6,7 @@
 - [x] Estrutura modular Python/Streamlit criada.
 - [x] Schema canônico das 30 features definido.
 - [x] README, ADRs, wireframes e model card iniciados.
+- [x] Documento de reprodutibilidade do ambiente criado.
 - [x] Dataset WDBC carregado via Scikit-learn.
 - [x] EDA inicial do WDBC implementada na página de exploração.
 - [x] Distribuição de classes, estatísticas descritivas, missing values e correlações exploratórias apresentados.
@@ -45,6 +46,7 @@
 - [x] Testes de predição implementados.
 - [x] Testes de explicabilidade implementados.
 - [x] `pytest` e `pytest --cov=src` passam no projeto completo.
+- [x] Quality gate automatizado criado para checar ambiente, artefatos, schema, mojibake e linguagem crítica.
 
 ## Documentação e entrega
 
@@ -52,6 +54,7 @@
 - [x] Aviso ético nas páginas principais do app.
 - [ ] Aviso ético no relatório final.
 - [ ] README atualizado com treinamento, artefatos, exemplos, repositório e vídeo.
+- [x] README atualizado com quality gate e reprodutibilidade do ambiente.
 - [x] Model card operacional atualizado para o candidato persistido.
 - [ ] Relatório técnico em PDF concluído.
 - [ ] Vídeo de até 15 minutos publicado e referenciado.

@@ -1,10 +1,10 @@
 pandas
 numpy
-scikit-learn
+scikit-learn==1.9.0
 matplotlib
 plotly
 shap
-joblib
+joblib==1.5.3
 streamlit
 jupyterlab
 pytest
