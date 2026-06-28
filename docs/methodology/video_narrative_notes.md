@@ -23,6 +23,7 @@ Frase possível:
 - Avaliação com foco em recall da classe maligna, respeitando `0 = malignant` no WDBC.
 - Página de modelos com comparação acadêmica inicial, ranking, candidato recomendado, Curva ROC e matriz de confusão.
 - Persistência controlada do candidato recomendado como artefato acadêmico em `models/artifacts/`.
+- Declaração da Regressão Logística persistida como modelo final acadêmico da V1/MVP, sem uso diagnóstico.
 - Predição individual acadêmica usando o artefato persistido, com exemplos reais do WDBC e formulário manual validado.
 - Explicabilidade inicial com importância global por coeficientes, SHAP opcional com fallback e explicação local de exemplos reais WDBC.
 - Interface Streamlit multipage.
@@ -48,6 +49,7 @@ Mostrar:
 - Rodada 10 com 86 testes passando após explicabilidade inicial do modelo persistido.
 - Rodada 11 com revisão final de qualidade, 86 testes passando e cobertura total de 88% em `src`.
 - Rodada 12 com ambiente reprodutível documentado, versões críticas fixadas e quality gate local antes de commit/push.
+- Rodada 13 com declaração formal do modelo final acadêmico da V1 sem retreino nem alteração de artefatos.
 - App Streamlit rodando.
 
 ## Uso responsável de IA

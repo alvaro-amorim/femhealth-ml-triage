@@ -27,7 +27,7 @@
 - [x] Modelo candidato recomendado persistido para fins acadêmicos.
 - [x] Métricas do modelo candidato recomendado persistidas.
 - [x] Feature names do modelo candidato recomendado persistidos.
-- [ ] Modelo final definitivo para entrega, métricas e feature names revisados.
+- [x] Modelo final acadêmico da V1 declarado e revisado com métricas e feature names existentes.
 - [x] Feature importance inicial por coeficientes implementada.
 - [x] SHAP opcional com fallback técnico implementado.
 
@@ -58,4 +58,5 @@
 - [x] Model card operacional atualizado para o candidato persistido.
 - [ ] Relatório técnico em PDF concluído.
 - [ ] Vídeo de até 15 minutos publicado e referenciado.
+- [ ] Revisão visual humana final.
 - [ ] Revisão final de limpeza, segredos, testes e links.

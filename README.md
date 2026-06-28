@@ -30,9 +30,9 @@ A página `pages/03_Modelos.py` já consome uma comparação em memória e exibe
 
 A seleção do candidato recomendado segue os critérios `recall_malignant`, `roc_auc_malignant` e `f1_malignant`. O candidato recomendado atual é Regressão Logística.
 
-## Artefatos do modelo candidato
+## Modelo final acadêmico da V1
 
-A Rodada 8 persiste o modelo candidato recomendado para fins acadêmicos e reprodutíveis. Os artefatos ficam em:
+O modelo final acadêmico da V1/MVP é o artefato já persistido em:
 
 ```text
 models/artifacts/recommended_model.joblib
@@ -40,13 +40,15 @@ models/artifacts/recommended_model_metrics.json
 models/artifacts/recommended_model_feature_names.json
 ```
 
+Esse modelo é uma **Regressão Logística** treinada com o WDBC e selecionada pelo critério controlado de maior `recall_malignant`, seguido por `roc_auc_malignant` e `f1_malignant` em caso de empate.
+
 Para regenerar os artefatos:
 
 ```powershell
 python -m src.models.persist
 ```
 
-O `.joblib` é um artefato técnico pequeno do projeto acadêmico. Ele não transforma a aplicação em ferramenta clínica e não deve ser usado para diagnóstico médico.
+O `.joblib` é um artefato técnico pequeno do projeto acadêmico. Ele não transforma a aplicação em ferramenta clínica e não deve ser usado para diagnóstico médico, avaliação clínica, laudo anatomopatológico ou decisão profissional. O médico sempre deve ter a palavra final.
 
 ## Predição individual acadêmica
 
@@ -131,7 +133,7 @@ Esse comando valida higiene básica do repositório, artefatos permitidos, pins 
 
 ## Status atual
 
-Base de dados, EDA inicial, pré-processamento, modelagem inicial em memória, comparação inicial com Curva ROC, seleção acadêmica, persistência controlada do modelo candidato recomendado, predição individual acadêmica, explicabilidade inicial e quality gate local concluídos. Relatório PDF e vídeo seguem pendentes.
+Base de dados, EDA inicial, pré-processamento, modelagem inicial em memória, comparação inicial com Curva ROC, seleção acadêmica, modelo final acadêmico da V1 declarado, persistência controlada, predição individual acadêmica, explicabilidade inicial e quality gate local concluídos. Relatório PDF e vídeo seguem pendentes.
 
 ## Aviso ético
 

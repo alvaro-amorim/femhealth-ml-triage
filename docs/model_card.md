@@ -2,7 +2,7 @@
 
 ## Status
 
-**Status:** modelo candidato persistido para fins acadêmicos na Rodada 8, consumido pela predição individual acadêmica na Rodada 9 e pela explicabilidade inicial na Rodada 10.
+**Status:** modelo final acadêmico da V1/MVP, persistido originalmente na Rodada 8, consumido pela predição individual acadêmica na Rodada 9 e pela explicabilidade inicial na Rodada 10, e formalmente declarado na Rodada 13.
 
 Este modelo é um artefato acadêmico para demonstração de Machine Learning e não deve ser usado para diagnóstico médico.
 
@@ -10,8 +10,8 @@ Este modelo é um artefato acadêmico para demonstração de Machine Learning e 
 
 | Campo | Valor |
 |---|---|
-| Nome | Modelo candidato recomendado — Regressão Logística |
-| Versão | Rodada 8 |
+| Nome | Modelo final acadêmico da V1 — Regressão Logística |
+| Versão | Rodada 13 — declaração formal sobre artefato da Rodada 8 |
 | Data de geração | 2026-06-27 |
 | Comando de geração | `python -m src.models.persist` |
 | Caminho do modelo | `models/artifacts/recommended_model.joblib` |
@@ -20,7 +20,7 @@ Este modelo é um artefato acadêmico para demonstração de Machine Learning e 
 
 ## Objetivo acadêmico
 
-Persistir o modelo candidato recomendado nesta comparação controlada para permitir que predição individual acadêmica e explicabilidade inicial usem um artefato técnico reproduzível.
+Declarar o modelo persistido recomendado como modelo final acadêmico da V1/MVP para permitir que predição individual acadêmica e explicabilidade inicial usem um artefato técnico reproduzível.
 
 O artefato não representa ferramenta validada para uso real em saúde, laudo ou recomendação profissional.
 
@@ -56,6 +56,7 @@ As features são agrupadas em `mean`, `error` e `worst`, cada grupo com 10 vari�
 - **Split:** treino/teste estratificado.
 - **test_size:** 0.2.
 - **random_state:** 42.
+- **Modelo final acadêmico da V1:** Regressão Logística persistida em `models/artifacts/recommended_model.joblib`.
 - **Critérios de seleção:**
   1. maior `recall_malignant`;
   2. empate: maior `roc_auc_malignant`;

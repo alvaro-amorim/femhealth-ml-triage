@@ -37,6 +37,7 @@ Os valores devem ser preenchidos manualmente pelo usuário quando a ferramenta e
 | 2026-06-27 | Codex | não disponível | Rodada 10 | Explicabilidade inicial do modelo persistido | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 86 testes passaram; commit `af1bfc1` |
 | 2026-06-27 | Codex | não disponível | Rodada 11 | Revisão final de qualidade e higiene técnica | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | 86 testes passaram; cobertura 88%; commit `d343d9f` |
 | 2026-06-27 | Codex | não disponível | Rodada 12 | Reprodutibilidade do ambiente e quality gate | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | Quality gate criado; validações finais executadas localmente |
+| 2026-06-27 | Codex | não disponível | Rodada 13 | Declaração do modelo final acadêmico da V1 | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | Modelo final acadêmico declarado; sem alteração de artefatos |
 | 2026-06-26 | GitHub conectado ao ChatGPT | não disponível | Revisões remotas | Conferência de commits e arquivos no GitHub | não disponível | não disponível | não disponível | não disponível | Não informado pela ferramenta | Usado para revisar estado remoto |
 
 ---

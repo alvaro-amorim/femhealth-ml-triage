@@ -19,6 +19,7 @@ Este arquivo registra as rodadas da ferramenta de implementação no VS Code.
 | 10 | 2026-06-27 | Explicabilidade inicial do modelo persistido | 86 testes passaram | Página de explicabilidade exibe importância global e explicação local | `af1bfc1` |
 | 11 | 2026-06-27 | Revisão final de qualidade e higiene técnica | 86 testes passaram; cobertura 88% | Textos, ética, checklist e validações finais revisados | `d343d9f` |
 | 12 | 2026-06-27 | Reprodutibilidade do ambiente e quality gate | 86 testes passaram; cobertura 88%; quality gate OK | Pins de ambiente e quality gate local criados | pendente |
+| 13 | 2026-06-27 | Declaração do modelo final acadêmico da V1 | 86 testes passaram; cobertura 88%; quality gate OK | Regressão Logística persistida declarada como modelo final acadêmico da V1 | pendente |
 
 ## Rodada 7 — Seleção controlada do modelo candidato recomendado
 
@@ -114,6 +115,21 @@ A Rodada 7 pode ser descrita como a etapa em que o projeto passou a indicar um m
 - Commit relacionado: pendente.
 - Tokens/custo: não disponível.
 - Observações: não houve retreino, novo `.joblib`, novo JSON de modelo, CSV, notebook, API, banco, autenticação, dataset novo ou alteração do split oficial.
+
+## Rodada 13 — Declaração do modelo final acadêmico da V1
+
+- Rodada: 13
+- Data: 2026-06-27
+- Objetivo: declarar formalmente que o modelo persistido recomendado passa a ser o modelo final acadêmico da V1/MVP.
+- Arquivos alterados: `README.md`, `docs/delivery_checklist.md`, `docs/model_card.md`, `models/model_card.md`, `docs/methodology/decision_traceability.md` e registros em `docs/methodology/`.
+- Decisão: a Regressão Logística persistida em `models/artifacts/recommended_model.joblib` é o modelo final acadêmico da V1.
+- Critério: maior `recall_malignant`, seguido por `roc_auc_malignant` e `f1_malignant`.
+- Testes: `python scripts/quality_gate.py` passou; `python -m pytest -q` e `pytest -q` passaram com 86 testes; `pytest --cov=src` passou com cobertura total de 88%.
+- Resultado: decisão formal registrada sem alterar artefatos, métricas, feature names, split, dataset, predição ou explicabilidade.
+- Problemas: nenhum até o momento.
+- Commit relacionado: pendente.
+- Tokens/custo: não disponível.
+- Observações: não houve retreino, novo `.joblib`, novo JSON de modelo, CSV, notebook, API, banco, autenticação, React/Vite, FastAPI, dataset novo ou alteração de artefatos.
 
 ## Template
 

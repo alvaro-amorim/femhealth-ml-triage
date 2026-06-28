@@ -155,3 +155,14 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 - Testes: validações finais executadas com quality gate, `python -m pytest -q`, `pytest -q`, `pytest --cov=src`, `git diff --check`, `git status --short` e `git diff --stat`.
 - Custos/tokens: não disponível.
 - Próximo passo: revisão humana do diff e commit da rodada, se aprovado.
+
+### 2026-06-27 — Declaração do modelo final acadêmico da V1
+
+- Etapa: Rodada 13 do Codex.
+- Objetivo: eliminar a ambiguidade entre modelo candidato recomendado e modelo final acadêmico da V1/MVP.
+- Decisão: o modelo final acadêmico da V1 é a Regressão Logística já persistida em `models/artifacts/recommended_model.joblib`.
+- Critério: seleção controlada por maior `recall_malignant`, seguida por `roc_auc_malignant` e `f1_malignant` em caso de empate.
+- Ações: atualização do README, checklist, model cards e rastreabilidade de decisões para registrar a decisão formal.
+- Cuidados: sem retreino, sem regenerar `.joblib`, sem alterar JSONs de métricas/features, sem alterar split, dataset, predição, explicabilidade ou páginas visuais.
+- Custos/tokens: não disponível.
+- Próximo passo: validação final da rodada e revisão humana antes de commit.
