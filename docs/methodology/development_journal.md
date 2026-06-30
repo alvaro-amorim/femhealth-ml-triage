@@ -176,3 +176,80 @@ Este arquivo registra a evolução cronológica do projeto para apoiar o relató
 - Testes: validações finais executadas com quality gate, `python -m pytest -q`, `pytest -q`, `pytest --cov=src`, `git diff --check`, `git status --short` e `git diff --stat`.
 - Custos/tokens: não disponível.
 - Próximo passo: revisão humana do polimento visual antes de commit.
+
+### 2026-06-28 — Reestruturação UX guiada do MVP
+
+- Etapa: Rodada 15 do Codex.
+- Objetivo: transformar o app de um dashboard técnico em uma plataforma demonstrativa mais profissional, narrativa e adequada para banca/vídeo.
+- Ações: inspeção visual real via Streamlit local e Chrome DevTools; criação de componentes visuais simples em `src/ui/`; reestruturação da home como jornada guiada; reposicionamento de Exploração como "Conheça os dados"; Predição como simulador guiado; Modelos como central de decisão; Explicabilidade como "Por que o modelo estimou isso?"; Sobre/Ética como página institucional.
+- Cuidados: sem retreino, sem novo `.joblib`, sem JSON novo, sem CSV, sem alteração de `models/artifacts/`, sem API, sem banco, sem autenticação, sem React/Vite/FastAPI e sem alteração de dataset, métricas ou lógica de ML.
+- Testes: validações finais executadas com quality gate, `python -m pytest -q`, `pytest -q`, `pytest --cov=src`, `git diff --check`, `git status --short` e `git diff --stat`.
+- Custos/tokens: não disponível.
+- Próximo passo: revisão visual humana e preparação de relatório/vídeo.
+
+### 2026-06-28 — Ajustes UX pós-revisão humana em vídeo
+
+- Etapa: Rodada 15B do Codex.
+- Objetivo: corrigir a experiência do app para parecer menos roteiro de apresentação e mais produto demonstrativo profissional.
+- Ações: correção da sidebar com `st.navigation` e rótulos acentuados; remoção de linguagem de banca/vídeo/apresentação do front-end; reorganização da home como fluxo de uso; transformação da predição em modo rápido com ajuste avançado em expander; refinamento de textos de modelos, explicabilidade e Sobre/Ética; melhoria do gráfico global de explicabilidade com barras horizontais.
+- Decisão técnica: usar `st.Page`/`st.navigation` porque a versão instalada do Streamlit (`1.58.0`) suporta navegação nativa com títulos customizados, evitando renomear arquivos.
+- Pendência futura registrada: entrada assistida por arquivo/OCR experimental apenas para texto ou relatório tabular estruturado contendo as 30 features WDBC, sem interpretação de imagem médica real.
+- Cuidados: sem retreino, sem novo `.joblib`, sem JSON novo, sem CSV, sem alteração de `models/artifacts/`, sem API, sem banco, sem autenticação, sem React/Vite/FastAPI e sem alteração de dataset, métricas ou lógica de ML.
+- Testes: validações finais executadas com quality gate, `python -m pytest -q`, `pytest -q`, `pytest --cov=src`, `git diff --check`, `git status --short` e `git diff --stat`.
+- Custos/tokens: não disponível.
+- Próximo passo: revisão visual humana final antes de commit.
+
+### 2026-06-29 — Didatização dos dados, ROC, tema e idioma
+
+- Etapa: Rodada 15C do Codex.
+- Objetivo: melhorar compreensão do app sem alterar modelo, dataset, métricas salvas, artefatos ou lógica de Machine Learning.
+- Ações: implementação de seletor de tema claro/escuro; implementação de seletor Português/Inglês; criação de camada simples de i18n; criação de dicionário didático das 30 features WDBC; atualização das páginas para usar nomes amigáveis e manter nomes técnicos como detalhe; substituição da Curva ROC por visualização Plotly com eixos fixos 0–1, linha diagonal de referência e legenda com AUC; adição de interpretação didática da matriz de confusão.
+- Decisão técnica: manter o schema canônico e os nomes técnicos originais no backend, concentrando tradução e didatização apenas na camada de UI/apresentação.
+- Cuidados: sem retreino, sem novo `.joblib`, sem JSON novo, sem CSV, sem alteração de `models/artifacts/`, sem API, sem banco, sem autenticação, sem React/Vite/FastAPI e sem alteração de dataset, métricas ou lógica de ML.
+- Testes: validações finais executadas com quality gate, `python -m pytest -q`, `pytest -q`, `pytest --cov=src`, `git diff --check`, inspeção visual local e checagens de artefatos/mojibake.
+- Problemas: nenhum bloqueio técnico; persistem warnings conhecidos de compatibilidade Scikit-learn quando o Python global difere do ambiente recomendado.
+- Custos/tokens: não disponível.
+- Próximo passo: revisão visual humana antes de commit.
+
+### 2026-06-29 — Correção de import da sidebar e smoke test de inicialização
+
+- Etapa: Rodada 15C-Fix do Codex.
+- Objetivo: corrigir falha de inicialização causada por import ausente de `render_sidebar_controls` em `app.py`.
+- Diagnóstico: `app.py` depende de `render_sidebar_controls` em `src.ui.components`; a função pertence à camada visual compartilhada criada na Rodada 15C.
+- Ações: mantida a função em `src/ui/components.py` e adicionado smoke test que lê os imports de `app.py` para `src.ui.components` e valida que todos existem no módulo real.
+- Cuidados: sem alteração de modelo, dataset, split, métricas, artefatos, predição, explicabilidade ou lógica de Machine Learning.
+- Testes: validações finais executadas com quality gate, `python -m pytest -q`, `pytest -q`, `pytest --cov=src`, `git diff --check` e inspeção visual local do Streamlit.
+- Custos/tokens: não disponível.
+- Próximo passo: revisão humana e commit das Rodadas 15/15B/15C/15C-Fix, se aprovado.
+
+### 2026-06-29 — Polimento do tema escuro e contraste visual
+
+- Etapa: Rodada 15D do Codex.
+- Objetivo: melhorar legibilidade, hierarquia visual e consistência profissional do tema escuro sem alterar lógica, modelo, dataset, métricas ou artefatos.
+- Diagnóstico: o dark mode anterior usava poucos tokens visuais, fundo chapado, contraste insuficiente em sidebar/cards/métricas e controles que destoavam do fundo escuro.
+- Ações: criação de tokens explícitos para light/dark; refinamento de CSS da sidebar, cards, métricas, selects, inputs, expanders, botões, alertas e tabelas; aplicação de tokens do tema aos gráficos Plotly de ROC e importância global.
+- Testes: adicionados testes unitários para tokens de tema, layout Plotly e CSS mínimo do dark mode.
+- Cuidados: sem retreino, sem novo `.joblib`, sem JSON novo, sem CSV, sem alteração de `models/artifacts/`, sem API, banco, autenticação, React/Vite/FastAPI e sem alteração de dataset, métricas ou lógica de ML.
+- Custos/tokens: não disponível.
+- Próximo passo: validação visual humana do dark mode antes de commit.
+
+### 2026-06-30 — Correção definitiva de inconsistências visuais do dark mode
+
+- Etapa: Rodada 15E do Codex.
+- Objetivo: corrigir resíduos visuais do tema escuro em dropdowns, expanders, inputs numéricos e containers Plotly, sem alterar lógica, modelo, dataset, métricas ou artefatos.
+- Diagnóstico: alguns componentes BaseWeb/Streamlit renderizam popovers, menus, corpos de expander e wrappers Plotly fora dos containers principais já tematizados, mantendo fundo claro ou baixo contraste no dark mode.
+- Ações: reforço centralizado de seletores CSS em `src/ui/theme.py` para `stSelectbox`, popovers/menus BaseWeb, `stNumberInput`, `stExpander`, `stExpanderDetails`, wrappers Plotly/SVG e estados de hover/foco.
+- Testes: testes unitários de UI atualizados para cobrir seletores críticos do dark mode.
+- Cuidados: sem retreino, sem novo `.joblib`, sem JSON novo, sem CSV, sem alteração de `models/artifacts/`, sem API, banco, autenticação, React/Vite/FastAPI e sem alteração de dataset, métricas ou lógica de ML.
+- Custos/tokens: não disponível.
+- Próximo passo: revisão visual humana final antes de commit.
+
+### 2026-06-30 — Correção de regressão do gráfico ROC
+
+- Etapa: Rodada 15F do Codex.
+- Objetivo: corrigir regressão visual em que o gráfico Plotly da Curva ROC ficava invisível após ajustes agressivos do dark mode.
+- Diagnóstico: o CSS da Rodada 15E aplicava `background` e `fill` em elementos internos do Plotly/SVG, incluindo `.main-svg`, `svg`, `.bg` e `rect.bg`, o que podia ocultar o desenho do gráfico.
+- Ações: remoção dos seletores internos do Plotly em `src/ui/theme.py`, mantendo apenas o wrapper externo seguro `[data-testid="stPlotlyChart"]`; reforço do teste unitário para impedir reintrodução desses seletores.
+- Cuidados: visual do gráfico controlado pelo próprio Plotly via layout, sem alterar cálculo da ROC, métricas, modelo, dataset, split, artefatos ou lógica de Machine Learning.
+- Custos/tokens: não disponível.
+- Próximo passo: validação final automatizada e inspeção visual em tema claro/escuro antes de commit.

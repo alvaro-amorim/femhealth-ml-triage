@@ -22,6 +22,7 @@
 - [x] Ranking inicial por recall maligno, ROC AUC e F1 exibido.
 - [x] Matriz de confusão exibida na página de modelos.
 - [x] Curva ROC apresentada.
+- [x] Curva ROC revisada com visualização didática, eixos 0–1, linha de referência e legenda com AUC.
 - [x] Seleção acadêmica controlada do modelo final da V1 implementada.
 - [x] Critérios de seleção do modelo final acadêmico documentados.
 - [x] Modelo final acadêmico persistido para fins acadêmicos.
@@ -34,6 +35,11 @@
 ## Aplicação e qualidade
 
 - [x] Páginas Streamlit principais funcionais.
+- [x] Jornada guiada do MVP implementada na interface Streamlit.
+- [x] Componentes visuais simples padronizados para hero, cards e aviso ético.
+- [x] Seletor de tema claro/escuro implementado na sidebar.
+- [x] Seletor de idioma Português/Inglês implementado na sidebar.
+- [x] Dicionário didático das 30 features WDBC implementado para apresentação na UI.
 - [x] Página de exploração parcialmente funcional com EDA real do WDBC.
 - [x] Página de modelos parcialmente funcional com comparação acadêmica inicial.
 - [x] Página de explicabilidade parcialmente funcional com importância global e explicação local.
@@ -60,3 +66,4 @@
 - [ ] Vídeo de até 15 minutos publicado e referenciado.
 - [ ] Revisão visual humana final.
 - [ ] Revisão final de limpeza, segredos, testes e links.
+- [ ] Futuro opcional: entrada assistida por arquivo/OCR experimental apenas para relatórios tabulares estruturados contendo as 30 features WDBC; fora do escopo para imagem médica real, mamografia ou ultrassom.

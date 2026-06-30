@@ -40,6 +40,9 @@ def test_prediction_page_imports_without_error() -> None:
         session_state={},
     )
     sys.modules["streamlit"] = fake_streamlit
+    for module_name in list(sys.modules):
+        if module_name == "src.ui" or module_name.startswith("src.ui."):
+            sys.modules.pop(module_name, None)
     spec = importlib.util.spec_from_file_location("prediction_page", PREDICTION_PAGE)
     assert spec is not None
     assert spec.loader is not None
@@ -53,17 +56,22 @@ def test_prediction_page_imports_without_error() -> None:
 def test_prediction_page_contains_academic_and_non_diagnostic_text() -> None:
     page_source = PREDICTION_PAGE.read_text(encoding="utf-8")
 
-    assert "Predição Individual" in page_source
+    assert "Simulador guiado de estimativa acadêmica" in page_source
     assert "estimativa acadêmica" in page_source
-    assert "Não é diagnóstico médico" in page_source
+    assert "render_ethics_notice" in page_source
     assert "laudo anatomopatológico" in page_source
-    assert "médico sempre deve ter a palavra final" in page_source
+    assert "render_ethics_notice" in page_source
     assert "Executar estimativa acadêmica" in page_source
     assert "Exemplo real WDBC" in page_source
     assert "Resultado da estimativa acadêmica" in page_source
     assert "Classe estimada pelo modelo" in page_source
     assert "Classe estimada" in page_source
     assert "Ver valores usados na estimativa" in page_source
-    assert "Features do grupo" in page_source
-    assert "Probabilidade estimada de malignant" in page_source
-    assert "Probabilidade estimada de benign" in page_source
+    assert "translate_feature_name" in page_source
+    assert "get_feature_help" in page_source
+    assert "Modo rápido" in page_source
+    assert "Ajuste avançado dos atributos" in page_source
+    assert "Como interpretar esta saída" in page_source
+    assert "Probabilidade estimada de Maligno" in page_source
+    assert "Probabilidade estimada de Benigno" in page_source
+    assert "Run academic estimate" in page_source

@@ -27,6 +27,7 @@ Frase possível:
 - Predição individual acadêmica usando o artefato persistido, com exemplos reais do WDBC e formulário manual validado.
 - Explicabilidade inicial com importância global por coeficientes, SHAP opcional com fallback e explicação local de exemplos reais WDBC.
 - Interface Streamlit multipage.
+- Jornada guiada do MVP: projeto, dados, modelos, predição, explicabilidade e ética.
 - Testes desde o início.
 - Polimento visual inicial do Streamlit para melhorar clareza, consistência e apresentação em vídeo.
 
@@ -51,6 +52,9 @@ Mostrar:
 - Rodada 12 com ambiente reprodutível documentado, versões críticas fixadas e quality gate local antes de commit/push.
 - Rodada 13 com declaração formal do modelo final acadêmico da V1 sem retreino nem alteração de artefatos.
 - Rodada 14 com polimento visual assistido por inspeção visual real do app Streamlit.
+- Rodada 15 com reestruturação UX guiada para transformar o app em plataforma demonstrativa profissional.
+- Rodada 15B com ajustes pós-revisão humana: sidebar acentuada, linguagem mais orientada a uso e predição com modo rápido.
+- Rodada 15C com didatização dos dados, nomes amigáveis para as 30 features WDBC, seletor PT/EN, tema claro/escuro e Curva ROC mais didática.
 - App Streamlit rodando.
 
 ## Uso responsável de IA
@@ -62,13 +66,15 @@ Mostrar:
 ## Pontos para mostrar na tela
 
 - Home do Streamlit.
-- Página de exploração com distribuição das classes, grupos de features, estatísticas e correlações.
+- Fluxo de uso recomendado na home.
+- Página de exploração com distribuição das classes, grupos de atributos, nomes amigáveis, estatísticas e relações exploratórias.
 - Página de comparação de modelos.
 - Seção de modelo final acadêmico da V1, com aviso de que o artefato persistido é acadêmico e não serve para uso real em saúde.
 - Artefatos em `models/artifacts/` e model card operacional.
 - Página de predição individual com exemplos reais WDBC, probabilidades estimadas e aviso não diagnóstico.
-- Página de explicabilidade com importância global das features e explicação local de uma amostra.
-- Curva ROC usando probabilidade da classe maligna.
+- Página de explicabilidade com importância global dos atributos, influência em um exemplo e nomes técnicos preservados.
+- Curva ROC didática usando probabilidade da classe Maligno, eixos 0–1, linha de referência e AUC por modelo.
+- Alternância entre tema claro/escuro e idioma Português/Inglês.
 - Testes com `pytest`.
 - GitHub com commits.
 - Página Sobre e Ética com escopo, limitações e uso responsável de IA.

@@ -1,10 +1,12 @@
 # FemHealth ML Triage
 
-Aplicação acadêmica de Machine Learning para apoio à triagem analítica em saúde da mulher, com classificação tabular, explicabilidade e interface multipage em Streamlit.
+Plataforma demonstrativa acadêmica de Machine Learning explicável para análise tabular em saúde da mulher, com classificação supervisionada, estimativa individual, explicabilidade e interface multipage em Streamlit.
 
 ## Contexto acadêmico
 
 Este repositório é o projeto do Tech Challenge — Fase 1 da pós-graduação. A V1 prioriza um pipeline reproduzível de classificação supervisionada, análise exploratória, comparação de modelos, explicabilidade e documentação técnica.
+
+O app foi organizado como uma plataforma demonstrativa guiada: entender o projeto, conhecer o dataset, revisar a comparação de modelos, executar uma estimativa acadêmica e interpretar o comportamento do modelo com limites éticos claros.
 
 ## Dataset
 
@@ -26,7 +28,7 @@ O pipeline com `StandardScaler` deve ser usado para modelos sensíveis à escala
 
 A camada inicial de modelagem em `src/models/` permite construir, treinar em memória e avaliar candidatos simples: Regressão Logística, Árvore de Decisão e KNN. As métricas priorizam a classe maligna do WDBC (`0 = malignant`) e incluem accuracy, precision, recall, F1, ROC AUC e matriz de confusão.
 
-A página `pages/03_Modelos.py` consome uma comparação em memória e exibe tabela de métricas, ranking por recall maligno, ROC AUC e F1, Curva ROC dos candidatos, matriz de confusão e a declaração do modelo final acadêmico da V1.
+A página `pages/03_Modelos.py` consome uma comparação em memória e exibe tabela de métricas, ranking por recall maligno, ROC AUC e F1, Curva ROC didática dos candidatos, matriz de confusão interpretada e a declaração do modelo final acadêmico da V1.
 
 A seleção técnica que fundamentou o modelo final acadêmico segue os critérios `recall_malignant`, `roc_auc_malignant` e `f1_malignant`. O modelo final acadêmico atual é Regressão Logística.
 
@@ -57,6 +59,10 @@ A página `pages/02_Predicao.py` usa o artefato persistido em `models/artifacts/
 A entrada é validada contra as 30 features canônicas, na ordem esperada, sem colunas extras, sem colunas ausentes, sem valores nulos e com valores numéricos. A página oferece exemplos reais do WDBC para demonstração (`malignant (0)` e `benign (1)`) e permite ajuste manual dos atributos agrupados em `mean`, `error` e `worst`.
 
 Essa saída é apenas uma estimativa acadêmica do modelo para apoio à triagem analítica em contexto educacional. Ela não substitui diagnóstico médico, avaliação clínica, laudo anatomopatológico ou decisão profissional.
+
+## Interface e usabilidade
+
+A interface Streamlit possui seletor de idioma (`Português`/`English`) e seletor de tema (`Claro`/`Escuro`) na sidebar. Os nomes técnicos originais do WDBC são preservados no backend, mas a interface apresenta nomes amigáveis e descrições didáticas dos 30 atributos para melhorar a leitura do app.
 
 ## Explicabilidade inicial
 
@@ -133,7 +139,7 @@ Esse comando valida higiene básica do repositório, artefatos permitidos, pins 
 
 ## Status atual
 
-Base de dados, EDA inicial, pré-processamento, modelagem inicial em memória, comparação inicial com Curva ROC, seleção acadêmica, modelo final acadêmico da V1 declarado, persistência controlada, predição individual acadêmica, explicabilidade inicial e quality gate local concluídos. Relatório PDF e vídeo seguem pendentes.
+Base de dados, EDA inicial, pré-processamento, modelagem inicial em memória, comparação inicial com Curva ROC didática, seleção acadêmica, modelo final acadêmico da V1 declarado, persistência controlada, predição individual acadêmica, explicabilidade inicial, tema claro/escuro, idioma PT/EN e quality gate local concluídos. Relatório PDF e vídeo seguem pendentes.
 
 ## Aviso ético
 

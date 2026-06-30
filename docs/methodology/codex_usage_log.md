@@ -146,6 +146,102 @@ A Rodada 7 pode ser descrita como a etapa em que o projeto passou a indicar um m
 - Tokens/custo: não disponível.
 - Observações: não houve retreino, novo `.joblib`, novo JSON de modelo, CSV, notebook, API, banco, autenticação, React/Vite, FastAPI, dataset novo, alteração de artefatos ou alteração de lógica de ML.
 
+## Rodada 15 — Reestruturação UX guiada do MVP
+
+- Rodada: 15
+- Data: 2026-06-28
+- Objetivo: reposicionar o app como plataforma demonstrativa profissional e guiada, adequada para banca avaliadora e vídeo final.
+- Arquivos alterados: `app.py`, páginas em `pages/`, `src/ui/`, smoke tests afetados, `README.md`, `docs/delivery_checklist.md` e registros em `docs/methodology/`.
+- Inspeção visual: app executado localmente com Streamlit e revisado via Chrome DevTools antes e depois das mudanças.
+- Comandos executados: `git status --short`, `git pull --ff-only`, leitura da documentação obrigatória, execução local do Streamlit, revisão visual, smoke tests direcionados e validações finais.
+- Testes: validações finais executadas com quality gate, `python -m pytest -q`, `pytest -q` e `pytest --cov=src`.
+- Resultado: interface reorganizada em jornada guiada com cards, hero, avisos padronizados, microcopy mais demonstrativa e páginas menos dependentes de leitura técnica bruta.
+- Problemas: nenhum bloqueio técnico; permanecem warnings conhecidos de compatibilidade Scikit-learn quando o Python global difere do ambiente recomendado.
+- Commit relacionado: pendente.
+- Tokens/custo: não disponível.
+- Observações: não houve retreino, novo `.joblib`, novo JSON de modelo, CSV, notebook, API, banco, autenticação, React/Vite, FastAPI, dataset novo, alteração de artefatos ou alteração de lógica de ML.
+
+## Rodada 15B — Ajustes UX pós-revisão humana em vídeo
+
+- Rodada: 15B
+- Data: 2026-06-28
+- Objetivo: remover linguagem de apresentação do front-end, corrigir sidebar e deixar o app mais parecido com produto demonstrativo.
+- Arquivos alterados: `app.py`, páginas em `pages/`, `src/ui/components.py`, smoke tests afetados, `docs/delivery_checklist.md` e registros em `docs/methodology/`.
+- Decisão técnica: usar `st.navigation`/`st.Page` do Streamlit 1.58.0 para labels acentuados na sidebar sem renomear arquivos.
+- Ações: home ajustada para fluxo de uso; predição reorganizada em modo rápido e ajuste avançado; Modelos e Explicabilidade refinados para usabilidade; Sobre/Ética limpo de linguagem de roteiro; pendência futura de OCR estruturado registrada.
+- Testes: validações finais executadas com quality gate, `python -m pytest -q`, `pytest -q` e `pytest --cov=src`.
+- Problemas: nenhum bloqueio técnico; warnings conhecidos de compatibilidade Scikit-learn permanecem quando o Python global difere do ambiente recomendado.
+- Commit relacionado: pendente.
+- Tokens/custo: não disponível.
+- Observações: não houve retreino, novo `.joblib`, novo JSON de modelo, CSV, notebook, API, banco, autenticação, React/Vite, FastAPI, dataset novo, alteração de artefatos ou alteração de lógica de ML.
+
+## Rodada 15C — didatização dos dados, ROC, tema e idioma
+
+- Rodada: 15C
+- Data: 2026-06-29
+- Objetivo: tornar o app mais didático, bilíngue e personalizável visualmente, sem alterar modelo, dataset, métricas salvas, artefatos ou lógica de ML.
+- Arquivos alterados: `app.py`, páginas em `pages/`, `src/ui/`, smoke tests afetados, `README.md`, `docs/delivery_checklist.md` e registros em `docs/methodology/`.
+- Ações: seletor de idioma Português/Inglês; seletor de tema claro/escuro; dicionário didático das 30 features WDBC; labels amigáveis nas páginas; Curva ROC didática com eixos 0–1, linha diagonal e AUC por modelo; matriz de confusão com interpretação didática.
+- Testes: validações finais executadas com quality gate, `python -m pytest -q`, `pytest -q` e `pytest --cov=src`.
+- Problemas: nenhum bloqueio técnico; warnings conhecidos de compatibilidade Scikit-learn permanecem quando o Python global difere do ambiente recomendado.
+- Commit relacionado: pendente.
+- Tokens/custo: não disponível.
+- Observações: não houve retreino, novo `.joblib`, novo JSON de modelo, CSV, notebook, API, banco, autenticação, React/Vite, FastAPI, dataset novo, alteração de artefatos ou alteração de lógica de ML.
+
+## Rodada 15C-Fix — correção de import da sidebar e smoke test de inicialização
+
+- Rodada: 15C-Fix
+- Data: 2026-06-29
+- Objetivo: corrigir erro de inicialização do Streamlit causado por import de helper visual e adicionar teste de regressão.
+- Arquivos alterados: `tests/smoke/test_bootstrap.py` e registros metodológicos.
+- Diagnóstico: `app.py` importa `render_sidebar_controls` de `src.ui.components`; esse helper deve permanecer na camada visual compartilhada.
+- Ações: adicionado smoke test que parseia `app.py` via AST e garante que todos os imports vindos de `src.ui.components` existem no módulo real, incluindo `render_sidebar_controls`.
+- Testes: validações finais executadas com quality gate, `python -m pytest -q`, `pytest -q`, `pytest --cov=src`, `git diff --check` e execução local do Streamlit.
+- Problemas: warnings conhecidos de compatibilidade Scikit-learn permanecem quando o Python global difere do ambiente recomendado.
+- Commit relacionado: pendente.
+- Tokens/custo: não disponível.
+- Observações: não houve retreino, novo `.joblib`, novo JSON de modelo, CSV, notebook, API, banco, autenticação, React/Vite, FastAPI, dataset novo, alteração de artefatos ou alteração de lógica de ML.
+
+## Rodada 15D — polimento do tema escuro e contraste visual
+
+- Rodada: 15D
+- Data: 2026-06-29
+- Objetivo: refinar exclusivamente o tema escuro e a consistência visual do app Streamlit.
+- Arquivos alterados: `src/ui/theme.py`, páginas com gráficos Plotly, testes de UI e registros metodológicos.
+- Ações: paleta escura mais hierárquica; contraste reforçado em sidebar, cards, métricas, selects, inputs, expanders e alertas; gráficos Plotly integrados aos tokens do tema.
+- Testes: adicionados testes para tokens dark/light, layout Plotly e CSS mínimo do dark mode; validações finais executadas com quality gate, `python -m pytest -q`, `pytest -q`, `pytest --cov=src`, `git diff --check` e inspeção visual local.
+- Problemas: warnings conhecidos de compatibilidade Scikit-learn permanecem quando o Python global difere do ambiente recomendado.
+- Commit relacionado: pendente.
+- Tokens/custo: não disponível.
+- Observações: não houve retreino, novo `.joblib`, novo JSON de modelo, CSV, notebook, API, banco, autenticação, React/Vite, FastAPI, dataset novo, alteração de artefatos ou alteração de lógica de ML.
+
+## Rodada 15E — correção definitiva de inconsistências visuais do dark mode
+
+- Rodada: 15E
+- Data: 2026-06-30
+- Objetivo: corrigir resíduos visuais do dark mode em dropdowns, expanders, inputs numéricos e gráficos Plotly.
+- Arquivos alterados: `src/ui/theme.py`, `tests/unit/test_ui_i18n.py` e registros metodológicos.
+- Ações: reforço de CSS para popovers/menus BaseWeb, `stSelectbox`, `stNumberInput`, `stExpander`, `stExpanderDetails`, wrappers Plotly/SVG, hover/foco e contraste em texto/bordas.
+- Testes: validações finais executadas com quality gate, `python -m pytest -q`, `pytest -q`, `pytest --cov=src`, `git diff --check` e inspeção visual local.
+- Problemas: warnings conhecidos de compatibilidade Scikit-learn podem permanecer quando o Python global difere do ambiente recomendado.
+- Commit relacionado: pendente.
+- Tokens/custo: não disponível.
+- Observações: não houve retreino, novo `.joblib`, novo JSON de modelo, CSV, notebook, API, banco, autenticação, React/Vite, FastAPI, dataset novo, alteração de artefatos ou alteração de lógica de ML.
+
+## Rodada 15F — correção de regressão do gráfico ROC invisível
+
+- Rodada: 15F
+- Data: 2026-06-30
+- Objetivo: corrigir regressão visual da Curva ROC na página Modelos após ajustes do dark mode.
+- Arquivos alterados: `src/ui/theme.py`, `tests/unit/test_ui_i18n.py` e registros metodológicos.
+- Diagnóstico: seletores internos do Plotly/SVG em `src/ui/theme.py` forçavam `background`/`fill` em `.main-svg`, `svg`, `.bg` e `rect.bg`, podendo esconder linhas, eixos e textos do gráfico.
+- Ações: removidos seletores internos do Plotly e mantido apenas o wrapper externo `[data-testid="stPlotlyChart"]`; teste unitário atualizado para bloquear a reintrodução desses seletores.
+- Testes: validações finais executadas com quality gate, `python -m pytest -q`, `pytest -q`, `pytest --cov=src`, `git diff --check` e inspeção visual local.
+- Problemas: regressão visual corrigida sem alteração de lógica de ML.
+- Commit relacionado: pendente.
+- Tokens/custo: não disponível.
+- Observações: não houve retreino, novo `.joblib`, novo JSON de modelo, CSV, notebook, API, banco, autenticação, React/Vite, FastAPI, dataset novo, alteração de artefatos ou alteração de lógica de ML.
+
 ## Template
 
 - Rodada:
